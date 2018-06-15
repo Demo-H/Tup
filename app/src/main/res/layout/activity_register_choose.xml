@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:src="@mipmap/bs_nocontent_ic"
+        android:layout_gravity="center_horizontal"/>
+
+
+    <TextView
+        android:id="@+id/register_choose_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/id_toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/check_not_vip"
+        android:textSize="18sp"
+        android:lineSpacingExtra="8dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/add_register"
+        android:layout_height="@dimen/dimen_38dp"
+        android:layout_width="@dimen/dimen_280dp"
+        style="@style/fill_button_full_main"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/register_choose_tip"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/now_add" />
+
+    <Button
+        android:id="@+id/not_add_register"
+        android:layout_height="@dimen/dimen_38dp"
+        android:layout_width="@dimen/dimen_280dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/fill_button_full_bg"
+        android:layout_below="@id/add_register"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/not_need"/>
+
+</LinearLayout>

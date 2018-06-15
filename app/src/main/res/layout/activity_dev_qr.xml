@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <RelativeLayout
+        android:id="@+id/personal_qr_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor" >
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_330dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_personal_qr">
+
+            <TextView
+                android:id="@+id/group_qr_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_35dp"
+                android:gravity="center_horizontal"
+                android:text="@string/san_wechat_qr"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal"
+                android:lineSpacingExtra="@dimen/dimen_8dp"/>
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/personal_qr_icon"
+                android:layout_width="@dimen/dimen_188dp"
+                android:layout_height="@dimen/dimen_188dp"
+                android:layout_marginTop="@dimen/dimen_26dp"
+                android:layout_marginBottom="@dimen/dimen_45dp"
+                android:layout_below="@id/group_qr_date"
+                android:scaleType="fitCenter"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

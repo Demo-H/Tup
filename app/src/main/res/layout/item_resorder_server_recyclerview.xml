@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_100dp"
+    android:id="@+id/order_server_item_layout"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp">
+
+        <ImageView style="@style/flag_for_sub_title" />
+
+        <TextView
+            android:id="@+id/server_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24dp"
+            android:text="冰箱清洁服务" />
+        <View style="@style/thin_separation_line" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/server_item_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/order_user_ic"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_14dp"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_37dp"
+            android:text="朱小姐"/>
+        
+        <ImageView 
+            android:id="@+id/arrow"
+            style="@style/ImageView_ARROW_For_PersonalInfo" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/arrow"
+            android:text="13:00"
+            android:textColor="@color/color_ff7000"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_9dp"
+            android:textSize="@dimen/normal"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/time"
+            android:text="预约时间：2018-02-03"
+            android:textColor="@color/color_9b9b9b"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_7dp"
+            android:textSize="@dimen/small"/>
+    </RelativeLayout>
+</LinearLayout>

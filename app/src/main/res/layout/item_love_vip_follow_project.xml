@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/follow_project_rl"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_120dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/mbr_banner_img"
+        android:layout_centerInParent="true"/>
+<!--    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_48dp"
+        android:layout_marginTop="@dimen/dimen_22dp"
+        android:src="@mipmap/more_btn"/>
+    <LinearLayout
+        android:id="@+id/follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/image1"
+        android:layout_marginLeft="@dimen/dimen_26dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/important_project_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/large"
+            android:textColor="@color/color_43484b"
+            android:text="@string/important_project_follow"/>
+        <TextView
+            android:id="@+id/follow_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/follow_vip"
+            android:textSize="@dimen/small"
+            android:textColor="@color/color_9b9b9b"
+            android:layout_below="@id/important_project_follow"/>
+        <TextView
+            android:id="@+id/follow_dian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/follow_dian"
+            android:textSize="@dimen/small"
+            android:textColor="@color/color_9b9b9b"
+            android:layout_below="@id/follow_vip"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/mbr_arrow_ic"
+        android:layout_toRightOf="@id/follow"
+        android:layout_alignTop="@id/follow"
+        android:layout_marginLeft="@dimen/dimen_8dp"/>-->
+
+</RelativeLayout>

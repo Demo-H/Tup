@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View style="@style/thick_separation_line_no_margintop" />
+
+    <com.android.dhunter.common.widget.PullHeaderView
+        android:id="@+id/find_pull_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="300"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="2.0">
+        <LinearLayout
+            android:id="@+id/refresh_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/member_attribute_tab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:background="@color/white"
+                app:tabGravity="center"
+                app:tabIndicatorColor="@color/color_ff7000"
+                app:tabIndicatorHeight="@dimen/dimen_2dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/color_ff7000"
+                app:tabTextColor="@color/color_bababa">
+
+            </android.support.design.widget.TabLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+    </com.android.dhunter.common.widget.PullHeaderView>
+
+</LinearLayout>

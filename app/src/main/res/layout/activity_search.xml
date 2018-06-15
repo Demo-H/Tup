@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lineColor">
+
+    <LinearLayout
+        android:id="@+id/home_search_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:background="@color/title_ff7000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_29dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search_title_bar_search_corner"
+            android:paddingRight="@dimen/dimen_4dp">
+            <LinearLayout
+                android:id="@+id/search_choose_title_ll"
+                android:layout_width="@dimen/dimen_57dp"
+                android:layout_height="@dimen/dimen_29dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_search_title_bar_spinner_corner"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/search_choose_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_4dp"
+                    android:src="@mipmap/search_arrow"
+                    android:layout_centerHorizontal="true"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@mipmap/home_search_ic"
+                android:drawablePadding="@dimen/dimen_4dp"
+                android:hint="@string/search_order_tip"
+                android:background="@color/color_ff7000"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal"
+                android:textColorHint="@color/white_press"
+                android:gravity="left|center_vertical"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/large"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/order_search_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:background="@color/title_ff7000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_29dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search_title_bar_search_corner"
+            android:paddingRight="@dimen/dimen_4dp"
+            android:paddingLeft="@dimen/dimen_4dp">
+            <EditText
+                android:id="@+id/order_search"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@mipmap/home_search_ic"
+                android:drawablePadding="@dimen/dimen_4dp"
+                android:hint="@string/search_order_tip"
+                android:textCursorDrawable="@null"
+                android:background="@color/color_ff7000"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal"
+                android:textColorHint="@color/white_press"
+                android:gravity="left|center_vertical"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/order_search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/large"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/searchresultFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+<!--    <com.android.dhunter.common.widget.PullHeaderView
+        android:id="@+id/find_pull_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="300"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="2.0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lineColor"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </com.android.dhunter.common.widget.PullHeaderView>
+
+    <RelativeLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pop_failed_ic"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error_image"
+            android:text="@string/click_refresh"
+            android:textColor="@color/color_a7a7a7"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:gravity="center"/>
+    </RelativeLayout>-->
+
+</LinearLayout>

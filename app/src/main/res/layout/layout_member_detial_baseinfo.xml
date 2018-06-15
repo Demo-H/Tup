@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp">
+        <ImageView style="@style/flag_for_sub_title" />
+        <TextView
+            style="@style/sub_title"
+            android:text="@string/base_info" />
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:minHeight="@dimen/dimen_100dp">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

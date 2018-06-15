@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp"
+        android:background="@color/lineColor">
+        <ImageView style="@style/flag_for_sub_title"/>
+        <TextView
+            android:id="@+id/month"
+            style="@style/sub_title"
+            android:text="2018-02"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/status_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

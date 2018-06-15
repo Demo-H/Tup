@@ -1,0 +1,22 @@
+<resources>
+    <style name="popup_window_anim_style">
+        <item name="android:windowEnterAnimation">@anim/window_down_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_down_exit</item>
+    </style>
+
+    <style name="popup_window_anim_top_right_style">
+        <item name="android:windowEnterAnimation">@anim/window_top_right_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_top_right_exit</item>
+    </style>
+    <style name="popup_window_anim_alpha">
+        <item name="android:windowEnterAnimation">@anim/window_aplha_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_aplha_exit</item>
+    </style>
+    <style name="popup_window_anim_top_style">
+        <item name="android:windowEnterAnimation">@anim/window_top_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_top_exit</item>
+    </style>
+    <style name="popup_window_anim_point_style">
+        <item name="android:windowExitAnimation">@anim/window_point_exit</item>
+    </style>
+</resources>

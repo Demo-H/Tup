@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_sale_date_title_view" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48dp"
+        android:background="@color/lineColor"
+        android:orientation="horizontal">
+        <View style="@style/flag_for_sub_title" />
+        <TextView
+            android:id="@+id/enter_list_header"
+            style="@style/sub_title"/>
+    </RelativeLayout>
+
+    <com.android.dhunter.common.widget.PullHeaderView
+        android:id="@+id/find_pull_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_weight="1"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="300"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="2.0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lineColor"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </com.android.dhunter.common.widget.PullHeaderView>
+
+    <RelativeLayout
+        android:id="@+id/generate_list_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/generate_list_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_centerVertical="true"
+            android:text="@string/enter_product_count"
+            android:textColor="@color/color_ff7000"
+            android:textSize="@dimen/normal_x"/>
+
+        <TextView
+            android:id="@+id/generate_list"
+            android:layout_width="@dimen/dimen_128dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/color_ff7000"
+            android:text="@string/generate_list"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pop_failed_ic"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error_image"
+            android:text="@string/click_refresh"
+            android:textColor="@color/color_a7a7a7"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+</LinearLayout>

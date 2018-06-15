@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_96dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:id="@+id/sale_history_item">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/product_img"
+        android:layout_width="@dimen/dimen_72dp"
+        android:layout_height="@dimen/dimen_72dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/simple_drawe_view_bg_stroke"
+        android:layout_marginLeft="@dimen/dimen_14dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_72dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimen_14dp">
+        
+        <TextView
+            android:id="@+id/goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TUP茶韵保温瓶420ml(红色)"
+            android:textSize="@dimen/large"
+            android:textColor="@color/color_43484b"
+            android:ellipsize="end"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/goods_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_below="@id/goods_name"
+            android:text="货号  0582477001"
+            android:textSize="@dimen/small"
+            android:textColor="@color/color_43484b"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/inventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="库存  200"
+                android:textSize="@dimen/small"
+                android:textColor="@color/color_9b9b9b"/>
+            <View
+                android:layout_width="@dimen/dimen_1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:background="@color/lineColor" />
+            <TextView
+                android:id="@+id/shipment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:text="出货量  168"
+                android:textSize="@dimen/small"
+                android:textColor="@color/color_9b9b9b"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="search_item">
+        <item>订单</item>
+        <item>会员</item>
+    </string-array>
+
+    <string-array name="reservation_order_title">
+        <item>待处理</item>
+        <item>已接受</item>
+        <item>已完成</item>
+    </string-array>
+
+    <string-array name="online_order_title">
+        <item>待支付</item>
+        <item>待发货</item>
+        <item>已发货</item>
+        <item>已完成</item>
+        <item>退款中</item>
+        <item>已关闭</item>
+    </string-array>
+    
+    <string-array name="search_spinner">
+        <item>订单</item>
+        <item>会员</item>
+    </string-array>
+
+    <string-array name="benefit_coin">
+        <item>支出</item>
+        <item>收入</item>
+    </string-array>
+    <string-array name="coupon_vip">
+        <item>未使用</item>
+        <item>已使用</item>
+    </string-array>
+    <string-array name="key_product">
+        <item>销售记录</item>
+        <item>库存记录</item>
+    </string-array>
+
+    <string-array name="dev_info">
+        <item>生育情况</item>
+        <item>婚姻状况</item>
+        <item>家庭情况</item>
+        <item>职业</item>
+        <item>偏好</item>
+    </string-array>
+    <string-array name="fertility">
+        <item>未育</item>
+        <item>一孩</item>
+        <item>二胎</item>
+        <item>多孩</item>
+    </string-array>
+
+    <string-array name="marriage">
+        <item>已婚</item>
+        <item>未婚</item>
+    </string-array>
+
+    <string-array name="family">
+        <item>一人居住</item>
+        <item>二人世界</item>
+        <item>长辈同住</item>
+        <item>三代同堂</item>
+        <item>家族同住</item>
+    </string-array>
+
+    <string-array name="job">
+        <item>全职太太</item>
+        <item>离退休人士</item>
+        <item>职场女性</item>
+        <item>自由工作</item>
+        <item>私有企业主</item>
+    </string-array>
+
+    <string-array name="interest">
+        <item>甜点达人</item>
+        <item>无辣不欢</item>
+        <item>素食主义</item>
+        <item>清淡养生</item>
+        <item>适合儿童</item>
+        <item>快手菜</item>
+        <item>烹饪</item>
+        <item>养生健康</item>
+        <item>烘焙</item>
+        <item>旅行运动</item>
+        <item>收纳整理</item>
+    </string-array>
+
+    <string-array name="member_flag">
+        <item>#家庭主妇</item>
+        <item>#辣妈</item>
+    </string-array>
+
+    <string-array name="water_safe_check">
+        <item>1.买杯赠饮</item>
+        <item>2.讲解饮水危机</item>
+        <item>3.余氯实验</item>
+        <item>4.PH实验</item>
+        <item>5.领取了水质检测器</item>
+        <item>6.返还了水质检测器</item>
+        <item>7.讲解过竞品分析</item>
+        <item>8.参加过活动"</item>
+    </string-array>
+
+    <string-array name="purpose_follow">
+        <item>净水器</item>
+        <item>私人订制</item>
+        <item>高能锅</item>
+    </string-array>
+
+    <string-array name="purpose_follow_member">
+        <item>净水系统</item>
+        <item>TUP系列</item>
+        <item>私人订制</item>
+        <item>锅具系列</item>
+    </string-array>
+
+    <string-array name="server_manager">
+        <item>安装</item>
+        <item>15天</item>
+        <item>1个月</item>
+        <item>3个月</item>
+        <item>半年</item>
+        <item>一年</item>
+    </string-array>
+
+    <string-array name="server_follow_after_sale">
+        <item>1.检查是否漏水</item>
+        <item>2.排气，排渣</item>
+        <item>3.面板灯工作是否正常</item>
+        <item>4.水质检测</item>
+        <item>5.静电贴膜</item>
+    </string-array>
+
+    <string-array name="data_window">
+        <item>会员数据</item>
+        <item>销售数据</item>
+    </string-array>
+
+    <string-array name="date">
+        <item>日</item>
+        <item>月</item>
+        <item>年</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>月</item>
+        <item>季</item>
+        <item>年</item>
+    </string-array>
+
+    <string-array name="month_q_year">
+        <item>本月</item>
+        <item>本季度</item>
+        <item>本年度</item>
+    </string-array>
+
+    <string-array name="member_attribute">
+        <item>粉丝</item>
+        <item>会员</item>
+        <item>高级会员</item>
+    </string-array>
+
+    <!--<string-array name="college_title">-->
+        <!--<item>精品课程</item>-->
+        <!--<item>直播课堂</item>-->
+        <!--<item>图文精选</item>-->
+        <!--<item>经验问答</item>-->
+    <!--</string-array>-->
+    <string-array name="college_title">
+        <item>产品精讲</item>
+        <item>6万店养成</item>
+        <item>百万店秘笈</item>
+        <item>新店成长</item>
+    </string-array>
+
+    <string-array name="sale_title">
+        <item>tup</item>
+        <item>私人订制</item>
+        <item>理家课堂</item>
+        <item>净水系统</item>
+    </string-array>
+
+    <string-array name="college_fliter">
+        <item>6万店养成</item>
+        <item>百万店秘笈</item>
+        <item>新店成长</item>
+        <item>新品</item>
+    </string-array>
+    <string-array name="college_product_fliter">
+        <item>精选资讯</item>
+        <item>经验问答</item>
+        <item>精选课程</item>
+    </string-array>
+
+    <string-array name="course_title">
+        <item>大纲</item>
+        <item>介绍</item>
+    </string-array>
+
+
+</resources>

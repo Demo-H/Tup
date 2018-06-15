@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View style="@style/thin_separation_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_150dp"
+        android:layout_marginTop="@dimen/dimen_35dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_124dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/mTargetPieChart"
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_centerVertical="true" />
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/finished_zhaomu"
+                    style="@style/TextGray.XLarge"
+                    android:textColor="@color/color_ff7000"
+                    android:text="0个"
+                    android:textSize="@dimen/large_26sp"/>
+
+                <TextView
+                    style="@style/TextGray.Small"
+                    android:textColor="@color/color_43484b"
+                    android:text="已招募"
+                    android:textSize="@dimen/small"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/dimen_60dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/add_new_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/today_add_member"
+                android:textSize="@dimen/small"
+                android:textColor="@color/color_43484b"/>
+            <TextView
+                android:id="@+id/today_add_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="0个"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/large_19sp"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@color/lineColor" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="@string/month_target_zhaomu"
+                android:textSize="@dimen/small"
+                android:textColor="@color/color_43484b"/>
+            <TextView
+                android:id="@+id/month_target_zhaomu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="0个"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/large_19sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_150dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_35dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_member_data_detial_linearlayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:text="@string/month_target"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal_x"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/month_target_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:background="@mipmap/data_done_ic"/>
+            <TextView
+                android:id="@+id/month_target_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_34dp"
+                android:text="0个/0个"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/normal"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:background="@color/color_d9d9d9" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:text="@string/season_target"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal_x"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/season_target_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:background="@mipmap/data_undone_ic"/>
+            <TextView
+                android:id="@+id/season_target_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_34dp"
+                android:text="0个/0个"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:background="@color/color_d9d9d9" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:text="@string/year_target"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal_x"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/year_target_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:background="@mipmap/data_undone_ic"/>
+            <TextView
+                android:id="@+id/year_target_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_34dp"
+                android:text="0个/0个"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/female_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_105dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:background="@drawable/bg_linearlayout_select_age"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@mipmap/mbr_new_female_ic" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dimen_29dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/female"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/large_22sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/male_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_105dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:background="@drawable/bg_linearlayout_select_age"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@mipmap/mbr_new_male_ic" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dimen_29dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/male"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/large_22sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

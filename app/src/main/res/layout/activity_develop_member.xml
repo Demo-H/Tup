@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor" >
+        <RelativeLayout
+            android:id="@+id/store_qr_rl"
+            android:layout_width="@dimen/dimen_288dp"
+            android:layout_height="@dimen/dimen_288dp"
+            android:background="@drawable/bg_personal_qr"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_50dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/store_qr_icon"
+                android:layout_width="@dimen/dimen_164dp"
+                android:layout_height="@dimen/dimen_164dp"
+                android:scaleType="fitXY"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_37dp"/>
+            <TextView
+                android:id="@+id/store_num_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/store_num"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_234dp"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/small"/>
+            <TextView
+                android:id="@+id/store_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23344"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/store_num_title"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal"/>
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/register_base_info"
+            android:layout_width="@dimen/dimen_234dp"
+            android:layout_height="@dimen/dimen_38dp"
+            android:text="@string/register_base_info"
+            android:gravity="center"
+            android:background="@drawable/bg_button_normal"
+            android:layout_below="@id/store_qr_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_90dp"/>
+
+        <TextView
+            android:id="@+id/not_register"
+            android:layout_width="@dimen/dimen_234dp"
+            android:layout_height="@dimen/dimen_38dp"
+            android:text="@string/not_register"
+            android:gravity="center"
+            android:background="@drawable/bg_button_not_fill_focused"
+            android:layout_below="@id/register_base_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_19dp"/>
+        
+    </RelativeLayout>
+
+</LinearLayout>

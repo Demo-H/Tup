@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/popup_lv"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@mipmap/pop_bg_center"
+        android:divider="@color/lineColor"
+        android:dividerHeight="0.5dp"
+        android:gravity="center">
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:background="@color/title_ff7000"
+        >
+        <RelativeLayout
+            android:id="@+id/rl_zixun"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_150dp">
+            <TextView
+                android:id="@+id/zixun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:textColor="@drawable/market_info_title_selector"
+                android:textSize="@dimen/title"
+                android:text="@string/zixun"/>
+            <View
+                android:id="@+id/zixun_line"
+                android:layout_width="@dimen/dimen_38dp"
+                android:layout_height="@dimen/dimen_3dp"
+                android:layout_marginBottom="@dimen/dimen_07dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                />
+
+        </RelativeLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/margin_150dp"
+            android:id="@+id/rl_video">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:id="@+id/video"
+                android:textColor="@drawable/market_info_title_selector"
+                android:textSize="@dimen/title"
+                android:text="@string/video"/>
+            <View
+                android:id="@+id/video_line"
+                android:layout_width="@dimen/dimen_38dp"
+                android:layout_height="@dimen/dimen_3dp"
+                android:layout_marginBottom="@dimen/dimen_07dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/contentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@id/ll_title" >
+
+    </FrameLayout>
+
+</RelativeLayout>

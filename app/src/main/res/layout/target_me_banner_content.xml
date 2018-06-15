@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/target_me_sale"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_37dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/target_finish"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/small" />
+
+                <TextView
+                    android:id="@+id/finish_count"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/finish"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:text="52%"
+                    android:textColor="@color/title_ff7000"
+                    android:textSize="@dimen/s_large" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/dimen_26dp"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_26dp"
+                android:background="@color/lineColor" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/target_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/target_margin"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/small" />
+
+                <TextView
+                    android:id="@+id/target_margin_count"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/target_margin"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:text="347"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/s_large" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_124dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_26dp"
+            android:gravity="center_vertical">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/mTargetPieChart"
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_centerVertical="true" />
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/finished_num"
+                    style="@style/TextGray.XLarge"
+                    android:textColor="@color/color_ff7000"
+                    android:text="725"
+                    android:textSize="@dimen/large"/>
+
+                <TextView
+                    android:id="@+id/target_count"
+                    style="@style/TextGray.Small"
+                    android:textColor="@color/color_4e5356"
+                    android:text="目标1054"
+                    android:textSize="@dimen/xx_small"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_18dp"
+        android:layout_marginLeft="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_8dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <com.tupperware.huishengyi.view.GridMenu
+            android:id="@+id/menu_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.tupperware.huishengyi.view.GridMenu>
+
+        <com.tupperware.huishengyi.view.GridMenu
+            android:id="@+id/menu_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.tupperware.huishengyi.view.GridMenu>
+
+        <com.tupperware.huishengyi.view.GridMenu
+            android:id="@+id/menu_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.tupperware.huishengyi.view.GridMenu>
+
+        <com.tupperware.huishengyi.view.GridMenu
+            android:id="@+id/menu_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.tupperware.huishengyi.view.GridMenu>
+
+
+    </LinearLayout>
+
+</LinearLayout>

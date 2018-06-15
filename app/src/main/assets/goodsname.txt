@@ -1,0 +1,82 @@
+{
+    "typeName": "goodsname",
+    "content": [
+        {
+            "goodsName": "890ml防漏大油壶",
+            "date": "0322",
+            "sold_in_goods": "10",
+            "sold_out_goods": "12",
+            "sold_origin_goods": "23",
+            "inventory_active_in_goods": "100",
+            "inventory_active_out_goods": "100",
+            "inventory_active_origin_goods": "100",
+            "inventory_day_in_goods": "100",
+            "inventory_day_out_goods": "100",
+            "inventory_active_in_goods_percent": "100",
+            "sales_cycle": "30%",
+            "dec": "**"
+        },
+        {
+            "goodsName": "500ML茶韵塑料随心水杯子",
+            "date": "0322",
+            "sold_in_goods": "10",
+            "sold_out_goods": "12",
+            "sold_origin_goods": "23",
+            "inventory_active_in_goods": "100",
+            "inventory_active_out_goods": "100",
+            "inventory_active_origin_goods": "100",
+            "inventory_day_in_goods": "100",
+            "inventory_day_out_goods": "100",
+            "inventory_active_in_goods_percent": "100",
+            "sales_cycle": "30%",
+            "dec": "**"
+        },
+        {
+            "goodsName": "350ml儿童卡通可爱水杯",
+            "date": "0322",
+            "sold_in_goods": "10",
+            "sold_out_goods": "12",
+            "sold_origin_goods": "23",
+            "inventory_active_in_goods": "100",
+            "inventory_active_out_goods": "100",
+            "inventory_active_origin_goods": "100",
+            "inventory_day_in_goods": "100",
+            "inventory_day_out_goods": "100",
+            "inventory_active_in_goods_percent": "100",
+            "sales_cycle": "30%",
+            "dec": "**"
+        },
+        {
+            "goodsName": "私人订制钜惠43件套",
+            "date": "0322",
+            "sold_in_goods": "10",
+            "sold_out_goods": "12",
+            "sold_origin_goods": "23",
+            "inventory_active_in_goods": "100",
+            "inventory_active_out_goods": "100",
+            "inventory_active_origin_goods": "100",
+            "inventory_day_in_goods": "100",
+            "inventory_day_out_goods": "100",
+            "inventory_active_in_goods_percent": "100",
+            "sales_cycle": "30%",
+            "dec": "**"
+        },
+        {
+            "goodsName": "500毫升保温瓶",
+            "date": "0322",
+            "sold_in_goods": "10",
+            "sold_out_goods": "12",
+            "sold_origin_goods": "23",
+            "inventory_active_in_goods": "100",
+            "inventory_active_out_goods": "100",
+            "inventory_active_origin_goods": "100",
+            "inventory_day_in_goods": "100",
+            "inventory_day_out_goods": "100",
+            "inventory_active_in_goods_percent": "100",
+            "sales_cycle": "30%",
+            "dec": "**"
+        }
+    ],
+    "code": "0",
+    "typeId": 2
+}

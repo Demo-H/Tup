@@ -1,0 +1,31 @@
+{
+    "typeName": "order",
+    "content": [
+        {
+            "typeId": 1,
+            "orderNumber": "222347654332",
+            "goodsimageUrl": "order",
+            "orderTime": "order",
+            "endArticleTime": "order",
+            "goodsDes": "晶彩茶韵400ml塑料杯随心运动防漏水杯",
+            "goodsunitPrice": "￥123",
+            "goodsNumber": 3,
+            "SumbitPrice": "￥249",
+            "image": 1
+        },
+        {
+            "typeId": 1,
+            "orderNumber": "222347654332",
+            "goodsimageUrl": "order",
+            "orderTime": "order",
+            "endArticleTime": "order",
+            "goodsDes": "晶彩茶韵400ml塑料杯随心运动防漏水杯",
+            "goodsunitPrice": "￥123",
+            "goodsNumber": 2,
+            "SumbitPrice": "￥249",
+            "image": "1"
+        }
+    ],
+    "code": "0",
+    "typeId": 2
+}

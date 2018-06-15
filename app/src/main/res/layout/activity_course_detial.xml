@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.android.dhunter.common.widget.videoplayer.CustomJZVideoPlayerStandard
+                android:id="@+id/content_video"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200dp"
+                android:fitsSystemWindows="true">
+            </com.android.dhunter.common.widget.videoplayer.CustomJZVideoPlayerStandard>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/course_status_tab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_32dp"
+                app:tabIndicatorColor="@color/color_ff7000"
+                app:tabTextColor="@color/color_bababa"
+                app:tabSelectedTextColor="@color/color_ff7000"
+                app:tabIndicatorHeight="@dimen/dimen_2dp"
+                app:tabMode="fixed"
+                app:tabGravity="center">
+            </android.support.design.widget.TabLayout>
+
+            <View style="@style/thick_separation_line_no_margintop" />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

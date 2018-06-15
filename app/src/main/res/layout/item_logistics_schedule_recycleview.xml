@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_76dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:id="@+id/gift_item">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/photo"
+        android:layout_width="@dimen/dimen_48dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:background="@drawable/simple_drawe_view_bg_stroke"
+        fresco:roundedCornerRadius="@dimen/dimen_4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimen_17dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_number"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/small" />
+            <TextView
+                android:id="@+id/order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_status"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/small" />
+            <TextView
+                android:id="@+id/order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/small" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

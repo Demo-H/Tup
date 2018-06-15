@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:background="@color/title_ff7000"
+        android:gravity="center_horizontal">
+        <RelativeLayout
+            android:id="@+id/rl_member"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/member_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:textColor="@drawable/market_info_title_selector"
+                android:textSize="@dimen/tab_title"
+                android:text="@string/member_data_title"/>
+            <View
+                android:id="@+id/member_line"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_75dp"
+            android:id="@+id/sale_rl">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:id="@+id/sale_data"
+                android:textColor="@drawable/market_info_title_selector"
+                android:textSize="@dimen/tab_title"
+                android:text="@string/sale_data_title"/>
+            <View
+                android:id="@+id/video_line"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/data_Frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+ <!--   <android.support.design.widget.TabLayout
+        android:id="@+id/data_show_status_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/color_ff7000"
+        app:tabTextColor="@color/color_ffcba2"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorHeight="@dimen/dimen_2dp"
+        app:tabIndicatorColor="@color/white"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabMode="fixed"
+        app:tabGravity="center">
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </android.support.v4.view.ViewPager>-->
+
+</LinearLayout>

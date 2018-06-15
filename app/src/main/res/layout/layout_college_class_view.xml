@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_50dp"
+    android:background="@color/color_eaeaea">
+
+    <TextView
+        android:id="@+id/selected_infomation"
+        android:layout_width="@dimen/dimen_99dp"
+        android:layout_height="@dimen/dimen_34dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:text="@string/selected_infomation"
+        android:textColor="@drawable/selector_college_class_text_color"
+        android:textSize="@dimen/normal"
+        android:gravity="center"
+        android:background="@drawable/selector_college_class_info_bg"/>
+
+    <TextView
+        android:id="@+id/selected_question"
+        android:layout_width="@dimen/dimen_99dp"
+        android:layout_height="@dimen/dimen_34dp"
+        android:layout_centerInParent="true"
+        android:text="@string/question_answer"
+        android:textColor="@drawable/selector_college_class_text_color"
+        android:textSize="@dimen/normal"
+        android:gravity="center"
+        android:background="@drawable/selector_college_class_question_bg"/>
+
+    <TextView
+        android:id="@+id/slescted_course"
+        android:layout_width="@dimen/dimen_99dp"
+        android:layout_height="@dimen/dimen_34dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:text="@string/slescted_course"
+        android:textColor="@drawable/selector_college_class_text_color"
+        android:textSize="@dimen/normal"
+        android:gravity="center"
+        android:background="@drawable/selector_college_class_course_bg"/>
+
+</RelativeLayout>

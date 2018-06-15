@@ -1,0 +1,25 @@
+{
+    "typeName": "store",
+    "content": [
+        {
+            "storeId": 1,
+            "storeName": "华景专卖店",
+            "storeAddr": "order",
+            "storeTel": "order"
+        },
+        {
+            "storeId": 1,
+            "storeName": "建设专卖店",
+            "storeAddr": "order",
+            "storeTel": "order"
+        },
+        {
+            "storeId": 1,
+            "storeName": "西关专卖店",
+            "storeAddr": "order",
+            "storeTel": "order"
+        }
+    ],
+    "code": "0",
+    "typeId": 2
+}

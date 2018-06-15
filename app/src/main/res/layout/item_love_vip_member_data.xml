@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_120dp">
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/member_zhaomu"
+            android:layout_width="@dimen/dimen_158dp"
+            android:layout_height="@dimen/dimen_38dp"
+            style="@style/not_fill_button"
+            android:text="@string/member_zhaomu"
+            />
+        <Button
+            android:id="@+id/fans_change"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_width="@dimen/dimen_158dp"
+            android:layout_height="@dimen/dimen_38dp"
+            style="@style/not_fill_button"
+            android:text="@string/fans_change"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/member_status"
+            android:layout_width="@dimen/dimen_158dp"
+            android:layout_height="@dimen/dimen_38dp"
+            style="@style/not_fill_button"
+            android:text="@string/member_status"/>
+        <Button
+            android:id="@+id/member_detial"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_width="@dimen/dimen_158dp"
+            android:layout_height="@dimen/dimen_38dp"
+            style="@style/not_fill_button"
+            android:text="@string/member_consume"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View style="@style/thick_separation_line_no_margintop" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp"
+        android:background="@color/white">
+        <ImageView style="@style/flag_for_sub_title"/>
+        <TextView
+            android:id="@+id/month"
+            style="@style/sub_title"
+            android:text="2018年1月-12月"/>
+        <View style="@style/thin_separation_line" />
+    </RelativeLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/mBarChart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_weight="1"
+        android:background="@color/lineColor" />
+
+</LinearLayout>

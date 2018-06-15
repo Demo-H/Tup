@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_88dp"
+        android:background="@color/title_ff7000"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_44dp"
+            android:orientation="horizontal">
+<!--            <ImageView
+                android:id="@+id/scan_btn"
+                android:layout_width="@dimen/dimen_21dp"
+                android:layout_height="@dimen/dimen_21dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/below_14dp"
+                android:src="@mipmap/scan_btn" />-->
+            <ImageView
+                android:id="@+id/personal"
+                android:layout_width="@dimen/dimen_21dp"
+                android:layout_height="@dimen/dimen_21dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/below_14dp"
+                android:src="@mipmap/person_ic" />
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:textColor="@color/white"
+                android:text="@string/app_name" />
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/msg_btn"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/dimen_21dp"
+                android:layout_height="@dimen/dimen_21dp"
+                android:layout_marginRight="@dimen/below_14dp"
+                android:src="@mipmap/msg_btn" />
+            <ImageView
+                android:id="@+id/msg_red_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@id/msg_btn"
+                android:layout_alignTop="@id/msg_btn"
+                android:background="@mipmap/msg_new_ic" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_44dp"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_29dp"
+                android:orientation="horizontal"
+                android:layout_marginRight="@dimen/below_14dp"
+                android:layout_marginLeft="@dimen/below_14dp"
+                android:background="@drawable/home_title_bar_search_corner_bg"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/home_search_ic"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_4dp"
+                    android:text="@string/search_tip"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pop_failed_ic"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error_image"
+            android:text="@string/click_refresh"
+            android:textColor="@color/color_a7a7a7"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <!--<com.android.dhunter.common.widget.PullHeaderView-->
+        <!--android:id="@+id/find_pull_refresh_header"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--cube_ptr:ptr_duration_to_close="200"-->
+        <!--cube_ptr:ptr_duration_to_close_header="300"-->
+        <!--cube_ptr:ptr_keep_header_when_refresh="true"-->
+        <!--cube_ptr:ptr_pull_to_fresh="false"-->
+        <!--cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"-->
+        <!--cube_ptr:ptr_resistance="2.0">-->
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/home_recyclerview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:overScrollMode="never"-->
+            <!--android:scrollbars="none" >-->
+
+        <!--</android.support.v7.widget.RecyclerView>-->
+
+    <!--</com.android.dhunter.common.widget.PullHeaderView>-->
+
+
+</LinearLayout>

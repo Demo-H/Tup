@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor">
+
+        <RelativeLayout
+            android:id="@+id/title_feedback_style_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+
+            <ImageView style="@style/flag_for_sub_title" />
+
+            <TextView
+                android:id="@+id/title_feedback_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_24dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/feedback_title"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/large"
+                android:textStyle="bold" />
+
+            <View style="@style/thin_separation_line" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/choose_feedback_style_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_below="@+id/title_feedback_style_rl"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/bad_goods"
+                android:text="@string/bad_goods"
+                android:layout_width="@dimen/dimen_72dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash" />
+            <TextView
+                android:id="@+id/miss_goods"
+                android:text="@string/miss_goods"
+                android:layout_width="@dimen/dimen_72dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_toRightOf="@id/bad_goods"
+                style="@style/TextView_storke_dash" />
+            <TextView
+                android:id="@+id/send_error_goods"
+                android:text="@string/send_error_goods"
+                android:layout_width="@dimen/dimen_72dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_toRightOf="@id/miss_goods"
+                style="@style/TextView_storke_dash" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/feedback_content_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_300dp"
+            android:background="@color/white"
+            android:layout_below="@+id/choose_feedback_style_rl"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <EditText
+                android:id="@+id/feedback_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/feedback_tip_des"
+                android:textColor="@color/color_d1d1d1"
+                android:textSize="@dimen/normal"
+                android:background="@null"
+                android:gravity="top|left"
+                android:padding="@dimen/dimen_16dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_58dp"
+                android:layout_marginBottom="17dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+                <ImageView
+                    android:id="@+id/take_photo"
+                    android:layout_width="@dimen/dimen_58dp"
+                    android:layout_height="@dimen/dimen_58dp"
+                    android:src="@mipmap/feedback_cam_ic"
+                    android:scaleType="center"
+                    android:background="@drawable/bg_imageview_stroke_dash"
+                    android:layout_marginLeft="@dimen/dimen_14dp" />
+                <TextView
+                    android:id="@+id/content_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="@dimen/dimen_14dp"
+                    android:text="0/500"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

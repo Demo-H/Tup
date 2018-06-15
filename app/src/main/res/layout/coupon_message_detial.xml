@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_menu"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            style="@style/flag_for_sub_title" />
+
+        <TextView
+            android:id="@+id/activity_couponvefiry_cp"
+            style="@style/TextBlack.Small"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_28dp"
+            android:text="@string/coupon_point"
+            android:gravity="right"
+            />
+
+        <ImageButton
+            android:id="@+id/activity_couponvefiry_imagebutton"
+            style="@style/TextBlack.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/content_margin_left"
+            android:paddingRight="@dimen/content_margin_right"
+            android:background="@color/white"
+            android:layout_marginBottom="@dimen/separation_small"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/coupon_arrow_ic"/>
+
+        <TextView
+            android:id="@+id/activity_couponvefiry_code_text"
+            style="@style/TextBlack.Small"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/separation_small"
+            android:layout_toLeftOf="@id/activity_couponvefiry_imagebutton"
+            android:layout_toRightOf="@id/activity_couponvefiry_cp"
+            android:text="1234"
+            />
+    </RelativeLayout>
+    <View
+        android:id="@+id/separation_line"
+        style="@style/thin_separation_line"/>
+
+    <RelativeLayout
+        android:id="@+id/activity_couponvefiry_rel"
+        android:layout_marginTop="@dimen/dimen_6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/activity_couponvefiry_image"
+            android:layout_width="@dimen/dimen_330dp"
+            android:layout_height="@dimen/dimen_116dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            android:background="@color/lineColor"
+            />
+        <TextView
+            android:id="@+id/no_coupon_image_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daijinquan"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/xx_large"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_couponvefiry_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/activity_couponvefiry_msg"
+            style="@style/TextGray.Normal"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/separation_large"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:text="说明：凭本券在专卖店购买有唯一码特百惠产品可立减10元(会员套装、秒杀产品不可使用)。每款产品只能使用一张优惠券，尽在购物时用于折扣货款，不可兑换现金或产品。"
+            android:textColor="@color/color_9b9b9b"
+            android:textSize="@dimen/small"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

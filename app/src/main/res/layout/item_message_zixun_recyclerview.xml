@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_70dp"
+    android:background="@color/white">
+<!--    <RelativeLayout
+        android:id="@+id/msg_list_check_rl"
+        android:layout_width="@dimen/dimen_56dp"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <CheckBox
+            android:id="@+id/msg_list_check"
+            android:layout_width="@dimen/below_20dp"
+            android:layout_height="@dimen/below_20dp"
+            android:layout_marginLeft="@dimen/dimen_25dp"
+            android:layout_centerVertical="true"
+            android:button="@null"
+            android:background="@drawable/selected_radio_check_selector" />
+    </RelativeLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/item_msg_content_item"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ImageView style="@style/flag_for_sub_title" />
+            <TextView
+                android:id="@+id/msg_zixun_title"
+                style="@style/sub_title"
+                android:text="2018，买房贷款可能会越来越难！" />
+
+            <TextView
+                android:id="@+id/msg_zixun_time"
+                style="@style/right_general_text"
+                android:text="2018-03-26 14:00"
+                android:textColor="@color/color_c2c2c2"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/msg_zixun_content"
+                style="@style/general_text"
+                android:text="银行贷款就像从锅里取水，有额度限制，前面用多了，后面会..."
+                android:layout_marginLeft="@dimen/dimen_25dp"
+                android:ellipsize="end"
+                android:textColor="@color/color_9b9b9b"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

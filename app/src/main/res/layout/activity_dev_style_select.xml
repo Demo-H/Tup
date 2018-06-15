@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58dp"
+        android:background="@color/white">
+        <ImageView style="@style/flag_for_sub_title" />
+        <TextView
+            style="@style/sub_title"
+            android:text="@string/refrigerator_style_select"
+            android:textSize="@dimen/large_19sp"/>
+    </RelativeLayout>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/good_style"
+        android:layout_width="@dimen/dimen_331dp"
+        android:layout_height="@dimen/dimen_136dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_97dp"
+        fresco:placeholderImage="@mipmap/aa"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundedCornerRadius="@dimen/dimen_14dp"
+        fresco:backgroundImage="@android:color/holo_orange_light"
+
+        fresco:roundingBorderWidth="4dp"
+        fresco:roundingBorderColor="#00000000"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/bad_style"
+        android:layout_width="@dimen/dimen_331dp"
+        android:layout_height="@dimen/dimen_136dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_45dp"
+        fresco:placeholderImage="@mipmap/ab"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundedCornerRadius="@dimen/dimen_14dp"
+        fresco:backgroundImage="@android:color/holo_orange_light"
+        fresco:roundingBorderWidth="4dp"
+        fresco:roundingBorderColor="#00000000"/>
+</LinearLayout>

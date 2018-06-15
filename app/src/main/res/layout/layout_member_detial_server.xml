@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/register_product_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/register_product_code"/>
+        <LinearLayout
+            style="@style/right_show_style"
+            android:orientation="vertical"
+            android:gravity="right">
+            <TextView
+                android:id="@+id/register_product_code_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal"/>
+            <TextView
+                android:id="@+id/regiter_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/home_tab_text_size"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/register_update_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/register_update_code"/>
+        <LinearLayout
+            style="@style/right_show_style"
+            android:orientation="vertical"
+            android:gravity="right">
+            <TextView
+                android:id="@+id/register_update_code_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/normal"/>
+            <TextView
+                android:id="@+id/update_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/home_tab_text_size"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/register_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/register_store"/>
+        <TextView
+            android:id="@+id/register_store_text"
+            style="@style/right_show_style"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal"/>
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/owner_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/owner_store"/>
+        <TextView
+            android:id="@+id/owner_store_text"
+            style="@style/right_show_style"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal"/>
+    </RelativeLayout>
+    <View style="@style/thick_separation_line_no_margintop" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp">
+        <ImageView style="@style/flag_for_sub_title" />
+        <TextView
+            style="@style/sub_title"
+            android:text="@string/gen_remarks" />
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <TextView
+        android:id="@+id/gen_remarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/dimen_46dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:layout_marginRight="@dimen/dimen_14dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_43484b"
+        android:textSize="@dimen/normal"/>
+    <View style="@style/thick_separation_line_no_margintop" />
+    <RelativeLayout
+        android:id="@+id/reservation_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/reservation_server"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo" />
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/logistics_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/logistics_schedule"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo" />
+    </RelativeLayout>
+
+</LinearLayout>

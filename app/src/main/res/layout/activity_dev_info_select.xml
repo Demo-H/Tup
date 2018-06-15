@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_158dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_143dp"
+            android:background="@color/color_ff7000">
+                <ImageView
+                    android:id="@+id/dev_info_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/mbr_female_2_ic"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimen_19dp"/>
+        </RelativeLayout>
+
+        <com.android.dhunter.common.widget.tablayout.SegmentTabLayout
+            android:id="@+id/dev_info_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/dimen_14dp"
+            android:paddingRight="@dimen/dimen_14dp"
+            tl:tl_bar_color="@color/white"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_color="@color/color_ff7000"
+            tl:tl_indicator_margin_bottom="@dimen/dimen_2dp"
+            tl:tl_indicator_margin_left="@dimen/dimen_2dp"
+            tl:tl_indicator_margin_right="@dimen/dimen_2dp"
+            tl:tl_indicator_margin_top="@dimen/dimen_2dp"
+            tl:tl_textUnselectColor="@color/color_cccccc"
+            tl:tl_bar_stroke_color="@color/lineColor"
+            tl:tl_textBold="SELECT">
+
+        </com.android.dhunter.common.widget.tablayout.SegmentTabLayout>
+<!--        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:background="@drawable/bg_data_window_linearlayout"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/show_time_tab"
+                android:layout_width="@dimen/dimen_270dp"
+                android:layout_height="@dimen/dimen_24dp"
+                app:tabBackground="@drawable/tab_backgroud"
+                app:tabTextColor="@color/color_cccccc"
+                app:tabSelectedTextColor="@color/white"
+                app:tabIndicatorHeight="@dimen/dimen_0dp">
+            </android.support.design.widget.TabLayout>
+
+        </LinearLayout>-->
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_171dp">
+
+    </android.support.v4.view.ViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/lineColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/next_step"
+            android:layout_width="@dimen/dimen_288dp"
+            android:layout_height="@dimen/dimen_38dp"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/bg_button_normal"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_17dp">
+
+                <ImageView style="@style/flag_for_sub_title" />
+
+                <TextView
+                    android:id="@+id/goods_name"
+                    style="@style/sub_title"
+                    android:text="500ML茶韵塑料随心水杯子" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goods_origin_inventory_flag"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"
+                    android:layout_marginLeft="@dimen/dimen_26dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="54"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/normal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen_4dp">
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_43dp"
+                    android:background="@color/white">
+                    <TextView
+                        style="@style/general_text"
+                        android:text="@string/inventory_active_in_goods" />
+                    <TextView
+                        android:id="@+id/inventory_active_in_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="54"
+                        android:textColor="@color/color_ff7000"
+                        android:textSize="@dimen/normal"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimen_12dp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_43dp"
+                    android:layout_marginTop="@dimen/dimen_1dp"
+                    android:background="@color/white">
+                    <TextView
+                        style="@style/general_text"
+                        android:text="@string/inventory_active_out_goods" />
+                    <TextView
+                        android:id="@+id/inventory_active_out_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32"
+                        android:textColor="@color/color_ff7000"
+                        android:textSize="@dimen/normal"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimen_12dp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_43dp"
+                    android:layout_marginTop="@dimen/dimen_1dp"
+                    android:background="@color/white">
+                    <TextView
+                        style="@style/general_text"
+                        android:text="@string/inventory_active_origin_goods" />
+                    <TextView
+                        android:id="@+id/inventory_active_origin_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32"
+                        android:textColor="@color/color_ff7000"
+                        android:textSize="@dimen/normal"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimen_12dp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/dimen_4dp"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_43dp"
+                    android:background="@color/white">
+                    <TextView
+                        style="@style/general_text"
+                        android:text="@string/inventory_day_in_goods" />
+                    <TextView
+                        android:id="@+id/inventory_day_in_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32"
+                        android:textColor="@color/color_ff7000"
+                        android:textSize="@dimen/normal"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimen_12dp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_43dp"
+                    android:layout_marginTop="@dimen/dimen_1dp"
+                    android:background="@color/white">
+                    <TextView
+                        style="@style/general_text"
+                        android:text="@string/inventory_day_out_goods" />
+                    <TextView
+                        android:id="@+id/inventory_day_out_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32"
+                        android:textColor="@color/color_ff7000"
+                        android:textSize="@dimen/normal"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimen_12dp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_188dp"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_18dp">
+
+                <ImageView style="@style/flag_for_sub_title" />
+
+                <TextView
+                    style="@style/sub_title"
+                    android:text="@string/inventory_active_in_goods_percent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:layout_marginTop="@dimen/below_20dp">
+
+                <com.android.dhunter.common.widget.progressbar.BGAProgressBar
+                    android:id="@+id/progressbar"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="@dimen/dimen_330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:progress="54"
+                    android:progressDrawable="@drawable/bg_progress_layer"
+                    app:bga_pb_isHiddenText="false"
+                    app:bga_pb_textColor="@color/white"
+                    app:bga_pb_reachedColor="@color/color_ff7000"
+                    app:bga_pb_reachedHeight="@dimen/dimen_12dp"
+                    app:bga_pb_unReachedColor="@color/color_eaeaea"
+                    app:bga_pb_unReachedHeight="@dimen/dimen_12dp"
+                    app:bga_pb_isCapRounded="true"
+                    app:bga_pb_radius="@dimen/dimen_6dp"/>
+
+                <View style="@style/thin_separation_line" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/below_20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sales_cycle"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"
+                    android:layout_marginLeft="@dimen/dimen_14dp"/>
+                <TextView
+                    android:id="@+id/sales_cycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dec"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"
+                    android:layout_marginLeft="@dimen/dimen_14dp"/>
+                <TextView
+                    android:id="@+id/dec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/normal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

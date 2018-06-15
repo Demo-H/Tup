@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48dp"
+        android:background="@color/white">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/photo"
+            android:layout_width="@dimen/dimen_34dp"
+            android:layout_height="@dimen/dimen_34dp"
+            android:layout_centerVertical="true"
+            fresco:placeholderImage="@mipmap/steve_220"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:progressBarImage="@mipmap/icon_progress_bar"
+            fresco:progressBarImageScaleType="centerInside"
+            fresco:progressBarAutoRotateInterval="5000"
+            fresco:roundedCornerRadius="@dimen/dimen_17dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"/>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/photo"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:text="朱小姐"/>
+    </RelativeLayout>
+
+</LinearLayout>

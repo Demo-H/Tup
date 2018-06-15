@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_88000000"
+    android:gravity="center"
+    android:padding="@dimen/dimen_10dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/content_margin_left"
+        android:background="@color/white">
+        <TextView
+            style="@style/TextBlack.XLarge"
+            android:text="@string/affirm"
+            android:paddingTop="@dimen/dimen_10dp"/>
+        <TextView
+            style="@style/TextBlack.Large"
+            android:text="您可以在专卖店信息中 , 查看您收到的优惠券。"
+            android:paddingTop="@dimen/dimen_10dp"/>
+        <Button
+            android:id="@+id/activity_productvefiry_dialog_btn"
+            style="@style/AppThemeBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/content_margin_left"
+            android:onClick="okClick"
+            android:text="@string/back_home" />
+    </LinearLayout>
+
+
+</RelativeLayout>

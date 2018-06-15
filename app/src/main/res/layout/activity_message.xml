@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <com.android.dhunter.common.widget.PullHeaderView
+        android:id="@+id/find_pull_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="300"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="2.0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lineColor"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </com.android.dhunter.common.widget.PullHeaderView>
+
+    <RelativeLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pop_failed_ic"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error_image"
+            android:text="@string/click_refresh"
+            android:textColor="@color/color_a7a7a7"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/order_reminding_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+
+            <ImageView style="@style/flag_for_sub_title" />
+
+            <TextView
+                android:id="@+id/order_reminding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_24dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/order_reminding_count"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen_35dp"
+                android:gravity="center_vertical"
+                android:text="@string/view_more"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/small" />
+
+            <ImageView
+                style="@style/ImageView_ARROW_For_PersonalInfo"
+                android:src="@mipmap/msg_arrow_ic" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_72dp"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/order_reminding_img"
+                    android:layout_width="@dimen/dimen_32dp"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/msg_order_ic" />
+
+                <ImageView
+                    android:id="@+id/order_reminding_red_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_alignRight="@id/order_reminding_img"
+                    android:layout_alignTop="@id/order_reminding_img"
+                    android:background="@mipmap/msg_new_ic" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/order_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12288634232897774"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/normal"/>
+
+                <TextView
+                    android:id="@+id/order_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/order_number"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="朱小姐"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/small"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/below_16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/order_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1分钟前"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/color_c2c2c2"
+                    android:textSize="@dimen/small"/>
+
+                <TextView
+                    android:id="@+id/order_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/order_time"
+                    android:gravity="center_vertical|right"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="待付款"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/zixun_update_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+
+            <ImageView style="@style/flag_for_sub_title" />
+
+            <TextView
+                android:id="@+id/zixun_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_24dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/zixun_update_count"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen_35dp"
+                android:gravity="center_vertical"
+                android:text="@string/view_more"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/small" />
+
+            <ImageView
+                style="@style/ImageView_ARROW_For_PersonalInfo"
+                android:src="@mipmap/msg_arrow_ic" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_72dp"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/zixun_update_img"
+                    android:layout_width="@dimen/dimen_32dp"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/msg_info_ic" />
+
+                <ImageView
+                    android:id="@+id/zixun_update_red_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_alignRight="@id/zixun_update_img"
+                    android:layout_alignTop="@id/zixun_update_img"
+                    android:background="@mipmap/msg_new_ic" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/zixun_update_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="排毒好食物，让毒素统统靠边站！"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/normal"/>
+
+                <TextView
+                    android:id="@+id/zixun_update_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/zixun_update_title"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="在冬季里，人们运动量减少，加上为了..."
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/small"
+                    android:ellipsize="end"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/below_16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/zixun_update_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1分钟前"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/color_c2c2c2"
+                    android:textSize="@dimen/small"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/system_message_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+
+            <ImageView style="@style/flag_for_sub_title" />
+
+            <TextView
+                android:id="@+id/system_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_24dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/sytem_message_count"
+                android:textColor="@color/color_43484b"
+                android:textSize="@dimen/large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen_35dp"
+                android:gravity="center_vertical"
+                android:text="@string/view_more"
+                android:textColor="@color/color_ff7000"
+                android:textSize="@dimen/small" />
+
+            <ImageView
+                style="@style/ImageView_ARROW_For_PersonalInfo"
+                android:src="@mipmap/msg_arrow_ic" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_72dp"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/system_message_img"
+                    android:layout_width="@dimen/dimen_32dp"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/msg_system_ic" />
+
+                <ImageView
+                    android:id="@+id/system_message_red_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_alignRight="@id/system_message_img"
+                    android:layout_alignTop="@id/system_message_img"
+                    android:background="@mipmap/msg_new_ic" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/system_message_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="新会员加入提醒"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/normal"/>
+
+                <TextView
+                    android:id="@+id/system_message_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/system_message_title"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="恭喜您，门店有一位新会员成功注册"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/small"
+                    android:ellipsize="end"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/below_16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/system_message_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5分钟前"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/color_c2c2c2"
+                    android:textSize="@dimen/small"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+-->
+
+</LinearLayout>

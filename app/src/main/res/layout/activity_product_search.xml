@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:background="@color/title_ff7000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/left_back"
+            android:layout_width="@dimen/dimen_56dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:clickable="true">
+
+            <ImageView
+                style="@style/view_click_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/selector_back"
+                android:duplicateParentState="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_29dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search_title_bar_search_corner"
+            android:paddingRight="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_56dp">
+            <LinearLayout
+                android:id="@+id/search_choose_title_ll"
+                android:layout_width="@dimen/dimen_78dp"
+                android:layout_height="@dimen/dimen_29dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_search_title_bar_spinner_corner"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/search_choose_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/product_code"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_4dp"
+                    android:src="@mipmap/search_arrow"
+                    android:layout_centerHorizontal="true"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@mipmap/home_search_ic"
+                android:drawablePadding="@dimen/dimen_4dp"
+                android:hint="@string/search_product_code_tip"
+                android:background="@color/color_ff7000"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal"
+                android:textColorHint="@color/white_press"
+                android:gravity="left|center_vertical"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:inputType="text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/fragment_recycle_common" />
+
+
+</LinearLayout>

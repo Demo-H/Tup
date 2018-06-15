@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_43dp"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/goods_name"
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="890ml防漏大油壶"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+    </RelativeLayout>
+
+</LinearLayout>

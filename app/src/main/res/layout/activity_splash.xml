@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/splash_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/splash_margin"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.tupperware.huishengyi.view.GradualCircleView
+            android:id="@+id/circle_1"
+            android:color="#ff64abdc"
+            android:alpha="255"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <com.tupperware.huishengyi.view.GradualCircleView
+            android:id="@+id/circle_2"
+            android:color="#ba9abf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <com.tupperware.huishengyi.view.GradualCircleView
+            android:id="@+id/circle_3"
+            android:color="#a0c74d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <com.tupperware.huishengyi.view.GradualCircleView
+            android:id="@+id/circle_4"
+            android:color="#fff4d13e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/splash_btn"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:textColor="@drawable/selector_white_btn_text"
+        android:background="@drawable/shape_splash_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/splash_margin_button"
+        android:text="@string/immediate_experience"
+        android:visibility="gone" />
+
+<!--    <ImageView
+        android:id="@+id/splash_circle_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:src="@drawable/splash_01_circle"
+        android:visibility="gone"/>-->
+
+
+</RelativeLayout>

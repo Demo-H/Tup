@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.android.dhunter.common.widget.tablayout.SegmentTabLayout
+        android:id="@+id/college_filter_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_46dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="@dimen/dimen_14dp"
+        android:paddingRight="@dimen/dimen_14dp"
+        tl:tl_bar_color="@color/white"
+        tl:tl_indicator_anim_enable="true"
+        tl:tl_indicator_color="@color/color_ff7000"
+        tl:tl_indicator_margin_bottom="@dimen/dimen_11dp"
+        tl:tl_indicator_margin_left="@dimen/dimen_2dp"
+        tl:tl_indicator_margin_right="@dimen/dimen_2dp"
+        tl:tl_indicator_margin_top="@dimen/dimen_11dp"
+        tl:tl_textUnselectColor="@color/color_cccccc"
+        tl:tl_bar_stroke_width="@dimen/dimen_0dp"
+        tl:tl_textBold="SELECT">
+
+    </com.android.dhunter.common.widget.tablayout.SegmentTabLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_4dp"
+        android:background="@drawable/line_shadow" />
+
+    <!--<android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>-->
+    <com.android.dhunter.common.widget.PullHeaderView
+        android:id="@+id/find_pull_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="300"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="2.0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/college_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </com.android.dhunter.common.widget.PullHeaderView>
+
+</LinearLayout>

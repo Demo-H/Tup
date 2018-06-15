@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景色app_background，颜色white，压色app_background_pressed  -->
+    <item android:state_pressed="false" android:drawable="@color/white"/>
+    <item android:state_pressed="true" android:drawable="@color/white_backgroud"/>
+</selector>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@id/activity_productvefiry_content_rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_toolbar"
+        android:background="@color/lineColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/activity_couponvefiry_scansuccess_layout"
+                layout="@layout/coupon_message_detial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <LinearLayout
+                android:id="@+id/activity_productvefiry_scansuccess_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+
+                <View android:layout_height="@dimen/dimen_1dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:background="@color/fragment_divider"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/app_menu"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        style="@style/flag_for_sub_title" />
+
+                    <TextView
+                        android:id="@+id/activity_productvefiry_cp"
+                        style="@style/TextBlack.Small"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_28dp"
+                        android:text="产品唯一码："
+                        />
+
+                    <TextView
+                        android:id="@+id/activity_productvefiry_code_text"
+                        style="@style/TextBlack.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/separation_small"
+                        android:layout_toRightOf="@id/activity_productvefiry_cp"
+                        android:text="1234"
+                        />
+
+                    <!--<Button
+                        android:id="@+id/activity_productvefiry_modifyvefiry_btn"
+                        style="@style/TextBlack.Small"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/selector_white_background"
+                        android:onClick="modifyProductClick"
+                        android:paddingLeft="@dimen/content_margin_right"
+                        android:paddingRight="@dimen/content_margin_right"
+                        android:text="@string/clickverify" />
+
+                    <View
+                        android:id="@+id/activity_productvefiry_line"
+                        android:layout_width="@dimen/dimen_1dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/below_10dp"
+                        android:layout_marginLeft="@dimen/below_10dp"
+                        android:layout_marginTop="@dimen/below_10dp"
+                        android:layout_toLeftOf="@id/activity_productvefiry_modifyvefiry_btn"
+                        android:background="@color/fragment_divider" />
+
+                    <EditText
+                        android:id="@+id/activity_productvefiry_code_text"
+                        style="@style/TextBlack.Small"
+                        android:layout_width="match_parent"
+                        android:layout_centerVertical="true"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"
+                        android:layout_margin="@dimen/separation_small"
+                        android:layout_toLeftOf="@id/activity_productvefiry_line"
+                        android:layout_toRightOf="@id/activity_productvefiry_cp"
+                        android:hint="@string/product_code_hint1"
+                        />-->
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/thin_separation_line"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:paddingLeft="@dimen/dimen_18dp"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:paddingTop="@dimen/dimen_10dp">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/activity_productvefiry_product_image"
+                        android:layout_width="@dimen/dimen_42dp"
+                        android:layout_height="@dimen/dimen_42dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/coupon_prd_pic"
+                        />
+
+                    <TextView
+                        android:id="@+id/activity_productvefiry_product_name"
+                        style="@style/TextGray.Large"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_toRightOf="@id/activity_productvefiry_product_image"
+                        android:text="晶彩茶韵400ml塑料杯-炫酷黑"
+                        android:textColor="@color/color_43484b"/>
+
+                    <TextView
+                        android:id="@+id/activity_productvefiry_product_price"
+                        style="@style/TextGray.Large"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_toRightOf="@id/activity_productvefiry_product_image"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_ff7000" />
+                </RelativeLayout>
+
+                <!--<View android:layout_height="1px"
+                    android:layout_width="match_parent"
+                    android:background="@color/fragment_divider"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/below_10dp"
+                    android:orientation="vertical">
+
+
+                    <View android:layout_height="@dimen/dimen_1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/fragment_divider"/>
+
+                    <TextView
+                        android:id="@+id/activity_productvefiry_vefiry_text"
+                        style="@style/TextGray.Normal"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/separation_large"
+                        android:paddingBottom="@dimen/activity_horizontal_margin"
+                        android:text="您所验证的优惠券可以用于该产品，确认使用即完成验证。" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/fragment_divider"/>
+                </LinearLayout>-->
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/activity_productvefiry_scanfail_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_menu"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:visibility="visible">
+
+                <ImageView
+                    style="@style/flag_for_sub_title" />
+
+                <EditText
+                    android:id="@+id/activity_productvefiry_code_edit"
+                    style="@style/TextBlack.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_28dp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:ellipsize="end"
+                    android:layout_marginLeft="@dimen/dimen_28dp"
+                    android:background="@null"
+                    android:hint="@string/product_code_hint1"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/activity_productvefiry_affirm_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_67dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+        <Button
+            android:id="@+id/activity_productvefiry_affirm_btn"
+            android:layout_height="@dimen/dimen_38dp"
+            android:layout_width="@dimen/dimen_280dp"
+            style="@style/not_fill_button_full"
+            android:text="@string/sure" />
+
+    </LinearLayout>
+
+</RelativeLayout>

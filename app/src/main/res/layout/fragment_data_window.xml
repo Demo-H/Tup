@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/data_window_title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_44dp"
+        android:background="@color/title_ff7000"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/data_window_title"
+            style="@style/title_text"
+            android:text="长安店实际零售额" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipe_data_window"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_215dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_199dp"
+                    android:background="@color/title_ff7000">
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/mTargetPieChart"
+                        android:layout_marginTop="@dimen/dimen_8dp"
+                        android:layout_width="@dimen/dimen_145dp"
+                        android:layout_height="@dimen/dimen_145dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <RelativeLayout
+                        android:layout_marginTop="@dimen/dimen_8dp"
+                        android:layout_width="@dimen/dimen_145dp"
+                        android:layout_height="@dimen/dimen_145dp"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/finished_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/white"
+                            android:text="70%"
+                            android:textSize="@dimen/super_large"/>
+
+                        <TextView
+                            android:id="@+id/target_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dimen_4dp"
+                            android:text="完成率"
+                            android:textSize="@dimen/small"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+                <com.android.dhunter.common.widget.tablayout.SegmentTabLayout
+                    android:id="@+id/date_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:paddingLeft="@dimen/dimen_60dp"
+                    android:paddingRight="@dimen/dimen_60dp"
+                    tl:tl_bar_color="@color/white"
+                    tl:tl_indicator_anim_enable="true"
+                    tl:tl_indicator_color="@color/color_ff7000"
+                    tl:tl_indicator_margin_bottom="@dimen/dimen_2dp"
+                    tl:tl_indicator_margin_left="@dimen/dimen_2dp"
+                    tl:tl_indicator_margin_right="@dimen/dimen_2dp"
+                    tl:tl_indicator_margin_top="@dimen/dimen_2dp"
+                    tl:tl_textUnselectColor="@color/color_cccccc"
+                    tl:tl_bar_stroke_color="@color/lineColor"
+                    tl:tl_textBold="SELECT">
+
+                </com.android.dhunter.common.widget.tablayout.SegmentTabLayout>
+
+            </RelativeLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_105dp">
+
+            </android.support.v4.view.ViewPager>
+
+ <!--           <View
+                style="@style/thick_separation_line"/>
+            <com.android.dhunter.common.widget.mzBannerView.MZBannerView
+                android:id="@+id/data_window_banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_105dp"
+                android:layout_marginLeft="@dimen/dimen_13dp"
+                android:layout_marginRight="@dimen/dimen_13dp"
+                app:open_mz_mode="false"
+                app:middle_page_cover="false"
+                app:canLoop="true"
+                app:indicatorAlign="center"
+                app:indicatorPaddingBottom="@dimen/dimen_5dp"/>-->
+            <View
+                style="@style/thick_separation_line"/>
+
+            <RelativeLayout
+                android:id="@+id/single_store_data"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:background="@color/white">
+                <ImageView
+                    style="@style/flag_for_sub_title"/>
+                <TextView
+                    android:id="@+id/member_data_text"
+                    style="@style/sub_title"
+                    android:text="@string/member_data" />
+
+                <View
+                    style="@style/thin_separation_line"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/store_data_ll"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_158dp">
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/single_vip_count_precent"
+                        style="@style/not_fill_button"
+                        android:text="@string/single_vip_count_precent"
+                        />
+                    <Button
+                        android:id="@+id/single_product_top10"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/single_product_top10"/>
+                    <Button
+                        android:id="@+id/single_sale_attribute"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/single_sale_attribute"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/single_vip_status"
+                        style="@style/not_fill_button"
+                        android:text="@string/single_vip_status" />
+
+                    <Button
+                        android:id="@+id/single_product_sale_top10"
+                        style="@style/not_fill_button"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="@string/single_product_sale_top10" />
+
+                    <Button
+                        android:id="@+id/single_main_product"
+                        style="@style/not_fill_button"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="@string/single_main_product" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                style="@style/thick_separation_line"/>
+            <RelativeLayout
+                android:id="@+id/whole_data_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:background="@color/white">
+                <ImageView
+                    style="@style/flag_for_sub_title"/>
+                <TextView
+                    android:id="@+id/whole_data_analysis"
+                    style="@style/sub_title"
+                    android:text="@string/whole_data_analysis" />
+
+                <View
+                    style="@style/thin_separation_line"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/whole_data_ll"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_252dp">
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/store_sale_money_list"
+                        style="@style/not_fill_button"
+                        android:text="@string/store_sale_money_list"
+                        />
+                    <Button
+                        android:id="@+id/store_sale_analysis"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/store_sale_analysis"/>
+                    <Button
+                        android:id="@+id/store_vip_status_analysis"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/store_vip_status_analysis"/>
+                    <Button
+                        android:id="@+id/product_sale_top10"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/product_sale_top10"/>
+                    <Button
+                        android:id="@+id/main_product_list"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/main_product_list"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/store_sale_list"
+                        android:layout_marginTop="@dimen/dimen_11dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/store_sale_list" />
+
+                    <Button
+                        android:id="@+id/store_vip_sale_precent"
+                        style="@style/not_fill_button"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="@string/store_vip_sale_precent" />
+
+                    <Button
+                        android:id="@+id/store_sale_attribute"
+                        style="@style/not_fill_button"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="@string/store_sale_attribute" />
+                    <Button
+                        android:id="@+id/product_sale_money_top10"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        style="@style/not_fill_button"
+                        android:text="@string/product_sale_money_top10"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

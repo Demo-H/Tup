@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/id_toolbar"
+        android:background="@color/lineColor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/activity_couponvefiry_scansuccess_layout"
+                layout="@layout/coupon_message_detial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+
+            <RelativeLayout
+                android:id="@+id/activity_couponvefiry_scanfail_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_menu"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:visibility="visible">
+
+                <ImageView
+                    style="@style/flag_for_sub_title" />
+
+                <!--<TextView-->
+                    <!--android:id="@+id/activity_couponvefiry_cp1"-->
+                    <!--style="@style/TextBlack.Small"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="@string/coupon_point" />-->
+
+                <!--<Button
+                    android:id="@+id/activity_couponvefiry_vefiry_btn"
+                    style="@style/TextBlack.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/selector_white_background"
+                    android:onClick="vefiryClick"
+                    android:paddingLeft="@dimen/separation_large"
+                    android:paddingRight="@dimen/content_margin_right"
+                    android:text="@string/clickverify" />
+
+                <View
+                    android:id="@+id/activity_couponvefiry_line1"
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/below_10dp"
+                    android:layout_marginLeft="@dimen/below_10dp"
+                    android:layout_marginTop="@dimen/below_10dp"
+                    android:layout_toLeftOf="@id/activity_couponvefiry_vefiry_btn"
+                    android:background="@color/fragment_divider" />-->
+
+                <EditText
+                    android:id="@+id/activity_couponvefiry_code_edit"
+                    style="@style/TextBlack.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_28dp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:ellipsize="end"
+                    android:layout_marginLeft="@dimen/dimen_28dp"
+                    android:background="@null"
+                    android:hint="@string/coupon_point_hint"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/activity_couponvefiry_next_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_67dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+        <Button
+            android:id="@+id/activity_couponvefiry_next_btn"
+            android:layout_height="@dimen/dimen_38dp"
+            android:layout_width="@dimen/dimen_280dp"
+            style="@style/not_fill_button_full"
+            android:text="@string/scan_next" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

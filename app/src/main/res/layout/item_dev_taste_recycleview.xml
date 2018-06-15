@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/select_taste_item"
+    android:gravity="center_horizontal">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/image"
+        android:layout_width="@dimen/dimen_76dp"
+        android:layout_height="@dimen/dimen_76dp"
+        android:layout_marginTop="@dimen/dimen_50dp"
+        fresco:placeholderImage="@mipmap/food_1"
+        fresco:roundedCornerRadius="@dimen/dimen_38dp"
+        fresco:backgroundImage="@android:color/holo_orange_light"
+        fresco:roundAsCircle="true"
+        fresco:roundingBorderWidth="4dp"
+        fresco:roundingBorderColor="#00000000"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:text="123"
+        android:textColor="@drawable/selector_member_label_taste_text"
+        android:textSize="@dimen/normal"/>
+
+</LinearLayout>

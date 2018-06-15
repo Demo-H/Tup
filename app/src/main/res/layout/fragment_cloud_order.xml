@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/cloud_order_title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_44dp"
+        android:background="@color/title_ff7000"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/cloud_order_title_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/cloud_order_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:textColor="@color/white"
+                android:text="@string/order_on_line" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/order_switch_ic"
+                android:layout_centerHorizontal="true"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/right_search_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/dimen_19dp"
+            android:layout_height="@dimen/dimen_19dp"
+            android:layout_marginRight="@dimen/below_14dp"
+            android:src="@mipmap/search_btn" />
+        <ImageView
+            android:id="@+id/right_filter_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/dimen_19dp"
+            android:layout_height="@dimen/dimen_19dp"
+            android:layout_marginRight="@dimen/below_14dp"
+            android:src="@mipmap/order_filter_btn"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/orderFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@id/cloud_order_title_rl" >
+
+    </FrameLayout>
+
+
+</LinearLayout>

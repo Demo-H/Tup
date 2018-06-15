@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/white">
+            <ImageView style="@style/flag_for_sub_title" />
+            <TextView android:id="@+id/goods_name"
+                style="@style/sub_title"
+                android:text="500ML茶韵塑料随心水杯子"/>
+            <View style="@style/thin_separation_line" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/white">
+            <TextView style="@style/general_text"
+                android:text="@string/goods_in_count"/>
+            <ImageView
+                android:id="@+id/goods_in_count_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_increase_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/goods_in_count_text"
+                android:layout_width="@dimen/dimen_65dp"
+                android:layout_height="@dimen/dimen_35dp"
+                android:layout_toLeftOf="@id/goods_in_count_add"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:text="25"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_sale_record_detial"
+                android:textColor="@color/color_ff713a"
+                android:textSize="@dimen/normal"
+                android:inputType="number"/>
+            <ImageView
+                android:id="@+id/goods_in_count_reduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_reduce_btn"
+                android:layout_toLeftOf="@id/goods_in_count_text"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+
+            <View style="@style/thin_separation_line" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/white">
+            <TextView style="@style/general_text"
+                android:text="@string/goods_out_count"/>
+            <ImageView
+                android:id="@+id/goods_out_count_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_increase_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/goods_out_count_text"
+                android:layout_width="@dimen/dimen_65dp"
+                android:layout_height="@dimen/dimen_35dp"
+                android:layout_toLeftOf="@id/goods_out_count_add"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:text="25"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_sale_record_detial"
+                android:textColor="@color/color_ff713a"
+                android:textSize="@dimen/normal"
+                android:inputType="number"/>
+            <ImageView
+                android:id="@+id/goods_out_count_reduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_reduce_btn"
+                android:layout_toLeftOf="@id/goods_out_count_text"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+
+            <View style="@style/thin_separation_line" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/white">
+            <TextView style="@style/general_text"
+                android:text="@string/goods_origin_inventory"/>
+            <ImageView
+                android:id="@+id/goods_origin_count_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_increase_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/goods_origin_count_text"
+                android:layout_width="@dimen/dimen_65dp"
+                android:layout_height="@dimen/dimen_35dp"
+                android:layout_toLeftOf="@id/goods_origin_count_add"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:text="25"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_sale_record_detial"
+                android:textColor="@color/color_ff713a"
+                android:textSize="@dimen/normal"
+                android:inputType="number"/>
+            <ImageView
+                android:id="@+id/goods_origin_count_reduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_reduce_btn"
+                android:layout_toLeftOf="@id/goods_origin_count_text"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

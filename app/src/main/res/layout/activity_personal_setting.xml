@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/schedule"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/modified_psw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/modified_psw"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/user_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:visibility="gone">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/user_feedback"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/function_infomation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:visibility="gone">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/function_infomation"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/device_manager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:visibility="gone">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/device_manager"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white"
+            android:visibility="gone">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/about_us"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/version_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/version"/>
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal_x"
+                android:text="V1.0"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
+            <TextView
+                android:id="@+id/login_exit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_43dp"
+                android:background="@color/white"
+                android:text="@string/login_exit"
+                android:gravity="center"
+                android:textColor="@color/color_d72f2f"
+                android:textSize="@dimen/small"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

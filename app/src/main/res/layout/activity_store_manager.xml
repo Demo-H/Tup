@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/store_image_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_72dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/store_photo"
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:layout_centerVertical="true"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/store_image"
+                android:layout_width="@dimen/dimen_48dp"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_marginRight="@dimen/dimen_35dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/simple_drawee_view_bg"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+
+
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/store_name_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/store_name"/>
+            <TextView
+                android:id="@+id/store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="东莞长安店"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/store_wechat_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/store_wechat"/>
+            <TextView
+                android:id="@+id/store_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tupperware"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/normal"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/staff_manager_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_43dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/staff_manager"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+            <View style="@style/thin_separation_line"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/permisson_choose_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_58dp"
+            android:background="@color/white">
+            
+            <TextView
+                android:id="@+id/allow_check_vip_tel"
+                android:text="@string/allow_check_vip_tel"
+                android:layout_width="@dimen/dimen_158dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"/>
+            <TextView
+                android:id="@+id/allow_check_vip_addr"
+                android:text="@string/allow_check_vip_addr"
+                android:layout_width="@dimen/dimen_158dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/support_server_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_43dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/support_server"/>
+            <View style="@style/thin_separation_line"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_52dp"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/water_purifier_install"
+                android:text="@string/water_purifier_install"
+                android:layout_width="@dimen/dimen_96dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"/>
+            <TextView
+                android:id="@+id/water_purifier_try_use"
+                android:text="@string/water_purifier_try_use"
+                android:layout_width="@dimen/dimen_96dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:id="@+id/water_purifier_try_use_again"
+                android:text="@string/water_purifier_try_use"
+                android:layout_width="@dimen/dimen_96dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_52dp"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/water_purifier_change"
+                android:text="@string/water_purifier_change"
+                android:layout_width="@dimen/dimen_96dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"/>
+            <TextView
+                android:id="@+id/personal_tailor"
+                android:text="@string/personal_tailor"
+                android:layout_width="@dimen/dimen_96dp"
+                android:layout_height="@dimen/dimen_30dp"
+                style="@style/TextView_storke_dash"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

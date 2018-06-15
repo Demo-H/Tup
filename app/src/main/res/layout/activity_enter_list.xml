@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/tool_bar_full_layout" />
+    <include layout="@layout/layout_sale_date_title_view" />
+    <LinearLayout
+        android:id="@+id/success_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <include
+            layout="@layout/fragment_recycle_common" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/generate_list_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp">
+        <TextView
+            android:id="@+id/generate_list_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_centerVertical="true"
+            android:text="@string/enter_product_count"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal"/>
+
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="@dimen/dimen_128dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/color_ff7000"
+            android:text="@string/save"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

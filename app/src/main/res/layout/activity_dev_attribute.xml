@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff7000"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_13dp"
+        android:layout_marginRight="@dimen/dimen_13dp"
+        android:layout_marginTop="@dimen/dimen_13dp"
+        android:background="@drawable/bg_member_attribute_ll"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_23dp"
+            android:gravity="center"
+            android:text="@string/family_status"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/s_large" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/singler"
+                    android:layout_width="@dimen/dimen_86dp"
+                    android:layout_height="@dimen/dimen_86dp"
+                    fresco:backgroundImage="@android:color/holo_orange_light"
+                    fresco:placeholderImage="@mipmap/mbr_single_ic"
+                    fresco:roundAsCircle="true"
+                    fresco:roundedCornerRadius="@dimen/dimen_43dp"
+                    fresco:roundingBorderColor="#00000000"
+                    fresco:roundingBorderWidth="4dp" />
+
+                <TextView
+                    android:id="@+id/singler_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_11dp"
+                    android:text="@string/singler"
+                    android:textColor="@drawable/selector_member_label_taste_text"
+                    android:textSize="@dimen/normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/lover"
+                    android:layout_width="@dimen/dimen_86dp"
+                    android:layout_height="@dimen/dimen_86dp"
+                    fresco:backgroundImage="@android:color/holo_orange_light"
+                    fresco:placeholderImage="@mipmap/mbr_lovers_ic"
+                    fresco:roundAsCircle="true"
+                    fresco:roundedCornerRadius="@dimen/dimen_43dp"
+                    fresco:roundingBorderColor="#00000000"
+                    fresco:roundingBorderWidth="4dp" />
+
+                <TextView
+                    android:id="@+id/lover_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_11dp"
+                    android:text="@string/two_person"
+                    android:textColor="@drawable/selector_member_label_taste_text"
+                    android:textSize="@dimen/normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/child"
+                    android:layout_width="@dimen/dimen_86dp"
+                    android:layout_height="@dimen/dimen_86dp"
+                    fresco:backgroundImage="@android:color/holo_orange_light"
+                    fresco:placeholderImage="@mipmap/mbr_child_ic"
+                    fresco:roundAsCircle="true"
+                    fresco:roundedCornerRadius="@dimen/dimen_43dp"
+                    fresco:roundingBorderColor="#00000000"
+                    fresco:roundingBorderWidth="4dp" />
+
+                <TextView
+                    android:id="@+id/child_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_11dp"
+                    android:text="@string/three_person"
+                    android:textColor="@drawable/selector_member_label_taste_text"
+                    android:textSize="@dimen/normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/family"
+                    android:layout_width="@dimen/dimen_86dp"
+                    android:layout_height="@dimen/dimen_86dp"
+                    fresco:backgroundImage="@android:color/holo_orange_light"
+                    fresco:placeholderImage="@mipmap/mbr_family_ic"
+                    fresco:roundAsCircle="true"
+                    fresco:roundedCornerRadius="@dimen/dimen_43dp"
+                    fresco:roundingBorderColor="#00000000"
+                    fresco:roundingBorderWidth="4dp" />
+
+                <TextView
+                    android:id="@+id/family_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_11dp"
+                    android:text="@string/full_family"
+                    android:textColor="@drawable/selector_member_label_taste_text"
+                    android:textSize="@dimen/normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/thin_separation_line"
+            android:layout_marginTop="@dimen/dimen_25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:text="@string/income_status"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/s_large" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <LinearLayout
+                android:id="@+id/general_income"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_member_label_select_text"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/general_income_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/general_income"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/general_income_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/general_income_money"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/x_small"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/small_rich"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_member_label_select_text"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/small_rich_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/small_rich"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/small_rich_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/small_rich_money"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/x_small"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:id="@+id/middle_rich"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_member_label_select_text"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/middle_rich_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/middle_rich"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/middle_rich_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/middle_rich_money"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/x_small"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/very_rich"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_member_label_select_text"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/very_rich_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/very_rich"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/very_rich_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/very_rich_money"
+                    android:gravity="center"
+                    android:textColor="@drawable/selector_member_label_select_text"
+                    android:textSize="@dimen/x_small"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/capture_containter">
+
+    <com.android.dhunter.common.qrcode.zxing.ZXingView
+        android:id="@+id/zxingview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_toolbar"
+        app:qrcv_animTime="1000"
+        app:qrcv_barcodeRectHeight="@dimen/dimen_120dp"
+        app:qrcv_borderSize="@dimen/dimen_0dp"
+        app:qrcv_cornerColor="@android:color/white"
+        app:qrcv_cornerLength="@dimen/dimen_20dp"
+        app:qrcv_cornerSize="@dimen/dimen_2dp"
+        app:qrcv_isBarcode="false"
+        app:qrcv_isCenterVertical="false"
+        app:qrcv_isOnlyDecodeScanBoxArea="false"
+        app:qrcv_isScanLineReverse="true"
+        app:qrcv_isShowDefaultGridScanLineDrawable="false"
+        app:qrcv_isShowDefaultScanLineDrawable="false"
+        app:qrcv_isTipTextBelowRect="false"
+        app:qrcv_maskColor="@color/color_33000000"
+        app:qrcv_rectWidth="@dimen/dimen_260dp"
+        app:qrcv_scanLineColor="#ff7000"
+        app:qrcv_scanLineMargin="@dimen/dimen_0dp"
+        app:qrcv_scanLineSize="@dimen/dimen_05dp"
+        app:qrcv_toolbarHeight="@dimen/dimen_0dp"
+        app:qrcv_topOffset="@dimen/dimen_78dp" />
+
+    <TextView
+        android:id="@+id/scan_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen_398dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/large_19sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/enter_by_hand"
+        android:layout_width="@dimen/dimen_260dp"
+        android:layout_height="@dimen/dimen_44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimen_45dp"
+        android:textSize="@dimen/normal"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/bg_sale_enter_by_hand"
+        android:text="@string/hand_enter"/>
+
+</RelativeLayout>

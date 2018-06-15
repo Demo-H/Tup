@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_252dp"
+        android:orientation="vertical"
+        android:background="@color/color_ff7000">
+        <LinearLayout
+            android:id="@+id/left_back"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:clickable="true">
+
+            <ImageView
+                style="@style/view_click_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/selector_back"
+                android:duplicateParentState="true" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/profile_photo"
+                android:layout_width="@dimen/dimen_74dp"
+                android:layout_height="@dimen/dimen_74dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/steve_220"
+                android:transitionName="tnIvAvatar"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/sex_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/mbr_female_ic"
+                android:layout_alignBottom="@id/profile_photo"
+                android:layout_alignRight="@id/profile_photo"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15dp">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="朱小姐"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x_large"
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/wechat_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/name"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:src="@mipmap/mbr_wechat_top_ic"/>
+            <ImageView
+                android:id="@+id/vip_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/wechat_top"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:src="@mipmap/mbr_vip_top_ic"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tel_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15989026182"
+                android:textColor="@color/color_ffc08e"
+                android:textSize="@dimen/small"/>
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tel_num"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:text="8.7(狮子座)"
+                android:textColor="@color/color_ffc08e"
+                android:textSize="@dimen/small"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dimen_100dp"
+            android:layout_marginRight="@dimen/dimen_100dp"
+            android:layout_marginBottom="@dimen/dimen_4dp">
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coin_balance"
+                    android:textColor="@color/color_ffc08e"
+                    android:textSize="@dimen/small"/>
+                <TextView
+                    android:id="@+id/coin_balance_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="345"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal"
+                    android:layout_marginTop="@dimen/dimen_10dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="@dimen/dimen_1dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffc08e"
+                android:layout_marginTop="@dimen/dimen_14dp"
+                android:layout_marginBottom="@dimen/dimen_14dp" />
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coupon_num"
+                    android:textColor="@color/color_ffc08e"
+                    android:textSize="@dimen/small"/>
+                <TextView
+                    android:id="@+id/coupon_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal"
+                    android:layout_marginTop="@dimen/dimen_10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_4dp"
+        android:background="@color/lineColor"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp">
+            <ImageView style="@style/flag_for_sub_title" />
+            <TextView
+                style="@style/sub_title"
+                android:text="@string/base_info" />
+        </RelativeLayout>
+        <View style="@style/thin_separation_line" />
+        <com.android.dhunter.common.widget.flowlayout.TagFlowLayout
+            android:id="@+id/id_flowlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_14dp"
+            android:minHeight="@dimen/dimen_50dp"
+            zhy:max_select="0">
+
+        </com.android.dhunter.common.widget.flowlayout.TagFlowLayout>
+        
+    </LinearLayout>
+    <View style="@style/thick_separation_line" />
+
+    <RelativeLayout
+        android:id="@+id/purchase_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/purchase_history"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/coupon_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/coupon_info"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+    </RelativeLayout>
+    <View style="@style/thin_separation_line" />
+    <RelativeLayout
+        android:id="@+id/score_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/General_TextVew_For_PersonalInfo"
+            android:text="@string/score_info"/>
+        <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_weight="1"
+        android:background="@color/lineColor" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/call"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:background="@drawable/bg_tag_view"
+            android:textColor="@drawable/bg_tag_view_text_color"
+            android:text="@string/call"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/mbr_phone_btn"/>
+        <TextView
+            android:id="@+id/sms"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:background="@drawable/bg_tag_view"
+            android:textColor="@drawable/bg_tag_view_text_color"
+            android:text="@string/sms"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/mbr_msg_btn"
+            android:layout_marginLeft="@dimen/dimen_20dp"/>
+        <TextView
+            android:id="@+id/wechat"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:background="@drawable/bg_tag_view"
+            android:textColor="@drawable/bg_tag_view_text_color"
+            android:text="@string/wechat"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/mbr_wechat_btn"
+            android:layout_marginLeft="@dimen/dimen_20dp"/>
+        <TextView
+            android:id="@+id/share"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:background="@drawable/bg_tag_view"
+            android:textColor="@drawable/bg_tag_view_text_color"
+            android:text="@string/share"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/mbr_share_btn"
+            android:layout_marginLeft="@dimen/dimen_20dp"/>
+    </LinearLayout>-->
+
+
+</LinearLayout>

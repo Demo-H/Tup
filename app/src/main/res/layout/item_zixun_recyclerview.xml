@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:id="@+id/zixun_item_layout"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="@dimen/dimen_25dp"
+    android:layout_marginRight="@dimen/dimen_10dp"
+    android:layout_height="@dimen/dimen_100dp">
+    <RelativeLayout
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/large"
+            android:textColor="@color/color_43484b"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="16dp"
+            android:lines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:text="Title"
+            />
+
+        <LinearLayout
+            android:layout_above="@+id/line_view"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/author_name"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/dimen_84dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="@dimen/small"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="zuozhe"
+                />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/page_view_count"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/dimen_18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small"
+                android:text="12345转发数"
+                />
+        </LinearLayout>
+        <View
+            android:id="@+id/line_view"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lineColor"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dimen_100dp"
+        android:layout_height="match_parent">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/content_img"
+            android:layout_width="100dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/simple_drawee_view_bg" />
+        <View
+            android:id="@+id/line_view1"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lineColor"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/order_pending_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_72dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:layout_marginRight="@dimen/dimen_14dp"
+        android:background="@color/lineColor" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/product_img"
+            android:layout_width="@dimen/dimen_41dp"
+            android:layout_height="@dimen/dimen_41dp"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/simple_drawee_view_bg" />
+        <TextView
+            android:id="@+id/product_des"
+            style="@style/general_text"
+            android:layout_width="@dimen/dimen_234dp"
+            android:layout_alignTop="@id/product_img"
+            android:layout_toRightOf="@id/product_img"
+            android:layout_marginLeft="@dimen/below_20dp"
+            android:text="晶彩茶韵400ml塑料杯随心运动防漏水杯"/>
+
+        <TextView
+            android:id="@+id/product_unit_price"
+            style="@style/general_text"
+            android:layout_alignTop="@id/product_img"
+            android:text="￥249"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/product_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_unit_price"
+            android:layout_alignRight="@id/product_unit_price"
+            android:layout_marginTop="@dimen/dimen_7dp"
+            android:text="x2"
+            android:textSize="@dimen/small"
+            android:textColor="@color/color_9b9b9b"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

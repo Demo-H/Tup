@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+<!--    <View
+        android:id="@+id/line_divide"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/lineColor"
+        android:layout_below="@id/id_toolbar"/>-->
+
+
+    <LinearLayout
+        android:id="@+id/support_like"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_96dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bs_like_unselect_btn"/>
+        <TextView
+            android:id="@+id/like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/small"
+            android:text="123"/>
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/id_toolbar"
+        android:layout_above="@id/support_like"
+        />
+    <RelativeLayout
+        android:id="@+id/reloading_vm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:layout_below="@id/id_toolbar"
+        >
+
+        <ImageView
+            android:id="@+id/reloadingimg"
+            android:layout_width="177dp"
+            android:layout_height="156dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="126dp"
+            android:background="@mipmap/blankpage_404"
+            />
+
+        <TextView
+            android:id="@+id/reloadingtx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/reloadingimg"
+            android:text="@string/web_page_not_find"
+            android:textColor="@color/color_9b9b9b"
+            android:layout_marginTop="20dp"
+            android:textSize="12dp"
+            />
+    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/id_toolbar"
+        android:progressDrawable="@drawable/webview_progress_color_yellow" />
+
+
+</RelativeLayout>

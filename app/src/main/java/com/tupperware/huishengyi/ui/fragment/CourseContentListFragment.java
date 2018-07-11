@@ -8,12 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.CourseContentListAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.entity.college.CourseBean;
 import com.tupperware.huishengyi.entity.college.CourseContentBean;
-import com.tupperware.huishengyi.interfaces.ICourseVideoListener;
+import com.tupperware.huishengyi.listener.ICourseVideoListener;
 import com.tupperware.huishengyi.utils.ObjectUtil;
 import com.tupperware.huishengyi.utils.data.DataHelper;
 import com.tupperware.huishengyi.utils.logutils.LogF;
@@ -61,7 +62,7 @@ public class CourseContentListFragment extends BaseFragment {
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -74,7 +75,7 @@ public class CourseContentListFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

@@ -1,6 +1,5 @@
 package com.tupperware.huishengyi.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,15 +15,16 @@ import android.widget.TextView;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.SaleStatusAdapter;
-import com.tupperware.huishengyi.component.DaggerSaleHandFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleTabBean;
 import com.tupperware.huishengyi.http.ProductDataManager;
-import com.tupperware.huishengyi.interfaces.ISaleEnterListener;
-import com.tupperware.huishengyi.module.SaleHandPresenterModule;
-import com.tupperware.huishengyi.ui.EnterListActivity;
-import com.tupperware.huishengyi.ui.ProductSearchActivity;
+import com.tupperware.huishengyi.listener.ISaleEnterListener;
+import com.tupperware.huishengyi.ui.activities.EnterListActivity;
+import com.tupperware.huishengyi.ui.activities.ProductSearchActivity;
+import com.tupperware.huishengyi.ui.component.DaggerSaleHandFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SaleHandContract;
+import com.tupperware.huishengyi.ui.module.SaleHandPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SaleHandPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
@@ -67,7 +67,6 @@ public class SaleHandFragment extends BaseFragment implements SaleHandContract.V
     private SaleStatusAdapter mAdapter;
     @Inject
     SaleHandPresenter mPresenter;
-    private Context mContext;
     private ISaleEnterListener mEnterListener;
     private String selectDate;
     private boolean isHistory = false;
@@ -96,9 +95,8 @@ public class SaleHandFragment extends BaseFragment implements SaleHandContract.V
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
-        mContext = getContext();
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -113,7 +111,7 @@ public class SaleHandFragment extends BaseFragment implements SaleHandContract.V
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getLableData();
     }
 
@@ -156,10 +154,10 @@ public class SaleHandFragment extends BaseFragment implements SaleHandContract.V
         mErrorRl.setVisibility(View.GONE);
     }
 
-    @Override
-    public void setTestData() {
-        initTab(null);
-    }
+//    @Override
+//    public void setTestData() {
+//        initTab(null);
+//    }
 
     @OnClick({R.id.error_layout, R.id.search, R.id.generate_list, R.id.scan_rl})
     public void onClick(View view) {

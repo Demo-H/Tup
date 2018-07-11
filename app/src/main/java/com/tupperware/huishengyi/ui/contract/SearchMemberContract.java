@@ -9,6 +9,7 @@ import com.tupperware.huishengyi.entity.member.MemberBean;
 public class SearchMemberContract {
     public interface View {
         void setMemberSearchData(MemberBean memberBean);
+        void setMoreMemberSearchData(MemberBean memberBean);
         void toast(String msg);
         void setNormalView();
         void setNetErrorView();
@@ -18,5 +19,6 @@ public class SearchMemberContract {
 
     public interface Presenter {
         void getMemberSearchData(String memberCode);
+        void getMoreMemberSearchData(String memberCode, int pageIndex);
     }
 }

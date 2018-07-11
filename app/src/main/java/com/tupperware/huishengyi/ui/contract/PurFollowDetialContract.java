@@ -9,9 +9,16 @@ import com.tupperware.huishengyi.entity.PurFollowDetialBean;
 public class PurFollowDetialContract {
     public interface View {
         void setPurFollowDetialData(PurFollowDetialBean purFollowDetialBean);
+        void setMorePurFollowDetialData(PurFollowDetialBean purFollowDetialBean);
+        void toast(String msg);
+        void setNormalView();
+        void setNetErrorView();
+        void setEmptyView();
+        void hideDialog();
     }
 
     public interface Presenter {
-        void getPurFollowDetialData();
+        void getPurFollowDetialData(String tagCodes);
+        void getMorePurFollowDetialData(String tagCodes, int pageIndex);
     }
 }

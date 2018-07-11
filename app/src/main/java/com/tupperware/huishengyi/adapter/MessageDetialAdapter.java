@@ -3,12 +3,12 @@ package com.tupperware.huishengyi.adapter;
 import android.content.Intent;
 import android.view.View;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.msg.MsgItemBean;
-import com.tupperware.huishengyi.ui.BrowserActivity;
+import com.tupperware.huishengyi.ui.activities.BrowserActivity;
 import com.tupperware.huishengyi.utils.DateFormatter;
 
 /**

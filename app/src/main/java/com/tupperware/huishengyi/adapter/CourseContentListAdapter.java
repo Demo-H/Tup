@@ -4,12 +4,12 @@ import android.graphics.Color;
 import android.util.SparseBooleanArray;
 import android.view.View;
 
-import com.android.dhunter.common.base.baseadapter.BaseMultiItemQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseMultiItemQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.entity.college.CourseContentBean;
-import com.tupperware.huishengyi.interfaces.ICourseVideoListener;
+import com.tupperware.huishengyi.listener.ICourseVideoListener;
 
 /**
  * Created by dhunter on 2018/5/10.
@@ -39,7 +39,7 @@ public class CourseContentListAdapter extends BaseMultiItemQuickAdapter<CourseCo
                 String section = String.format("%02d",item.section);
                 helper.setText(R.id.section, "课时" + section);
                 helper.setText(R.id.sub_chapter_title, item.chapter);
-                if(item.fileName.endsWith("ppt")) {
+                if(item.filePath.endsWith("ppt")) {
                     helper.getView(R.id.style_show).setBackgroundResource(R.mipmap.bs_pic_btn);
                 } else {
                     helper.getView(R.id.style_show).setBackgroundResource(R.mipmap.bs_play_s_btn);

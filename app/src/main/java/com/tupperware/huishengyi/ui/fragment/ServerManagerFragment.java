@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ServerManagerAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
 
 import butterknife.BindView;
@@ -40,7 +41,7 @@ public class ServerManagerFragment extends BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -57,7 +58,7 @@ public class ServerManagerFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

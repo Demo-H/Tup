@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
-import com.tupperware.huishengyi.app.BaseApplication;
+import com.tupperware.huishengyi.base.BaseApplication;
 
 import java.util.Locale;
 

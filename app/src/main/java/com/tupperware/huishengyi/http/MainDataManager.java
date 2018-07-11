@@ -1,6 +1,6 @@
 package com.tupperware.huishengyi.http;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.android.dhunter.common.utils.FillUtil;
 import com.google.gson.Gson;
 import com.tupperware.huishengyi.config.Constant;
@@ -78,6 +78,8 @@ public class MainDataManager extends BaseDataManager {
 //        return changeIOToMainThread(getService(BaseApiService.class).executeGet("http://www.baidu.com",map),consumer);
 //
 //    }
+
+
 
     /**
      * 获取消息分类

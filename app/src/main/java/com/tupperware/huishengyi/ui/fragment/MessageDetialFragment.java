@@ -9,17 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.MessageDetialAdapter;
-import com.tupperware.huishengyi.component.DaggerMessageDetialFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
+import com.tupperware.huishengyi.ui.component.DaggerMessageDetialFragmentComponent;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.msg.MsgItemBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.module.MessageDetailPresenterModule;
+import com.tupperware.huishengyi.ui.module.MessageDetailPresenterModule;
 import com.tupperware.huishengyi.ui.contract.MessageDetialContract;
 import com.tupperware.huishengyi.ui.presenter.MessageDetailPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -87,7 +88,7 @@ public class MessageDetialFragment extends BaseFragment implements MessageDetial
 //        msgType = getArguments().getString(Constant.MSG_TYPE);
         msgTagId = getArguments().getLong(Constant.MSG_TAG_ID);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -126,7 +127,7 @@ public class MessageDetialFragment extends BaseFragment implements MessageDetial
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getMessageDetialData(msgTagId);
 //        mTextViewEdit.setOnClickListener(new View.OnClickListener() {
 //            @Override

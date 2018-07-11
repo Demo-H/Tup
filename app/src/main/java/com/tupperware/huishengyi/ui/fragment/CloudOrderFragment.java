@@ -15,8 +15,9 @@ import android.widget.TextView;
 import com.android.dhunter.common.widget.popupWindow.Config;
 import com.android.dhunter.common.widget.popupWindow.EasyTopPopup;
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
-import com.tupperware.huishengyi.ui.SearchActivity;
+import com.tupperware.huishengyi.ui.activities.SearchActivity;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class CloudOrderFragment extends BaseFragment {
         unbinder = ButterKnife.bind(this, rootView);
         mActivity = getActivity();
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -74,13 +75,13 @@ public class CloudOrderFragment extends BaseFragment {
         mOnLineOrderFragment = new OnLineOrderFragment();
         mReservationOrderFragment = new ReservationOrderFragment();
 
-        fragmentManager.beginTransaction().add(R.id.orderFrame, mOnLineOrderFragment, "1").commit();
-        fragmentManager.beginTransaction().add(R.id.orderFrame, mReservationOrderFragment, "2").commit();
+        fragmentManager.beginTransaction().add(R.id.orderFrame, mOnLineOrderFragment, "1").commitAllowingStateLoss();
+        fragmentManager.beginTransaction().add(R.id.orderFrame, mReservationOrderFragment, "2").commitAllowingStateLoss();
         selection(0);
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

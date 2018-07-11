@@ -1,50 +1,20 @@
 package com.tupperware.huishengyi.network;
 
-import android.content.Context;
-import android.net.Uri;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.android.dhunter.common.config.GlobalConfig;
-import com.android.dhunter.common.utils.SharePreferenceData;
-import com.android.dhunter.common.volley.AuthFailureError;
-import com.android.dhunter.common.volley.DefaultRetryPolicy;
-import com.android.dhunter.common.volley.NetworkError;
-import com.android.dhunter.common.volley.NetworkResponse;
-import com.android.dhunter.common.volley.Request;
-import com.android.dhunter.common.volley.RequestManager;
-import com.android.dhunter.common.volley.RequestQueue;
-import com.android.dhunter.common.volley.Response;
-import com.android.dhunter.common.volley.ServerError;
-import com.android.dhunter.common.volley.TimeoutError;
-import com.android.dhunter.common.volley.VolleyError;
-import com.android.dhunter.common.volley.toolbox.StringRequest;
-import com.tupperware.huishengyi.app.BaseApplication;
-import com.tupperware.huishengyi.entity.login.ResponseBean;
-import com.tupperware.huishengyi.ui.BaseActivity;
-import com.tupperware.huishengyi.utils.logutils.LogF;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
-
-import static com.tupperware.huishengyi.utils.StringUtils.StringChangeToInt;
-
 /**
  * Created by dhunter on 2018/5/2.
  * 旧接口调用封装
  */
 
-public class TupVolley implements Response.Listener<String>, Response.ErrorListener {
+public class TupVolley {} /*implements Response.Listener<String>, Response.ErrorListener {
 
     private static final String TAG = "TupVolley";
-    /**
+    *//**
      * 网络出错，无法链接网络
-     */
+     *//*
     public static final int ERROR_CODE_INTERNET = 0;
-    /**
+    *//**
      * 服务器出了问题
-     */
+     *//*
     public static final int ERROR_CODE_SERVER = 1;
     private static RequestQueue mRequestQueue = RequestManager.getRequestQueue();//请求队列
 
@@ -65,13 +35,13 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         mDefaultRetryPolicy = new DefaultRetryPolicy(2000, 2, 1);
     }
 
-    /**
+    *//**
      * 使用get 方法请求网络
      *
      * @param requestCode 请求代码，用来区分哪里发来的请求
      * @param url         请求地址
      * @param listener    监听器
-     */
+     *//*
     public void get(int requestCode, String url, TupVolleyListener listener) {
         get(requestCode, url, listener, null);
     }
@@ -88,9 +58,9 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         LogF.i(TAG, "Url == " + url);
         //一个实例对最只能发送一个请求
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         try{
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().appendQueryParameter("platform", "PC");
@@ -117,9 +87,9 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         LogF.i(TAG, "Url == " + url);
         //一个实例对最只能发送一个请求
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         try{
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().appendQueryParameter("platform", "PC");
@@ -162,9 +132,9 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         mErrorListener = errorListener;
         mRequestCode = requestCode;
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         params.put("platform", "PC");
 
         mStringRequest = new StringRequest(Request.Method.POST, url, this, this) {
@@ -187,7 +157,7 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         mRequestQueue.add(mStringRequest);
     }
 
-    /**
+    *//**
      * 带Header
      * @param requestCode
      * @param url
@@ -195,7 +165,7 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
      * @param listener
      * @param errorListener
      * @param headerparams
-     */
+     *//*
     public void post(int requestCode, String url, final Map<String, String> params, TupVolleyListener listener, TupVolleyErrorListener errorListener, final Map<String, String> headerparams) {
         LogF.i("tup", "Url == " + url);
         //一个实例最多只能发送一个请求
@@ -206,9 +176,9 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         mErrorListener = errorListener;
         mRequestCode = requestCode;
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
 //        params.put("platform", "PC");
 //        params.put("x_request_platform", "PC");
 //        params.put("x_auth_token", token);
@@ -232,15 +202,10 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         mRequestQueue.add(mStringRequest);
     }
 
-    private void saveCookies(String cookies) {
-        SharePreferenceData mSharePreferenceData = new SharePreferenceData(mContext.getApplicationContext());
-        mSharePreferenceData.setParam(GlobalConfig.COOKIE, cookies);
-    }
 
-
-    /**
+    *//**
      * 取消请求
-     */
+     *//*
     public void cancel() {
         if (mStringRequest != null && !mStringRequest.isCanceled()) {
 //            mStringRequest.cancel();
@@ -248,11 +213,11 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
         }
     }
 
-    /**
+    *//**
      * 成功拿到数据
      *
      * @param json
-     */
+     *//*
     @Override
     public void onResponse(String json) {
         Log.d("Url == onResponse()", json);
@@ -321,11 +286,11 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
 //        }
     }
 
-    /**
+    *//**
      * 请求发生错误
      *
      * @param error
-     */
+     *//*
     @Override
     public void onErrorResponse(VolleyError error) {
 
@@ -351,23 +316,23 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
     }
 
     public interface TupVolleyListener {
-        /**
+        *//**
          * 成功拿到能显示的数据，没错，就是可以显示了，错误的可能性全部处理了
          *
          * @param requestCode 请求代码
          * @param json        拿到的响应对象
-         */
+         *//*
         public void ok(int requestCode, String json);
     }
 
     public interface TupVolleyErrorListener {
-        /**
+        *//**
          * 全部错误都来到这里
          *
          * @param requestCode
          * @param errorCode
          * @return 返回true 说明错误事件已经处理
-         */
+         *//*
         public boolean error(int requestCode, ResponseBean errorCode);
     }
 
@@ -412,4 +377,4 @@ public class TupVolley implements Response.Listener<String>, Response.ErrorListe
 
         return String.valueOf(chars);
     }
-}
+}*/

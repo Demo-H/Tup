@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.StoreSwitchAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.StoreBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerStoreSwitchFragmentComponent;
-import com.tupperware.huishengyi.module.StoreSwitchPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerStoreSwitchFragmentComponent;
+import com.tupperware.huishengyi.ui.module.StoreSwitchPresenterModule;
 import com.tupperware.huishengyi.ui.contract.StoreSwitchContract;
 import com.tupperware.huishengyi.ui.presenter.StoreSwitchPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -48,7 +49,7 @@ public class StoreSwitchFragment extends BaseFragment implements StoreSwitchCont
         mStoreSwitchRecyclerview = (RecyclerView) view.findViewById(R.id.switch_store_recyclerview);
 //        storeSwitchPullRefreshHeader = (PullHeaderView) view.findViewById(R.id.find_pull_refresh_header);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -72,7 +73,7 @@ public class StoreSwitchFragment extends BaseFragment implements StoreSwitchCont
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getStoreData();
     }
 

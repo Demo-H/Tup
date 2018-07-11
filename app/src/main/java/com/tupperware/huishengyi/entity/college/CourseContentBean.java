@@ -1,6 +1,6 @@
 package com.tupperware.huishengyi.entity.college;
 
-import com.android.dhunter.common.base.baseadapter.entity.MultiItemEntity;
+import com.android.dhunter.common.baserecycleview.entity.MultiItemEntity;
 
 /**
  * Created by dhunter on 2018/5/10.

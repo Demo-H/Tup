@@ -1,9 +1,11 @@
 package com.tupperware.huishengyi.http.api;
 
 import com.tupperware.huishengyi.entity.college.CollegeBean;
-import com.tupperware.huishengyi.entity.college.ConditionRequest;
 import com.tupperware.huishengyi.entity.college.CollegeTabBean;
+import com.tupperware.huishengyi.entity.college.ConditionRequest;
 import com.tupperware.huishengyi.entity.college.CourseBean;
+import com.tupperware.huishengyi.entity.college.LikeBean;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -45,4 +47,18 @@ public interface CollegeService {
 
     @GET("front/school/course/get/{id}")
     Observable<CourseBean> getCourDetialData(@Path("id") long tagId);
+
+    /**
+     * 是否点赞
+     * @param answerId
+     * @return
+     */
+    @GET("front/school/answer/isLike/{id}")
+    Observable<LikeBean> getIsLike(@Path("id") long answerId);
+
+    @GET("front/school/answer/like/{id}")
+    Observable<ResponseBean> setLike(@Path("id") long answerId);
+
+    @GET("front/school/answer/unlike/{id}")
+    Observable<ResponseBean> cancelLike(@Path("id") long answerId);
 }

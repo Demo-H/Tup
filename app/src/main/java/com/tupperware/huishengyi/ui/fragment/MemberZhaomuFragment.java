@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.MemberZhaomuAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.Date;
@@ -46,7 +47,7 @@ public class MemberZhaomuFragment extends BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -63,7 +64,7 @@ public class MemberZhaomuFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

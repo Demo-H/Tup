@@ -12,10 +12,11 @@ import android.widget.RelativeLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.CollegeStatusAdapter;
-import com.tupperware.huishengyi.component.DaggerBusinessCollegeFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
+import com.tupperware.huishengyi.ui.component.DaggerBusinessCollegeFragmentComponent;
 import com.tupperware.huishengyi.entity.college.CollegeTabBean;
 import com.tupperware.huishengyi.http.CollegeDataManager;
-import com.tupperware.huishengyi.module.BusinessCollegePresenterModule;
+import com.tupperware.huishengyi.ui.module.BusinessCollegePresenterModule;
 import com.tupperware.huishengyi.ui.contract.BusinessCollegeContract;
 import com.tupperware.huishengyi.ui.presenter.BusinessCollegePresenter;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
@@ -59,7 +60,7 @@ public class BusinessCollegeFragment extends BaseFragment implements BusinessCol
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -73,7 +74,7 @@ public class BusinessCollegeFragment extends BaseFragment implements BusinessCol
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getLableData();
     }
 

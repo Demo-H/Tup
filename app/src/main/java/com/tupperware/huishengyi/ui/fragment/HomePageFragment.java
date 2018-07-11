@@ -17,24 +17,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.android.dhunter.common.utils.ScreenUtil;
-import com.android.dhunter.common.utils.SharePreferenceData;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.HomeMultipleRecycleAdapter;
-import com.tupperware.huishengyi.component.DaggerHomePageFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.home.HomeIndexBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.module.HomePagePresenterModule;
-import com.tupperware.huishengyi.ui.LoginActivity;
-import com.tupperware.huishengyi.ui.MessageActivity;
-import com.tupperware.huishengyi.ui.PersonalSettingActivity;
-import com.tupperware.huishengyi.ui.ScanCouponActivity;
-import com.tupperware.huishengyi.ui.SearchActivity;
+import com.tupperware.huishengyi.ui.activities.LoginActivity;
+import com.tupperware.huishengyi.ui.activities.MessageActivity;
+import com.tupperware.huishengyi.ui.activities.PersonalSettingActivity;
+import com.tupperware.huishengyi.ui.activities.ScanCouponActivity;
+import com.tupperware.huishengyi.ui.activities.SearchActivity;
+import com.tupperware.huishengyi.ui.component.DaggerHomePageFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.HomePageContract;
+import com.tupperware.huishengyi.ui.module.HomePagePresenterModule;
 import com.tupperware.huishengyi.ui.presenter.HomePagePresenter;
 import com.tupperware.huishengyi.utils.ActivityManager;
-import com.tupperware.huishengyi.utils.thread.HandlerThreadFactory;
-import com.tupperware.huishengyi.utils.thread.TupperHandlerThread;
 import com.tupperware.huishengyi.view.SpaceItemDecoration;
 
 import javax.inject.Inject;
@@ -42,8 +40,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.tupperware.huishengyi.utils.thread.HandlerThreadFactory.getHandlerThread;
 
 
 /**
@@ -76,12 +72,11 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
 
     private View rootView = null;
     private int DEFAULT_REFRESH_RED_TIP_TIME = 1000 * 30; //30s刷新一次小红点
-    protected SharePreferenceData mSharePreDate;
     private int isShow;
 
     @Inject
     HomePagePresenter mPresenter;
-    private TupperHandlerThread thread;
+//    private TupperHandlerThread thread;
 
 
     public static HomePageFragment newInstance() {
@@ -95,16 +90,15 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
         rootView = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootView);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSharePreDate = new SharePreferenceData(getActivity());
-        isShow = (int) mSharePreDate.getParam(Constant.MSG_RED_TIP, 0);  // 默认为0，不显示小红点
-        thread = getHandlerThread(HandlerThreadFactory.BackgroundThread);
+        isShow = (int) mDataManager.getSpObjectData(Constant.MSG_RED_TIP, 0);
+//        thread = getHandlerThread(HandlerThreadFactory.BackgroundThread);
     }
 
     @Override
@@ -133,17 +127,11 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
         recyclerView.setAdapter(adapter);
     }
 
-//    @Override
-//    public void currentPosition(int position) {
-//
-//    }
-
-
     @Override
     public void onStart() {
         super.onStart();
         if(isShow == 0) {
-            thread.post(new Runnable() {
+            new Thread(new Runnable() {
                 @Override
                 public void run() {
                     while (isShow == 0) {
@@ -155,19 +143,51 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
                         }
                     }
                 }
-            });
+            }).start();
+//            thread.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    while (isShow == 0) {
+//                        try {
+//                            mPresenter.getMsgRedTip();
+//                            Thread.sleep(DEFAULT_REFRESH_RED_TIP_TIME);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
+//            });
         }
         Log.i(TAG,"onStart");
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
-        if(thread != null && !thread.interrupted()) {
-            thread.interrupt();
-        }
+//        if(thread != null && !thread.interrupted()) {
+//            thread.interrupt();
+//        }
         Log.i(TAG,"onStop" );
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        if(thread != null) {
+//            if(!thread.interrupted()) {
+//                thread.interrupt();
+//            }
+//            thread = null;
+//        }
+        Log.i(TAG,"onDestroyView" );
+    }
+
+
 
     @Override
     public void setHomePageData(HomeIndexBean homeBean) {
@@ -194,7 +214,7 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getHomePageData();
     }
 
@@ -238,7 +258,8 @@ public class HomePageFragment extends BaseFragment implements HomePageContract.V
 
     @Override
     public void setShowMsgRedTip(int unread) {
-        mSharePreDate.setParam(Constant.MSG_RED_TIP, unread);
+//        mSharePreDate.setParam(Constant.MSG_RED_TIP, unread);
+        mDataManager.saveSPObjectData(Constant.MSG_RED_TIP, unread);
         if(msgRedTip != null) {
             if(unread == 1) {
                 isShow = 1;

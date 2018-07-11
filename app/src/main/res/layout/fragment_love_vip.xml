@@ -58,12 +58,13 @@
                 android:layout_centerInParent="true"
                 android:scaleType="centerCrop"/>
         </RelativeLayout>
-        <View style="@style/thick_separation_line_no_margintop" />
+        <!--<View style="@style/thick_separation_line_no_margintop" />-->
         <RelativeLayout
             android:id="@+id/title_member_attribute"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_50dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone">
             <ImageView
                 style="@style/flag_for_sub_title"/>
             <TextView
@@ -107,7 +108,8 @@
             android:id="@+id/member_attribute"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_145dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/pie_rl"

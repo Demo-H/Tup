@@ -1,6 +1,6 @@
 package com.tupperware.huishengyi.http;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.ConditionRequest;
 import com.tupperware.huishengyi.entity.order.OrderBean;

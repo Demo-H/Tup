@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ServerManagerDetialAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.PurFollowDetialBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerServerManagerDetialFragmentComponent;
-import com.tupperware.huishengyi.module.ServerManagerDetialPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerServerManagerDetialFragmentComponent;
+import com.tupperware.huishengyi.ui.module.ServerManagerDetialPresenterModule;
 import com.tupperware.huishengyi.ui.contract.ServerManagerDetialContract;
 import com.tupperware.huishengyi.ui.presenter.ServerManagerDetialPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -56,15 +57,15 @@ public class ServerManagerDetialFragment extends BaseFragment implements ServerM
         if (bundle != null) {
             mTabPosition = bundle.getInt(Constant.FRAGMENT_TAB_POSITION);
         }
-        if(Constant.DemoTest) {
-            PurFollowDetialBean purFollowDetialBean = null;
-            list.clear();
-            for(int i=0; i<2; i++) {
-                purFollowDetialBean = new PurFollowDetialBean();
-                purFollowDetialBean.userName = "朱小姐";
-                list.add(purFollowDetialBean);
-            }
-        }
+//        if(Constant.DemoTest) {
+//            PurFollowDetialBean purFollowDetialBean = null;
+//            list.clear();
+//            for(int i=0; i<2; i++) {
+//                purFollowDetialBean = new PurFollowDetialBean();
+//                purFollowDetialBean.userName = "朱小姐";
+//                list.add(purFollowDetialBean);
+//            }
+//        }
     }
 
     @Override
@@ -72,7 +73,7 @@ public class ServerManagerDetialFragment extends BaseFragment implements ServerM
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -92,7 +93,7 @@ public class ServerManagerDetialFragment extends BaseFragment implements ServerM
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getServerManagerDetialData();
     }
 

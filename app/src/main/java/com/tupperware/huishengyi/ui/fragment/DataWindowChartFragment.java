@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.DataWindowChartAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.Date;
@@ -61,7 +62,7 @@ public class DataWindowChartFragment extends BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -78,7 +79,7 @@ public class DataWindowChartFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

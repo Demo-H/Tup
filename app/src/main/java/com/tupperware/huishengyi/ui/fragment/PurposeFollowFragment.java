@@ -7,10 +7,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.PurposeFollowAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
 
 import butterknife.BindView;
@@ -29,18 +29,18 @@ public class PurposeFollowFragment extends BaseFragment {
 
     private View rootview;
     private PurposeFollowAdapter mAdapter;
-    private LinearLayout mRightll;
+//    private LinearLayout mRightll;
 
-    public void setRightIconSearch(LinearLayout mRightIcon) {
-        this.mRightll = mRightIcon;
-    }
+//    public void setRightIconSearch(LinearLayout mRightIcon) {
+//        this.mRightll = mRightIcon;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -57,7 +57,7 @@ public class PurposeFollowFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

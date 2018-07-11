@@ -7,18 +7,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.CollExperienceAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
+import com.tupperware.huishengyi.ui.component.DaggerCollExperienceFragmnetComponent;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.http.CollegeDataManager;
-import com.tupperware.huishengyi.component.DaggerCollExperienceFragmnetComponent;
-import com.tupperware.huishengyi.module.CollExperiencePresenterModule;
+import com.tupperware.huishengyi.ui.module.CollExperiencePresenterModule;
 import com.tupperware.huishengyi.ui.contract.CollExperienceContract;
 import com.tupperware.huishengyi.ui.presenter.CollExperiencePresenter;
 
@@ -26,6 +29,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by dhunter on 2018/4/18.
@@ -39,14 +43,19 @@ public class CollExperienceFragmnet extends BaseFragment implements CollExperien
     PullHeaderView mPullHeaderView;
     @BindView(R.id.college_recyclerview)
     RecyclerView mRecyclerView;
+    @BindView(R.id.error_layout)
+    RelativeLayout mErrorLayout;
+
+    private View emptyView;
+    private TextView mEmptyText;
 
     @Inject
     CollExperiencePresenter mPresenter;
 
     private CollExperienceAdapter mAdapter;
-    private int mTabPosition;
+//    private int mTabPosition;
     private int pageIndex = 2;  //分页加载更多，从第二页开始
-    private int tagId = 3;
+    private int tagId;
 
     public static CollExperienceFragmnet newInstance(Bundle bundle) {
         CollExperienceFragmnet fragment = new CollExperienceFragmnet();
@@ -59,16 +68,19 @@ public class CollExperienceFragmnet extends BaseFragment implements CollExperien
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         if (bundle != null) {
-            mTabPosition = bundle.getInt(Constant.FRAGMENT_TAB_POSITION);
+            tagId = bundle.getInt(Constant.LABLE_ID);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
+        emptyView = inflater.inflate(R.layout.view_empty_recycleview, null);
+        mEmptyText = (TextView) emptyView.findViewById(R.id.empty_text);
+        mEmptyText.setText(getResources().getString(R.string.no_data));
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -90,8 +102,8 @@ public class CollExperienceFragmnet extends BaseFragment implements CollExperien
     }
 
     @Override
-    public void initLayoutData() {
-        mPresenter.getExperienceData(tagId);
+    public void requestData() {
+//        mPresenter.getExperienceData(tagId);
     }
 
     @Override
@@ -99,6 +111,40 @@ public class CollExperienceFragmnet extends BaseFragment implements CollExperien
         return R.layout.fragment_article_coll;
     }
 
+    @Override
+    public void setNormalView() {
+        if(mPullHeaderView != null)
+            mPullHeaderView.setVisibility(View.VISIBLE);
+        if(mErrorLayout != null)
+            mErrorLayout.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void setNetErrorView() {
+        if(mPullHeaderView != null)
+            mPullHeaderView.setVisibility(View.GONE);
+        if(mErrorLayout != null)
+            mErrorLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void setEmptyView() {
+        if(mPullHeaderView != null) {
+            mPullHeaderView.setVisibility(View.VISIBLE);
+        }
+        if(mErrorLayout != null) {
+            mErrorLayout.setVisibility(View.GONE);
+        }
+        emptyView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+        mAdapter.setEmptyView(emptyView);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.getExperienceData(tagId);
+    }
 
     @Override
     public void onRefreshBegin(final PtrFrameLayout frame) {
@@ -140,5 +186,14 @@ public class CollExperienceFragmnet extends BaseFragment implements CollExperien
                 }
             }
         },1000);
+    }
+
+    @OnClick({R.id.error_layout})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.error_layout:
+                mPresenter.getExperienceData(tagId);
+                break;
+        }
     }
 }

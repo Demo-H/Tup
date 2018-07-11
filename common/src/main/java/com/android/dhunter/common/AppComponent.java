@@ -2,7 +2,7 @@ package com.android.dhunter.common;
 
 import android.content.Context;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 
 import javax.inject.Singleton;
 

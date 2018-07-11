@@ -1,6 +1,9 @@
 package com.tupperware.huishengyi.http.api;
 
+import com.tupperware.huishengyi.entity.PurFollowDetialBean;
 import com.tupperware.huishengyi.entity.college.ConditionRequest;
+import com.tupperware.huishengyi.entity.login.ModifiedPwdRequest;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
 import com.tupperware.huishengyi.entity.member.ActionMembersBean;
 import com.tupperware.huishengyi.entity.member.DevMemberRequest;
 import com.tupperware.huishengyi.entity.member.DevMemberRespone;
@@ -24,6 +27,17 @@ import retrofit2.http.Query;
  */
 
 public interface PersonalService {
+
+    /**
+     * 退出登录
+     * @param act
+     * @return
+     */
+    @GET("store_api/app.php")
+    Observable<ResponseBean> logout(@Query("act") String act);
+
+    @POST("store_api/app.php")
+    Observable<ResponseBean> modifiedPwd(@Query("act") String act, @Body ModifiedPwdRequest request);
 
     /**
      * 获取个人微店
@@ -98,6 +112,8 @@ public interface PersonalService {
     @GET("front/member/getStatisticsMemberDaily/")
     Observable<MemberAddBean> getTodayNewAddData(@Query("storeId") String storeId);
 
-//    @GET("store_api/Store.php?act=getMemberGiftOrder/{memberId}/{pageNo}/{pageSize}")
-//    Observable<GiftBean> getGiftListData(@Path("memberId") String member_id, @Path("pageNo") int pageNo, @Path("pageSize") int pageSize);
+
+    @POST("front/member/getByTags/")
+    Observable<PurFollowDetialBean> getPurFollowMemberData(@Query("page") int page, @Query("size") int size, @Body ConditionRequest conditionRequest);
+
 }

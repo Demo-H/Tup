@@ -14,6 +14,7 @@ public class CollegeTabBean extends BaseData {
 
     public static class TabModel{
         public String name;
+        public int id;
     }
 
 }

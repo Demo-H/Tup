@@ -44,6 +44,8 @@ public class ObjectUtil {
             return "";
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        //支持null输出
+//        Gson gson = new GsonBuilder().serializeNulls().create();
         String prettyJsonString = gson.toJson(object);
         return prettyJsonString;
     }

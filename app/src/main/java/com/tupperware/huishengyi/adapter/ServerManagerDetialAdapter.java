@@ -3,11 +3,10 @@ package com.tupperware.huishengyi.adapter;
 import android.content.Intent;
 import android.view.View;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
-import com.tupperware.huishengyi.R;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.entity.PurFollowDetialBean;
-import com.tupperware.huishengyi.ui.BackVisitDetialActivity;
+import com.tupperware.huishengyi.ui.activities.BackVisitDetialActivity;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class ServerManagerDetialAdapter extends BaseQuickAdapter<PurFollowDetial
 
     @Override
     protected void convert(BaseViewHolder helper, PurFollowDetialBean item, int position) {
-        helper.setText(R.id.user_name, item.userName);
+//        helper.setText(R.id.user_name, item.userName);
 
         setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

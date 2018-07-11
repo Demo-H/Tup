@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.mzBannerView.MZBannerView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
@@ -17,11 +17,12 @@ import com.android.dhunter.common.widget.tablayout.SegmentTabLayout;
 import com.android.dhunter.common.widget.tablayout.listener.OnTabSelectListener;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.CollDirectVideoAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerCollDirectVideoFragmentComponent;
-import com.tupperware.huishengyi.module.CollDirectVideoPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerCollDirectVideoFragmentComponent;
+import com.tupperware.huishengyi.ui.module.CollDirectVideoPresenterModule;
 import com.tupperware.huishengyi.ui.contract.CollDirectVideoContract;
 import com.tupperware.huishengyi.ui.presenter.CollDirectVideoPresenter;
 
@@ -72,7 +73,7 @@ public class CollDirectVideoFragment  extends BaseFragment implements CollDirect
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -94,7 +95,7 @@ public class CollDirectVideoFragment  extends BaseFragment implements CollDirect
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getDirectVideoData();
     }
 

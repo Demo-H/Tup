@@ -15,12 +15,13 @@ import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.MemberDataAdapter;
-import com.tupperware.huishengyi.component.DaggerMemberDataFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.entity.member.MemberAddBean;
 import com.tupperware.huishengyi.entity.member.MemberReportBean;
 import com.tupperware.huishengyi.http.PersonalDataManager;
-import com.tupperware.huishengyi.module.MemberDataPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerMemberDataFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.MemberDataContract;
+import com.tupperware.huishengyi.ui.module.MemberDataPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.MemberDataPresenter;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
 
@@ -60,9 +61,10 @@ public class MemberDataFragment extends BaseFragment implements MemberDataContra
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
-        storeId = (String) mSharePreDate.getParam(GlobalConfig.STORE_ID, "");
+//        storeId = (String) mSharePreDate.getParam(GlobalConfig.STORE_ID, "");
+        storeId = mDataManager.getSPData(GlobalConfig.STORE_ID);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -87,7 +89,7 @@ public class MemberDataFragment extends BaseFragment implements MemberDataContra
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getMemberReportData(storeId);
         mPresenter.getTodayNewAddData(storeId);
     }

@@ -9,20 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.config.GlobalConfig;
-import com.android.dhunter.common.utils.SharePreferenceData;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ResOrderPendingAdapter;
-import com.tupperware.huishengyi.component.DaggerResOrderPendingFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.order.OrderBean;
 import com.tupperware.huishengyi.http.OrderDataManager;
-import com.tupperware.huishengyi.module.ResOrderPendingPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerResOrderPendingFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.ResOrderPendingContract;
+import com.tupperware.huishengyi.ui.module.ResOrderPendingPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.ResOrderPendingPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
 
@@ -56,7 +56,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
     private String code; //门店编码
     private String status; //订单状态
     private int pageIndex = 2;  //分页加载更多，从第二页开始
-    private SharePreferenceData mSharePreDate;
+//    private SharePreferenceData mSharePreDate;
 
     public static ResOrderPendingFragment newInstance(Bundle bundle) {
         ResOrderPendingFragment fragment = new ResOrderPendingFragment();
@@ -68,7 +68,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
-        mSharePreDate = new SharePreferenceData(getContext());
+//        mSharePreDate = new SharePreferenceData(getContext());
         if (bundle != null) {
             mTabPosition = bundle.getInt(Constant.FRAGMENT_TAB_POSITION);
         }
@@ -81,7 +81,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
         emptyView = inflater.inflate(R.layout.view_empty_recycleview, null);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -105,7 +105,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         if(mTabPosition == 3) {
             status = String.valueOf(Constant.COMPLETED);
         } else if(mTabPosition == 4) {
@@ -113,11 +113,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
         } else {
             status = String.valueOf(mTabPosition);
         }
-        if(Constant.DemoTest) {
-            code = "200001";
-        } else {
-            code = (String) mSharePreDate.getParam(GlobalConfig.KEY_DATA_USERID, "");
-        }
+        code = mDataManager.getSPData(GlobalConfig.KEY_DATA_USERID);
         mPresenter.getResOrderPendingData(code, status);
     }
 
@@ -128,6 +124,7 @@ public class ResOrderPendingFragment extends BaseFragment implements ResOrderPen
 
     @Override
     public void onRefreshBegin(final PtrFrameLayout frame) {
+        pageIndex = 2;
         frame.postDelayed(new Runnable() {
             @Override
             public void run() {

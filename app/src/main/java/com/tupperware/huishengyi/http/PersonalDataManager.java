@@ -1,8 +1,12 @@
 package com.tupperware.huishengyi.http;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.tupperware.huishengyi.config.Constant;
+import com.tupperware.huishengyi.config.NetWorkUrl;
+import com.tupperware.huishengyi.entity.PurFollowDetialBean;
 import com.tupperware.huishengyi.entity.college.ConditionRequest;
+import com.tupperware.huishengyi.entity.login.ModifiedPwdRequest;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
 import com.tupperware.huishengyi.entity.member.ActionMembersBean;
 import com.tupperware.huishengyi.entity.member.DevMemberRequest;
 import com.tupperware.huishengyi.entity.member.DevMemberRespone;
@@ -14,7 +18,9 @@ import com.tupperware.huishengyi.entity.member.ReservationServerBean;
 import com.tupperware.huishengyi.entity.member.StoreScheduleBean;
 import com.tupperware.huishengyi.entity.saleenter.ResponeBean;
 import com.tupperware.huishengyi.http.api.PersonalService;
+import com.tupperware.huishengyi.utils.ObjectUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -36,6 +42,19 @@ public class PersonalDataManager extends BaseDataManager {
     public static PersonalDataManager getInstance(DataManager dataManager){
         return new PersonalDataManager(dataManager);
     }
+
+    /** 退出登录 **/
+    public Disposable logout(DisposableObserver<ResponseBean> consumer) {
+        Observable observable = getService(PersonalService.class).logout(NetWorkUrl.LOGOUT_URL);
+        return changeIOToMainThread(observable, consumer);
+    }
+
+    /** 修改密码 **/
+    public Disposable modifiedPwd(DisposableObserver<ResponseBean> consumer, ModifiedPwdRequest request) {
+        Observable observable = getService(PersonalService.class).modifiedPwd(NetWorkUrl.MODFIED_PASSWORD, request);
+        return changeIOToMainThread(observable, consumer);
+    }
+
 
     /**
      * 获取我的微店
@@ -128,17 +147,12 @@ public class PersonalDataManager extends BaseDataManager {
     }
 
 
-    /**
-     * 获取礼物寄送列表
-     * @param pageIndex
-     * @return
-     */
-//    public Disposable getGiftListData(DisposableObserver<GiftBean> consumer, String member_id, int pageIndex) {
-////        Observable observable = getService(PersonalService.class).getGiftListData(getGiftRequest(member_id, pageIndex));
-//        Observable observable = getService(PersonalService.class).getGiftListData(member_id, Constant.DEFAULT_MEMBER_PAGE_SIZE, pageIndex);
-//        Observable observableCahce = providers.getGiftListType(observable, new DynamicKey("gift_list"), new EvictDynamicKey(true)).map(new HttpResultFuncCache<List<GiftBean>>());
-//        return changeIOToMainThread(observableCahce, consumer);
-//    }
+    public Disposable getPurFollowMemberData(DisposableObserver<PurFollowDetialBean> consumer, String tagCodes, int pageIndex) {
+        Observable observable = getService(PersonalService.class).getPurFollowMemberData(pageIndex, Constant.DEFAULT_MEMBER_PAGE_SIZE, getTagRequest(tagCodes));
+        Observable observableCahce = providers.getPurFollowMemberType(observable, new DynamicKey("pur_member"), new EvictDynamicKey(true)).map(new HttpResultFuncCache<List<PurFollowDetialBean>>());
+        return changeIOToMainThread(observableCahce, consumer);
+    }
+
 
     private ConditionRequest getRequest(String mobile, String storeCode, int pageIndex) {
         ConditionRequest request = new ConditionRequest();
@@ -153,6 +167,17 @@ public class PersonalDataManager extends BaseDataManager {
         request.setPagingQuery(query);
         return request;
     }
+
+    private ConditionRequest getTagRequest(String tagCodes) {
+        ConditionRequest request = new ConditionRequest();
+        List<String> stringlist = new ArrayList<>();
+        stringlist.add(tagCodes);
+        request.setTagCodes(stringlist);
+        String json = ObjectUtil.jsonFormatter(request);
+        return request;
+    }
+
+
 
 //    private GiftRequest getGiftRequest(String member_id, int pageIndex) {
 //        GiftRequest request = new GiftRequest();

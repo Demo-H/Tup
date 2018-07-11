@@ -1,5 +1,9 @@
 package com.tupperware.huishengyi.http.api;
 
+import com.tupperware.huishengyi.entity.VerifyCoupon;
+import com.tupperware.huishengyi.entity.VerifyProduct;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
+import com.tupperware.huishengyi.entity.saleenter.MemUpgradeRequest;
 import com.tupperware.huishengyi.entity.saleenter.PostEnterBean;
 import com.tupperware.huishengyi.entity.saleenter.ResponeBean;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterBean;
@@ -18,6 +22,18 @@ import retrofit2.http.Query;
  */
 
 public interface ProductService {
+
+    /**
+     * 券码核销
+     */
+    @POST("store_api/app.php")
+    Observable<VerifyCoupon> checkCoupon(@Query("act") String act, @Body MemUpgradeRequest request);
+
+    @POST("store_api/app.php")
+    Observable<VerifyProduct> verifyProductCode(@Query("act") String act, @Body MemUpgradeRequest request);
+
+    @POST("store_api/app.php")
+    Observable<ResponseBean> useProductCode(@Query("act") String act, @Body MemUpgradeRequest request);
 
     /**
      * 根据条形码获取记录信息

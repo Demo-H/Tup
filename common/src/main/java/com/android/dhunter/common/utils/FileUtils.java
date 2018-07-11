@@ -7,12 +7,15 @@ import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.channels.FileChannel;
 
 /**
@@ -22,169 +25,35 @@ import java.nio.channels.FileChannel;
 public class FileUtils {
     public static final String TAG = "FileUtils";
     public static final String APP_NAME = "Tupperware";
-    public static final String DIR_PUBLLIC_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + APP_NAME;
-
-    public static final int SIZETYPE_B = 1;// 获取文件大小单位为B的double值
-    public static final int SIZETYPE_KB = 2;// 获取文件大小单位为KB的double值
-    public static final int SIZETYPE_MB = 3;// 获取文件大小单位为MB的double值
-    public static final int SIZETYPE_GB = 4;// 获取文件大小单位为GB的double值
-    public static final int MAX_RECORD_TIME = 180 * 1000; // ms
-
-
+    public static final String DIR_PUBLLIC_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + APP_NAME;
     private static final int DEFAULT_BUFFER_SIZE = 8 * 1024;
+
+    public static String DIR_LOG = DIR_PUBLLIC_ROOT + File.separator + "log";
+    public static String DIR_TEMP = DIR_PUBLLIC_ROOT + File.separator + "temp";
+    public static String DIR_CRASH_LOG = DIR_PUBLLIC_ROOT + File.separator + "crash_log";
+    public static String DIR_DOWNLOAD = DIR_PUBLLIC_ROOT + File.separator + "download";
+    public static String DIR_PHOTO_CRASH = DIR_PUBLLIC_ROOT + File.separator + "photos";
+    public static String DIR_CACHE = DIR_PUBLLIC_ROOT + File.separator + "cache";
+    public static String DIR_VIDEO = DIR_PUBLLIC_ROOT + File.separator + "video";
+    public static String DIR_APP_XML = DIR_PUBLLIC_ROOT + File.separator + "app_xmls";
 
     /**
      * 存储路径方式
      */
     public enum PathType {
-        /**
-         * 存储在SDCard中
-         */
-        SDCARD,
-        /**
-         * 存储在软件Cache中
-         */
-        CACHE,
-        /**
-         * 存储在软件DATA目录下的app_photos中
-         */
-        APP_PHOTOS,
-        /**
-         * 存储在多媒体文件夹下
-         */
-        SDCARD_PHOTOS,
-        /**
-         * 存储在多媒体文件夹下
-         */
-        MEDIA_DIR,
-        /**
-         * 存储在软件DATA目录下的app_xmls中
-         */
-        APP_XML
-    }
-
-
-    public static final String PHOTO_DIR = "photos";
-    public static final String XML_DIR = "xmls";
-    public static final String Log_DIR = "log";
-    public static final String TEMP_DIR = "temp";
-    public static final String CRASH_LOG_DIR = "crash_log";
-    public static final String DOWNLOAD_DIR = "download";
-    public static final String CACHE = "cache";
-
-    public static String DIR_LOG = DIR_PUBLLIC_ROOT + File.separator + Log_DIR;
-    public static String DIR_TEMP = DIR_PUBLLIC_ROOT + File.separator + TEMP_DIR;
-    public static String DIR_CRASH_LOG = DIR_PUBLLIC_ROOT + File.separator + CRASH_LOG_DIR;
-    public static String DIR_DOWNLOAD = DIR_PUBLLIC_ROOT + File.separator + DOWNLOAD_DIR;
-    public static String DIR_PHOTO_CRASH = DIR_PUBLLIC_ROOT + File.separator + PHOTO_DIR;
-    public static String DIR_CACHE = DIR_PUBLLIC_ROOT + File.separator + CACHE;
-
-
-    public static void initSdcardDirs(Context context) {
-        initSdcardDirs(context, DIR_PUBLLIC_ROOT, APP_NAME);
-    }
-
-    public static void initSdcardDirs(Context context, String sdcardPath, String appName) {
-        Log.d(TAG, "init SDcard Dirs");
-
-//        if (TextUtils.isEmpty(sdcardPath)) {
-//            sdcardPath = DIR_PUBLLIC_ROOT;
-//        }
-        File file = new File(sdcardPath);
-        if(!file.exists() || !file.isDirectory()) {
-            file.mkdirs();
-        }
-        file = new File(DIR_LOG);
-        file.mkdirs();
-        file = new File(DIR_TEMP);
-        file.mkdirs();
-        file = new File(DIR_CRASH_LOG);
-        file.mkdirs();
-        file = new File(DIR_DOWNLOAD);
-        file.mkdirs();
-        file = new File(DIR_PHOTO_CRASH);
-        file.mkdirs();
-        file = new File(DIR_CACHE);
-        file.mkdirs();
-
-    }
-
-    public static void downloadFileIsExists() {
-        if(!fileIsExists(DIR_DOWNLOAD)) {
-            File file = new File(DIR_DOWNLOAD);
-            file.mkdirs();
-        }
-    }
-
-    public static void photoFileIsExists() {
-        if(!fileIsExists(DIR_PHOTO_CRASH)) {
-            File file = new File(DIR_PHOTO_CRASH);
-            file.mkdirs();
-        }
-    }
-
-    public static File getcacheDirectory() {
-        File file = new File(FileUtils.DIR_CACHE, "MyCache");
-        if(!file.exists()) {
-            boolean b = file.mkdirs();
-            Log.e("file", "文件不存在  创建文件    "+b);
-        }else{
-            Log.e("file", "文件存在");
-        }
-        return file;
-    }
-
-
-    /**
-     * 判断文件是否存在
-     *
-     * @param strFile
-     * @return 是否存在
-     */
-    public static boolean fileIsExists(String strFile) {
-        try {
-            File f = new File(strFile);
-            if (!f.exists()) {
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * 获得文件的路径，如果有SD卡，那么首先获得SD卡的路径
-     *
-     * @param context
-     *            上下文
-     * @param dir
-     *            子目录名
-     * @return 子目录的绝对路径
-     */
-    /**
-     * @param context
-     * @param dir
-     * @return
-     */
-    public static String getPathSDCardFirst(Context context, String dir) {
-        String absolutePath = "";
-        if (sdcardAvailable()) {
-            absolutePath = createSavePath(context, PathType.SDCARD);
-            absolutePath += File.separator + APP_NAME + File.separator + dir;
-        } else {
-            absolutePath = context.getDir(dir, Context.MODE_PRIVATE).getPath();
-        }
-        File file = new File(absolutePath);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return absolutePath;
+        SDCARD,                /**存储在SDCard中 **/
+        LOG,                   /**存储在SDCard目录下的log中 **/
+        TEMP,                  /**存储在SDCard目录下的temp中 **/
+        CRASH_LOG,             /**存储在SDCard目录下的crash_log中 **/
+        DOWNLOAD,              /**存储在SDCard目录下的download中 **/
+        APP_PHOTOS,            /**存储在软件目录下的photos中 **/
+        CACHE,                 /** 存储在软件Cache中**/
+        MEDIA_DIR,            /**存储在多媒体文件夹下video **/
+        APP_XML               /** 存储在软件DATA目录下的app_xmls中 **/
     }
 
     /**
      * 判断是否有SD卡
-     *
      * @return 是否有SD卡
      */
     public static boolean sdcardAvailable() {
@@ -196,86 +65,27 @@ public class FileUtils {
         }
     }
 
-    /**
-     * 获得文件的路径
-     *
-     * @param context  上下文
-     * @param pathType 路径类型
-     * @return 特定路径类型的路径
-     */
-    public static String createSavePath(Context context, PathType pathType) {
-        String path;
-        switch (pathType) {
-            case CACHE:
-                path = context.getCacheDir().getPath();
-                break;
-            case APP_PHOTOS:
-                path = context.getDir(PHOTO_DIR, Context.MODE_WORLD_WRITEABLE).getPath();
-                break;
-            case APP_XML:
-                path = context.getDir(XML_DIR, Context.MODE_WORLD_WRITEABLE).getPath();
-                break;
-            case SDCARD:
-                path = Environment.getExternalStorageDirectory().getPath();
-                break;
-            case SDCARD_PHOTOS:
-                path = Environment.getExternalStorageDirectory().getPath() + "/" + PHOTO_DIR;
-                File fileDir = new File(path);
-                if (!fileDir.exists()) {
-                    fileDir.mkdir();
-                }
-                break;
-            default:
-                path = Environment.getExternalStorageDirectory().getPath();
-                break;
+    public static void initSdcardDirs(Context context) {
+        if(sdcardAvailable()) {
+            initSdcardDirs(context, DIR_PUBLLIC_ROOT, APP_NAME);
         }
-        return path;
     }
 
-    /**
-     * 拷贝文件 将文件A拷贝到文件B fileChannel方式
-     *
-     * @param fileNameA 原文件
-     * @param fileNameB 目标文件
-     * @return 是否拷贝成功
-     */
-    public static boolean copyTo(String fileNameA, String fileNameB) {
-        File s = new File(fileNameA);
-        File t = new File(fileNameB);
-        FileInputStream fi = null;
-        FileOutputStream fo = null;
-        FileChannel in = null;
-        FileChannel out = null;
-        boolean result = false;
-        try {
-            fi = new FileInputStream(s);
-            fo = new FileOutputStream(t);
-            in = fi.getChannel();// 得到对应的文件通道
-            out = fo.getChannel();// 得到对应的文件通道
-            in.transferTo(0, in.size(), out);// 连接两个通道，并且从in通道读取，然后写入out通道
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (fi != null)
-                    fi.close();
-                if (in != null)
-                    in.close();
-                if (fo != null)
-                    fo.close();
-                if (out != null)
-                    out.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+    public static void initSdcardDirs(Context context, String sdcardPath, String appName) {
+        Log.d(TAG, "init SDcard Dirs");
+        createDir(sdcardPath);
+        createDir(DIR_LOG);
+        createDir(DIR_TEMP);
+        createDir(DIR_CRASH_LOG);
+        createDir(DIR_DOWNLOAD);
+        createDir(DIR_PHOTO_CRASH);
+        createDir(DIR_CACHE);
+        createDir(DIR_VIDEO);
+        createDir(DIR_APP_XML);
     }
 
     /**
      * 创建指定路径的文件夹
-     *
      * @param path 路径
      * @return 通过路径创建的File对象
      * @throws SecurityException 安全异常
@@ -304,6 +114,80 @@ public class FileUtils {
             parent.mkdirs();
         }
         return file.createNewFile();
+    }
+
+    /**
+     * 创建文件 若该文件不存在则创建，若存在则不用处理
+     *
+     * @param file 需要创建的文件
+     * @return 是否创建成功
+     * @throws IOException IO异常
+     */
+    public static boolean createFileNotExist(File file) throws IOException {
+        if (!file.exists()) {
+            File parent = file.getParentFile();
+            if (parent != null && !parent.exists()) {
+                parent.mkdirs();
+            }
+            return file.createNewFile();
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * 判断文件是否存在
+     *
+     * @param strFile
+     * @return 是否存在
+     */
+    public static boolean fileIsExists(String strFile) {
+        try {
+            File f = new File(strFile);
+            if (!f.exists()) {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 通过pathType在使用时确定该文件是否存在
+     * @param pathType
+     */
+    public static void fileIsExistsbyType(PathType pathType) {
+        switch (pathType) {
+            case SDCARD:
+                createDir(DIR_PUBLLIC_ROOT);
+                break;
+            case LOG:
+                createDir(DIR_LOG);
+                break;
+            case TEMP:
+                createDir(DIR_TEMP);
+                break;
+            case CRASH_LOG:
+                createDir(DIR_CRASH_LOG);
+                break;
+            case DOWNLOAD:
+                createDir(DIR_DOWNLOAD);
+                break;
+            case APP_PHOTOS:
+                createDir(DIR_PHOTO_CRASH);
+                break;
+            case CACHE:
+                createDir(DIR_CACHE);
+                break;
+            case MEDIA_DIR:
+                createDir(DIR_VIDEO);
+                break;
+            case APP_XML:
+                createDir(DIR_APP_XML);
+                break;
+        }
     }
 
     /**
@@ -354,6 +238,7 @@ public class FileUtils {
             }
         }
     }
+
 
     /**
      * @param TimeInMillis    指定时间的时间戳，最好不要为当前获取的时间
@@ -414,6 +299,21 @@ public class FileUtils {
         int tmp = filePath.lastIndexOf(File.separatorChar);
         String fileName = filePath.substring(tmp + 1);
         return fileName;
+    }
+
+    /**
+     * 获取cache文件保存网络缓存数据
+     * @return
+     */
+    public static File getcacheDirectory() {
+        File file = new File(DIR_CACHE, "NetCache");
+        if(!file.exists()) {
+            boolean b = file.mkdirs();
+            Log.e("file", "文件不存在  创建文件    "+b);
+        }else{
+            Log.e("file", "文件存在");
+        }
+        return file;
     }
 
     /**
@@ -492,6 +392,25 @@ public class FileUtils {
     }
 
     /**
+     * 按行读取文本文件
+     *
+     * @param is
+     * @return
+     * @throws Exception
+     */
+    public static String readTextFromFile(InputStream is) throws Exception {
+        InputStreamReader reader = new InputStreamReader(is);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        StringBuffer buffer = new StringBuffer("");
+        String str;
+        while ((str = bufferedReader.readLine()) != null) {
+            buffer.append(str);
+            buffer.append("\n");
+        }
+        return buffer.toString();
+    }
+
+    /**
      * 创建文件父目录
      *
      * @param file
@@ -533,4 +452,44 @@ public class FileUtils {
         return isCreateNewFileOk;
     }
 
+    /**
+     * 拷贝文件 将文件A拷贝到文件B fileChannel方式
+     *
+     * @param fileNameA 原文件
+     * @param fileNameB 目标文件
+     * @return 是否拷贝成功
+     */
+    public static boolean copyTo(String fileNameA, String fileNameB) {
+        File s = new File(fileNameA);
+        File t = new File(fileNameB);
+        FileInputStream fi = null;
+        FileOutputStream fo = null;
+        FileChannel in = null;
+        FileChannel out = null;
+        boolean result = false;
+        try {
+            fi = new FileInputStream(s);
+            fo = new FileOutputStream(t);
+            in = fi.getChannel();// 得到对应的文件通道
+            out = fo.getChannel();// 得到对应的文件通道
+            in.transferTo(0, in.size(), out);// 连接两个通道，并且从in通道读取，然后写入out通道
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fi != null)
+                    fi.close();
+                if (in != null)
+                    in.close();
+                if (fo != null)
+                    fo.close();
+                if (out != null)
+                    out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 }

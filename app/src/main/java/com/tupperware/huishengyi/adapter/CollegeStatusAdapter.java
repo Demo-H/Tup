@@ -8,9 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.CollegeTabBean;
-import com.tupperware.huishengyi.ui.fragment.BaseFragment;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.ui.fragment.CollClassifyFragment;
-import com.tupperware.huishengyi.ui.fragment.CollStoreFragment;
 
 /**
  * Created by dhunter on 2018/4/17.
@@ -42,12 +41,13 @@ public class CollegeStatusAdapter extends FragmentPagerAdapter {
     public BaseFragment getItem(int position) {
         Bundle bundle = new Bundle();
         bundle.putInt(Constant.FRAGMENT_TAB_POSITION, position);
-        BaseFragment fragment;
-        if(position == 0) {
-            fragment = CollClassifyFragment.newInstance(bundle);
-        } else {
-            fragment = CollStoreFragment.newInstance(bundle);
-        }
+        bundle.putInt(Constant.LABLE_ID, mData.models.get(position).id);
+        BaseFragment fragment = CollClassifyFragment.newInstance(bundle);
+//        if(position == 0) {
+//            fragment = CollClassifyFragment.newInstance(bundle);
+//        } else {
+//            fragment = CollStoreFragment.newInstance(bundle);
+//        }
 //        if(position == 0) {
 //            fragment = CollCourseFragment.newInstance(bundle);
 //        } else if(position == 1) {

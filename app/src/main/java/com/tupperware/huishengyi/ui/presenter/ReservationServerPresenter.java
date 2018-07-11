@@ -1,6 +1,7 @@
 package com.tupperware.huishengyi.ui.presenter;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.member.ReservationServerBean;
 import com.tupperware.huishengyi.http.PersonalDataManager;
@@ -35,6 +36,9 @@ public class ReservationServerPresenter extends BasePresenter implements Reserva
                 mView.hideDialog();
                 if(!responeBean.success) {
                     mView.toast(responeBean.message);
+                    mView.setNetErrorView();
+                } else if(responeBean.getModels() == null || responeBean.getModels().isEmpty()) {
+                    mView.setEmptyView();
                 } else {
                     mView.setReservationServerData(responeBean);
                 }
@@ -44,6 +48,7 @@ public class ReservationServerPresenter extends BasePresenter implements Reserva
             public void onError(Throwable e) {
                 super.onError(e);
                 mView.hideDialog();
+                mView.setNetErrorView();
             }
 
             @Override

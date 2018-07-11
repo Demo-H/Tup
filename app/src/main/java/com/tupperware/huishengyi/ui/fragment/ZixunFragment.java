@@ -8,16 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ZixunAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.entity.ZixunBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerZixunFragmentComponent;
-import com.tupperware.huishengyi.module.ZixunPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerZixunFragmentComponent;
+import com.tupperware.huishengyi.ui.module.ZixunPresenterModule;
 import com.tupperware.huishengyi.ui.contract.ZixunContract;
 import com.tupperware.huishengyi.ui.presenter.ZixunPresenter;
 
@@ -48,7 +49,7 @@ public class ZixunFragment extends BaseFragment implements ZixunContract.View, P
         mZixunRecyclerview = (RecyclerView) view.findViewById(R.id.zixun_recyclerview);
         zixunPullRefreshHeader = (PullHeaderView) view.findViewById(R.id.find_pull_refresh_header);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -68,7 +69,7 @@ public class ZixunFragment extends BaseFragment implements ZixunContract.View, P
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getZixunData();
     }
 

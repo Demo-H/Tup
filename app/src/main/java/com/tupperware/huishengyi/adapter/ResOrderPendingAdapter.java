@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.order.OrderBean;
-import com.tupperware.huishengyi.ui.OnlineOrderDetialActivity;
+import com.tupperware.huishengyi.ui.activities.OnlineOrderDetialActivity;
 
 /**
  * Created by dhunter on 2018/3/15.

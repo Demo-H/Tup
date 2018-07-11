@@ -23,4 +23,11 @@ public class ReservationServerBean extends BaseData {
     }
     public List<ReservationItem> models;
 
+    public List<ReservationItem> getModels() {
+        return models;
+    }
+
+    public void setModels(List<ReservationItem> models) {
+        this.models = models;
+    }
 }

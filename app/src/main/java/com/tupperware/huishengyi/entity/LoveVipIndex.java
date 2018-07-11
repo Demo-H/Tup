@@ -1,6 +1,6 @@
 package com.tupperware.huishengyi.entity;
 
-import com.android.dhunter.common.base.baseadapter.entity.MultiItemEntity;
+import com.android.dhunter.common.baserecycleview.entity.MultiItemEntity;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.List;

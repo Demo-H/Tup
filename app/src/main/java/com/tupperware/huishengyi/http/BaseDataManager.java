@@ -2,7 +2,7 @@ package com.tupperware.huishengyi.http;
 
 import android.content.Context;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.android.dhunter.common.utils.FileUtils;
 import com.tupperware.huishengyi.http.api.CacheProviders;
 import com.tupperware.huishengyi.http.retrofit.GsonTSpeaker;
@@ -37,24 +37,41 @@ public class BaseDataManager {
         this.mDataManager = mDataManager;
     }
 
-    protected void saveSPData(String key , String value){
+    /**专门给String类型使用 **/
+    public void saveSPData(String key , String value){
         mDataManager.saveSPData(key,value);
     }
 
     public void saveSPMapData(Map<String,String> map){
         mDataManager.saveSPMapData(map);
     }
+    /**其他类型使用 **/
+    public void saveSPObjectData(String key, Object obj) {
+        mDataManager.saveSPObjectData(key, obj);
+    }
 
     public String getSPData(String key){
         return mDataManager.getSPData(key);
+    }
+
+    public Map<String ,String> getSPMapData(){
+        return mDataManager.getSPMapData();
+    }
+
+    public Object getSpObjectData(String key, Object defaultValue) {
+        return mDataManager.getSpObjectData(key, defaultValue);
+    }
+
+    public void removeSpData(String key) {
+        mDataManager.removeSpData(key);
     }
 
     public void deleteSPData(){
         mDataManager.deleteSPData();
     }
 
-    public Map<String ,String> getSPMapData(){
-        return mDataManager.getSPMapData();
+    public void setHeader() {
+        mDataManager.setHeader();
     }
 
     protected<S> Disposable changeIOToMainThread(Observable<S> observable , DisposableObserver<S> consumer ){

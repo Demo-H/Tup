@@ -1,6 +1,5 @@
 package com.tupperware.huishengyi.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
@@ -17,13 +16,14 @@ import com.android.dhunter.common.qrcode.assit.BeepManager;
 import com.android.dhunter.common.qrcode.core.QRCodeView;
 import com.android.dhunter.common.qrcode.zxing.ZXingView;
 import com.tupperware.huishengyi.R;
-import com.tupperware.huishengyi.component.DaggerSaleScanFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterBean;
 import com.tupperware.huishengyi.http.ProductDataManager;
-import com.tupperware.huishengyi.interfaces.ISaleEnterListener;
-import com.tupperware.huishengyi.module.SaleScanPresenterModule;
+import com.tupperware.huishengyi.listener.ISaleEnterListener;
+import com.tupperware.huishengyi.ui.component.DaggerSaleScanFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SaleScanContract;
+import com.tupperware.huishengyi.ui.module.SaleScanPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SaleScanPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
 import com.tupperware.huishengyi.utils.StringUtils;
@@ -58,7 +58,6 @@ public class SaleScanFragment extends BaseFragment implements QRCodeView.Delegat
     private View rootView;
     private BeepManager beepManager;
     private ISaleEnterListener mEnterListener;
-    private Context mContext;
     private ProductProvider mInstance;
     private ProductHistoryProvider mHistoryInstance;
     private TextView mEnterCount; //Activity上的清单个数
@@ -94,14 +93,13 @@ public class SaleScanFragment extends BaseFragment implements QRCodeView.Delegat
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         rootView = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootView);
-        mContext = getContext();
         if(isHistory) {
             mHistoryInstance = ProductHistoryProvider.getInstance(mContext.getApplicationContext());
         } else {
             mInstance = ProductProvider.getInstance(mContext.getApplicationContext());
         }
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -121,7 +119,7 @@ public class SaleScanFragment extends BaseFragment implements QRCodeView.Delegat
 
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

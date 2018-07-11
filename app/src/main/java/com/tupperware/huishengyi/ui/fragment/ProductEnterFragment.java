@@ -20,12 +20,13 @@ import com.android.dhunter.common.widget.popupWindow.Config;
 import com.android.dhunter.common.widget.popupWindow.EasyTopPopup;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ProductEnterAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.ProductEnterBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerProductEnterFragmentComponent;
-import com.tupperware.huishengyi.module.ProductEnterPresenterModule;
-import com.tupperware.huishengyi.ui.ScanCouponActivity;
+import com.tupperware.huishengyi.ui.component.DaggerProductEnterFragmentComponent;
+import com.tupperware.huishengyi.ui.module.ProductEnterPresenterModule;
+import com.tupperware.huishengyi.ui.activities.ScanCouponActivity;
 import com.tupperware.huishengyi.ui.contract.ProductEnterContract;
 import com.tupperware.huishengyi.ui.presenter.ProductEnterPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
@@ -44,6 +45,7 @@ import static com.tupperware.huishengyi.config.Constant.REQUEST_DATE;
 
 /**
  * Created by dhunter on 2018/3/23.
+ * 需求变更，弃用
  */
 
 public class ProductEnterFragment  extends BaseFragment implements ProductEnterContract.View {
@@ -89,7 +91,7 @@ public class ProductEnterFragment  extends BaseFragment implements ProductEnterC
         rootView = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootView);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -109,7 +111,7 @@ public class ProductEnterFragment  extends BaseFragment implements ProductEnterC
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getProductEnterData();
     }
 

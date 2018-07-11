@@ -1,5 +1,7 @@
 package com.tupperware.huishengyi.entity.college;
 
+import java.util.List;
+
 /**
  * Created by dhunter on 2018/5/2.
  * 共用有条件的请求
@@ -10,6 +12,8 @@ public class ConditionRequest {
     public PageQuery pagingQuery;   //按页分进行更多请求
     public long tagId;
     public TimelineQuery timelineQuery;  //按时间分进行更多请求
+
+    private List<String> tagCodes;
 
 
     public static class Condition{
@@ -150,5 +154,13 @@ public class ConditionRequest {
 
     public void setPagingQuery(PageQuery pagingQuery) {
         this.pagingQuery = pagingQuery;
+    }
+
+    public List<String> getTagCodes() {
+        return tagCodes;
+    }
+
+    public void setTagCodes(List<String> tagCodes) {
+        this.tagCodes = tagCodes;
     }
 }

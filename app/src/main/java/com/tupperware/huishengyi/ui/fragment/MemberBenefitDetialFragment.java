@@ -17,11 +17,12 @@ import android.widget.TextView;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.MemberBenefitDetialAdapter;
 import com.tupperware.huishengyi.adapter.MemberCouponDetialAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.BenefitCoinExpenditureBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerMemberBenefitDetialFragmentComponent;
-import com.tupperware.huishengyi.module.MemberBenefitDetialPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerMemberBenefitDetialFragmentComponent;
+import com.tupperware.huishengyi.ui.module.MemberBenefitDetialPresenterModule;
 import com.tupperware.huishengyi.ui.contract.MemberBenefitDetialContract;
 import com.tupperware.huishengyi.ui.presenter.MemberBenefitDetialPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -97,7 +98,7 @@ public class MemberBenefitDetialFragment extends BaseFragment implements MemberB
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -132,7 +133,7 @@ public class MemberBenefitDetialFragment extends BaseFragment implements MemberB
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getMemberBenefitDetialData();
     }
 

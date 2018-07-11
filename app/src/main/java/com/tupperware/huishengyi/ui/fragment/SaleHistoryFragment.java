@@ -1,7 +1,6 @@
 package com.tupperware.huishengyi.ui.fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,19 +15,20 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.SaleHistoryAdapter;
-import com.tupperware.huishengyi.component.DaggerSaleHistoryFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterBean;
 import com.tupperware.huishengyi.http.ProductDataManager;
-import com.tupperware.huishengyi.module.SaleHistoryPresenterModule;
-import com.tupperware.huishengyi.ui.EnterListActivity;
+import com.tupperware.huishengyi.ui.activities.EnterListActivity;
+import com.tupperware.huishengyi.ui.component.DaggerSaleHistoryFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SaleHistoryContract;
+import com.tupperware.huishengyi.ui.module.SaleHistoryPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SaleHistoryPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
 import com.tupperware.huishengyi.utils.data.ProductHistoryProvider;
@@ -84,7 +84,6 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
     private View rootView;
     private View emptyView;
     private TextView mEmptyText;
-    private Context mContext;
     private String selectDate;
     private String currentSelect;
     private ProductProvider mInstance;
@@ -103,10 +102,9 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
         emptyView = inflater.inflate(R.layout.view_empty_recycleview, null);
         mEmptyText = (TextView) emptyView.findViewById(R.id.empty_text);
         mEmptyText.setText(getResources().getString(R.string.no_sale_list));
-        mContext = getContext();
         unbinder = ButterKnife.bind(this, rootView);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -161,7 +159,7 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         showDialog();
         mPresenter.getSaleHistoryData(storeCode, selectDate);
     }
@@ -279,7 +277,7 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
                 mHistoryInstance.deleteAll();
                 selectDate = before;
                 refreshFootListCount();
-                initLayoutData();
+                requestData();
                 break;
             case R.id.after_day:
                 currentSelect = mSelectDay.getText().toString().trim();
@@ -288,7 +286,7 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
                 mHistoryInstance.deleteAll();
                 selectDate = after;
                 refreshFootListCount();
-                initLayoutData();
+                requestData();
                 break;
             case R.id.generate_list:
                 currentSelect = mSelectDay.getText().toString().trim();
@@ -325,7 +323,7 @@ public class SaleHistoryFragment extends BaseFragment implements SaleHistoryCont
                 mHistoryInstance.deleteAll();
                 mSelectDay.setText(selectDate);
                 refreshFootListCount();
-                initLayoutData();
+                requestData();
             }
         }
     }

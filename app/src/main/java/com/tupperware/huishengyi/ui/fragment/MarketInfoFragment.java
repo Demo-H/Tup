@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 
 /**
  * Created by dhunter on 2018/2/2.
@@ -49,7 +50,7 @@ public class MarketInfoFragment extends BaseFragment implements View.OnClickList
         mZixunText = (TextView) view.findViewById(R.id.zixun);
         mVideoText = (TextView) view.findViewById(R.id.video);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -76,7 +77,7 @@ public class MarketInfoFragment extends BaseFragment implements View.OnClickList
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

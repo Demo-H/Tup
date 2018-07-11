@@ -2,7 +2,8 @@ package com.tupperware.huishengyi.ui.presenter;
 
 import android.app.Activity;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.home.HomeBean;
 import com.tupperware.huishengyi.entity.home.HomeIndexBean;
 import com.tupperware.huishengyi.entity.msg.MsgRedTip;
@@ -46,13 +47,17 @@ public class HomePagePresenter extends BasePresenter implements HomePageContract
             public void onNext(HomeBean homeBean) {
                 LogF.i(TAG,ObjectUtil.jsonFormatter(homeBean));
                 if(!homeBean.success) {
-                    mHomePageView.showToast(homeBean.message);
-                    mHomePageView.setNetErrorView();
+                    if(homeBean.resultCode.equals(StateCode.TOKEN_OUT_DATE_S)) {
+                        mHomePageView.showToast("token过期，请重新登录");
+                        mHomePageView.reLogin();
+                        mDataManager.deleteSPData();
+                    } else {
+                        mHomePageView.showToast(homeBean.message);
+                        mHomePageView.setNetErrorView();
+                    }
                 } else if(homeBean.model == null) {
                     mHomePageView.showToast("服务器数据返回为null");
                     mHomePageView.setNetErrorView();
-                } else if(homeBean.resultCode == StateCode.TOKEN_OUT_DATE_S) {
-                    mHomePageView.reLogin();
                 } else {
                     HomeIndexBean homeIndexBean = matchResponeData(homeBean);
                     mHomePageView.setNormalView();
@@ -111,7 +116,10 @@ public class HomePagePresenter extends BasePresenter implements HomePageContract
         homeIndexBean.resultCode = homeBean.resultCode;
         List<HomeIndexBean.ItemInfoListBean> itemInfoList = new ArrayList<>();
 
-        for(int i = 0; i < 5; i++) {
+        /**
+         * 删除我的任务目标
+         */
+        for(int i = 0; i < 4; i++) {
             if(i == 0) {//今日头条
                 HomeIndexBean.ItemInfoListBean itemBean = new HomeIndexBean.ItemInfoListBean();
                 itemBean.setItemType("topBanner");
@@ -147,7 +155,7 @@ public class HomePagePresenter extends BasePresenter implements HomePageContract
                 }
                 itemBean.setItemContentList(itemContentList);
                 itemInfoList.add(itemBean);
-            } else if(i == 3) {
+            /*} else if(i == 3) {
                 HomeIndexBean.ItemInfoListBean itemBean = new HomeIndexBean.ItemInfoListBean();
                 itemBean.itemType = "targetMe";
                 List<HomeIndexBean.ItemInfoListBean.ItemContentListBean> itemContentList = new ArrayList<>();
@@ -157,8 +165,8 @@ public class HomePagePresenter extends BasePresenter implements HomePageContract
                     itemContentList.add(itemContent);
                 }
                 itemBean.setItemContentList(itemContentList);
-                itemInfoList.add(itemBean);
-            } else if(i == 4) {//首页商学院
+                itemInfoList.add(itemBean);*/
+            } else if(i == 3) {//首页商学院
                 HomeIndexBean.ItemInfoListBean itemBean = new HomeIndexBean.ItemInfoListBean();
                 itemBean.itemType = "marketInfo";
                 List<HomeIndexBean.ItemInfoListBean.ItemContentListBean> itemContentList = new ArrayList<>();

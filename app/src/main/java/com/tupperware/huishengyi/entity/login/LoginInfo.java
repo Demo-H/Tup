@@ -15,7 +15,7 @@ public class LoginInfo {
     public boolean success;
     public String resultCode;
     public String message;
-    public Model model;
+    public LoginModel model;
     public Extra extra;
     public boolean valid;
 
@@ -29,7 +29,7 @@ public class LoginInfo {
         }
     }
 
-    public class Model {
+    public class LoginModel {
         public String pUid;
         public String pName;
         public String passwd;
@@ -272,11 +272,11 @@ public class LoginInfo {
         this.message = message;
     }
 
-    public Model getModel() {
+    public LoginModel getModel() {
         return model;
     }
 
-    public void setModel(Model model) {
+    public void setModel(LoginModel model) {
         this.model = model;
     }
 

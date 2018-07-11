@@ -1,5 +1,6 @@
 package com.tupperware.huishengyi.ui.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +25,7 @@ import butterknife.OnClick;
  * Created by dhunter on 2018/6/11.
  */
 
-public class DataShowFragment extends BaseFragment  {
+public class DataShowFragment extends BaseFragment {
 
 //    @BindView(R.id.data_show_status_tab)
 //    TabLayout mTabLayout;
@@ -46,6 +51,11 @@ public class DataShowFragment extends BaseFragment  {
     private FragmentManager fragmentManager;
     private BaseFragment currentFragment;
 
+    private Method noteStateNotSavedMethod;
+    private Object fragmentMgr;
+    private String[] activityClassName = {"Activity", "FragmentActivity"};
+    private boolean issavedInstanceState = false;
+
     public static DataShowFragment newInstance() {
         DataShowFragment fragment = new DataShowFragment();
         return fragment;
@@ -56,7 +66,7 @@ public class DataShowFragment extends BaseFragment  {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -66,12 +76,21 @@ public class DataShowFragment extends BaseFragment  {
         fragmentManager = getActivity().getSupportFragmentManager();
 //        fragmentManager = getChildFragmentManager();
         if(savedInstanceState != null) {
+            issavedInstanceState = true;
             mMemberDataFragment = (MemberDataFragment) fragmentManager.findFragmentByTag(MemberDataFragment.class.getName());
             mSaleDataFragment = (SaleDataFragment) fragmentManager.findFragmentByTag(SaleDataFragment.class.getName());
             fragmentManager.beginTransaction().show(mMemberDataFragment).hide(mSaleDataFragment);
             //把当前显示的fragment记录下来
             currentFragment = mMemberDataFragment;
         } else {
+            issavedInstanceState = false;
+
+        }
+    }
+
+    @Override
+    public void initLayout() {
+        if(!issavedInstanceState) {
             mMemberDataFragment = MemberDataFragment.newInstance();
             mSaleDataFragment = SaleDataFragment.newInstance();
             showFragment(mMemberDataFragment);
@@ -79,13 +98,14 @@ public class DataShowFragment extends BaseFragment  {
     }
 
     @Override
-    public void initLayout() {
+    public void requestData() {
 
     }
 
     @Override
-    public void initLayoutData() {
-
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        invokeFragmentManagerNoteStateNotSaved();
     }
 
     @Override
@@ -148,4 +168,59 @@ public class DataShowFragment extends BaseFragment  {
         currentFragment = fg;
         transaction.commit();
     }
+
+    private void invokeFragmentManagerNoteStateNotSaved() {
+        //java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            return;
+        }
+        try {
+            if (noteStateNotSavedMethod != null && fragmentMgr != null) {
+                noteStateNotSavedMethod.invoke(fragmentMgr);
+                return;
+            }
+            Class cls = getClass();
+            do {
+                cls = cls.getSuperclass();
+            } while (!(activityClassName[0].equals(cls.getSimpleName())
+                    || activityClassName[1].equals(cls.getSimpleName())));
+
+            Field fragmentMgrField = prepareField(cls, "mFragments");
+            if (fragmentMgrField != null) {
+                fragmentMgr = fragmentMgrField.get(this);
+                noteStateNotSavedMethod = getDeclaredMethod(fragmentMgr, "noteStateNotSaved");
+                if (noteStateNotSavedMethod != null) {
+                    noteStateNotSavedMethod.invoke(fragmentMgr);
+                }
+            }
+
+        } catch (Exception ex) {
+        }
+    }
+
+    private Field prepareField(Class<?> c, String fieldName) throws NoSuchFieldException {
+        while (c != null) {
+            try {
+                Field f = c.getDeclaredField(fieldName);
+                f.setAccessible(true);
+                return f;
+            } finally {
+                c = c.getSuperclass();
+            }
+        }
+        throw new NoSuchFieldException();
+    }
+
+    private Method getDeclaredMethod(Object object, String methodName, Class<?>... parameterTypes) {
+        Method method = null;
+        for (Class<?> clazz = object.getClass(); clazz != Object.class; clazz = clazz.getSuperclass()) {
+            try {
+                method = clazz.getDeclaredMethod(methodName, parameterTypes);
+                return method;
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
+
 }

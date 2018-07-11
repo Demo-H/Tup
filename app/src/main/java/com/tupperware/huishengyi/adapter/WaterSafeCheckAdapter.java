@@ -4,8 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.entity.DataEntry;
 

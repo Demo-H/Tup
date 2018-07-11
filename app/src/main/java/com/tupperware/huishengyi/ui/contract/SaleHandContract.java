@@ -13,7 +13,7 @@ public class SaleHandContract {
         void setNetErrorView();
         void setNormalView();
         void toast(String msg);
-        void setTestData();
+//        void setTestData();
     }
 
     public interface Presenter {

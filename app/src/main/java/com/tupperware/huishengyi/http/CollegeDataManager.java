@@ -1,11 +1,13 @@
 package com.tupperware.huishengyi.http;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.entity.college.ConditionRequest;
 import com.tupperware.huishengyi.entity.college.CollegeTabBean;
 import com.tupperware.huishengyi.entity.college.CourseBean;
+import com.tupperware.huishengyi.entity.college.LikeBean;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
 import com.tupperware.huishengyi.http.api.CollegeService;
 
 import java.util.List;
@@ -86,6 +88,22 @@ public class CollegeDataManager extends BaseDataManager {
 
         return changeIOToMainThread(observableCahce, consumer);
     }
+
+    public Disposable getIsLike(DisposableObserver<LikeBean> consumer, long answerId) {
+        Observable observable = getService(CollegeService.class).getIsLike(answerId);
+        return changeIOToMainThread(observable, consumer);
+    }
+
+    public Disposable setLike(DisposableObserver<ResponseBean> consumer, long answerId) {
+        Observable observable = getService(CollegeService.class).setLike(answerId);
+        return changeIOToMainThread(observable, consumer);
+    }
+
+    public Disposable cancelLike(DisposableObserver<ResponseBean> consumer, long answerId) {
+        Observable observable = getService(CollegeService.class).cancelLike(answerId);
+        return changeIOToMainThread(observable, consumer);
+    }
+
 
     /**
      * get 获取课程详情

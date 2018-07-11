@@ -9,6 +9,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.entity.college.CourseBean;
 import com.tupperware.huishengyi.utils.ObjectUtil;
 import com.tupperware.huishengyi.utils.logutils.LogF;
@@ -43,7 +44,7 @@ public class CourseIntroduceFragment extends BaseFragment {
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -56,7 +57,7 @@ public class CourseIntroduceFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

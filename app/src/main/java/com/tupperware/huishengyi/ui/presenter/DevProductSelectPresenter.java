@@ -1,6 +1,7 @@
 package com.tupperware.huishengyi.ui.presenter;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.member.DevMemberRequest;
 import com.tupperware.huishengyi.entity.member.DevMemberRespone;
 import com.tupperware.huishengyi.http.PersonalDataManager;

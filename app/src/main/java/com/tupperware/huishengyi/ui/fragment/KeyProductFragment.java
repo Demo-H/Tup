@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.KeyProductAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
 
@@ -45,7 +46,7 @@ public class KeyProductFragment extends BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -62,7 +63,7 @@ public class KeyProductFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

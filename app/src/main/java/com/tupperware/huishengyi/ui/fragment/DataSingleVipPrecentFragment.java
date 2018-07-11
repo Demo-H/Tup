@@ -21,6 +21,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import butterknife.ButterKnife;
 /**
  * Created by dhunter on 2018/4/10.
  * 单店会员消费占比
+ * 饼状图
  */
 
 public class DataSingleVipPrecentFragment extends BaseFragment implements OnChartValueSelectedListener {
@@ -65,7 +67,7 @@ public class DataSingleVipPrecentFragment extends BaseFragment implements OnChar
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -132,7 +134,7 @@ public class DataSingleVipPrecentFragment extends BaseFragment implements OnChar
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

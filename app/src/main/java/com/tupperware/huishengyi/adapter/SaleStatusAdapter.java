@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleTabBean;
-import com.tupperware.huishengyi.ui.fragment.BaseFragment;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.ui.fragment.SaleEnterClassifyFragment;
 
 /**

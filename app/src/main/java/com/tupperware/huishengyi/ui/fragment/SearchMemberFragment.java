@@ -1,7 +1,6 @@
 package com.tupperware.huishengyi.ui.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,44 +15,33 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.config.GlobalConfig;
-import com.android.dhunter.common.utils.SharePreferenceData;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.SearchMemberAdapter;
-import com.tupperware.huishengyi.component.DaggerSearchMemberFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
-import com.tupperware.huishengyi.config.Constants;
-import com.tupperware.huishengyi.entity.login.ResponseBean;
 import com.tupperware.huishengyi.entity.member.MemberBean;
-import com.tupperware.huishengyi.http.OrderDataManager;
-import com.tupperware.huishengyi.module.SearchMemberPresenterModule;
-import com.tupperware.huishengyi.network.ServerURL;
-import com.tupperware.huishengyi.network.TupVolley;
+import com.tupperware.huishengyi.http.MemberDataManager;
+import com.tupperware.huishengyi.ui.component.DaggerSearchMemberFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SearchMemberContract;
+import com.tupperware.huishengyi.ui.module.SearchMemberPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SearchMemberPresenter;
-import com.tupperware.huishengyi.utils.logutils.LogF;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.tupperware.huishengyi.config.Constants.REQUEST_CODE_SEARCH_MEMBER_MORE;
+import butterknife.OnClick;
 
 /**
  * Created by dhunter on 2018/5/30.
  */
 
-public class SearchMemberFragment extends BaseFragment implements SearchMemberContract.View, PtrHandler, BaseQuickAdapter.RequestLoadMoreListener,
-        TupVolley.TupVolleyErrorListener, TupVolley.TupVolleyListener{
+public class SearchMemberFragment extends BaseFragment implements SearchMemberContract.View, PtrHandler, BaseQuickAdapter.RequestLoadMoreListener{
 
     private static final String TAG = "SearchMemberFragment";
 
@@ -70,9 +58,6 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
     private String memberCode; //搜索的会员编号
     private SearchMemberAdapter mMemberAdapter;
     private EditText mSearchEditText;
-    private Map<String, String> headerparams;
-    private SharePreferenceData mSharePreDate;
-    public TupVolley mTupVolley;
     private int pageIndex = 2;
     @Inject
     SearchMemberPresenter mPresenter;
@@ -90,9 +75,8 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
         mEmptyText = (TextView) emptyView.findViewById(R.id.empty_text);
         mEmptyText.setText(getResources().getString(R.string.no_search_result));
         unbinder = ButterKnife.bind(this, rootView);
-        initheaderparams();
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -100,7 +84,7 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
     public void initLayout() {
         DaggerSearchMemberFragmentComponent.builder()
                 .appComponent(getAppComponent())
-                .searchMemberPresenterModule(new SearchMemberPresenterModule(this, OrderDataManager.getInstance(mDataManager)))
+                .searchMemberPresenterModule(new SearchMemberPresenterModule(this, MemberDataManager.getInstance(mDataManager)))
                 .build()
                 .inject(this);
         mRefreshHeader.setPtrHandler(this);
@@ -136,34 +120,16 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
 
     private void getMemberSearchData(int pageindex) {
         memberCode = mSearchEditText.getText().toString();
-        Uri.Builder builder = Uri.parse(ServerURL.MEMBER_LIST).buildUpon();
-        builder.appendQueryParameter("searchTxt", memberCode);
-        builder.appendQueryParameter("initiation_end", System.currentTimeMillis() + "");
-        builder.appendQueryParameter("pageNo", pageindex + "");
-        builder.appendQueryParameter("pageSize", Constant.DEFAULT_MEMBER_PAGE_SIZE + "");
-        String url = builder.toString();
         if (pageindex == Constant.FIRST_PAGE_INDEX) {
-            mTupVolley.get(Constants.REQUEST_CODE_SEARCH_MEMBER, url, this, this, headerparams);
+            mPresenter.getMemberSearchData(memberCode);
         } else {
-            mTupVolley.get(REQUEST_CODE_SEARCH_MEMBER_MORE, url, this, this, headerparams);
+            mPresenter.getMoreMemberSearchData(memberCode, pageindex);
         }
     }
 
-    private void initheaderparams() {
-        if(headerparams == null) {
-            headerparams = new HashMap<>();
-        }
-        mSharePreDate = new SharePreferenceData(getContext().getApplicationContext());
-        String token = (String) mSharePreDate.getParam(GlobalConfig.LOGIN_TOKEN, "");
-        String userId = (String) mSharePreDate.getParam(GlobalConfig.KEY_DATA_USERID, "");
-        String employeeGroup = (String) mSharePreDate.getParam(GlobalConfig.EMPLOYEE_GROUP, "0"); //1为店长,0为店员
-        headerparams.put("token", token);
-        headerparams.put("userId", userId);
-        headerparams.put("employeeGroup", employeeGroup);
-    }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 
@@ -177,8 +143,7 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
         frame.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                orderCode = mOrderSearchEdit.getText().toString();
-//                mPresenter.getOrderSearchData(code, orderCode);
+                pageIndex = 2;
                 getMemberSearchData(Constant.FIRST_PAGE_INDEX);
                 frame.refreshComplete();
             }
@@ -215,6 +180,7 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
         }
         emptyView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
+        mMemberAdapter.setNewData(null);
         mMemberAdapter.setEmptyView(emptyView);
     }
 
@@ -222,6 +188,16 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
     public void setMemberSearchData(MemberBean memberBean) {
         mMemberAdapter.setNewData(memberBean.models);
         if(!memberBean.pageInfo.hasMore) {
+            mMemberAdapter.loadMoreEnd(false); //所有数据加载结束
+        }
+    }
+
+    @Override
+    public void setMoreMemberSearchData(MemberBean memberBean) {
+        pageIndex++;
+        mMemberAdapter.getData().addAll(memberBean.models);
+        mMemberAdapter.loadMoreComplete();
+        if (!memberBean.pageInfo.hasMore) {
             mMemberAdapter.loadMoreEnd(false); //所有数据加载结束
         }
     }
@@ -236,57 +212,22 @@ public class SearchMemberFragment extends BaseFragment implements SearchMemberCo
                     mMemberAdapter.loadMoreEnd(false);
                 } else {
                     getMemberSearchData(pageIndex);
-                    pageIndex++;
                 }
             }
         },1000);
-    }
-
-    @Override
-    public void ok(int requestCode, String json) {
-        LogF.i(TAG, "json = " + json);
-        hideDialog();
-        MemberBean memberbean = MemberBean.createInstanceByJson(json);
-        if (requestCode == Constants.REQUEST_CODE_SEARCH_MEMBER) {
-            if (memberbean == null) {
-                toast(getString(R.string.system_error));
-                return;
-            }
-            if (!memberbean.isSuccess()) {
-                toast(memberbean.getMessage());
-                return;
-            }
-            if (memberbean.models == null || memberbean.models.isEmpty()) {
-                setEmptyView();
-            } else {
-                setMemberSearchData(memberbean);
-            }
-        } else if (requestCode == REQUEST_CODE_SEARCH_MEMBER_MORE) {
-            setMoreMemberSearchData(memberbean);
-        }
-    }
-
-    @Override
-    public boolean error(int requestCode, ResponseBean errorCode) {
-        hideDialog();
-        setEmptyView();
-        return false;
-    }
-
-    public void setMoreMemberSearchData(MemberBean memberBean) {
-        mMemberAdapter.getData().addAll(memberBean.models);
-        mMemberAdapter.loadMoreComplete();
-        if (!memberBean.pageInfo.hasMore) {
-            mMemberAdapter.loadMoreEnd(false); //所有数据加载结束
-        }
     }
 
     public void setEditText(EditText mSearch) {
         this.mSearchEditText = mSearch;
     }
 
-    public void setTupVolley(TupVolley mTupVolley) {
-        this.mTupVolley = mTupVolley;
+    @OnClick({R.id.error_layout})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.error_layout:
+                getMemberSearchData(Constant.FIRST_PAGE_INDEX);
+                break;
+        }
     }
 
 }

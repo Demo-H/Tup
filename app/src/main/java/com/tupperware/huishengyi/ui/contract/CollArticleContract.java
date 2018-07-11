@@ -11,6 +11,9 @@ public class CollArticleContract {
         void setArticleData(CollegeBean mBean);
         void setMoreArticleData(CollegeBean mBean);
         void toast(String msg);
+        void setNormalView();
+        void setNetErrorView();
+        void setEmptyView();
     }
 
     public interface Presenter {

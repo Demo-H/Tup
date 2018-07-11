@@ -40,6 +40,9 @@ public class ProcessDataTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
+        if(mCamera != null) {
+            mCamera.lock();
+        }
         Camera.Parameters parameters = mCamera.getParameters();
         Camera.Size size = parameters.getPreviewSize();
         int width = size.width;
@@ -70,7 +73,14 @@ public class ProcessDataTask extends AsyncTask<Void, Void, String> {
             } catch (Exception e2) {
                 return null;
             }
+        } finally {
+            try{
+                mCamera.unlock();
+            }catch(Exception ex) {
+                ex.printStackTrace();
+            }
         }
+
     }
 
     public interface Delegate {

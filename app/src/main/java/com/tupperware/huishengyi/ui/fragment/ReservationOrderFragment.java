@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ReservationOrderAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.utils.TabLayoutUtils;
 
 import butterknife.BindView;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by dhunter on 2018/3/14.
  */
 
-public class ReservationOrderFragment extends  BaseFragment {
+public class ReservationOrderFragment extends BaseFragment {
 
     @BindView(R.id.reservation_status_tab)
     TabLayout mReservationTab;
@@ -34,7 +35,7 @@ public class ReservationOrderFragment extends  BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -45,7 +46,7 @@ public class ReservationOrderFragment extends  BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

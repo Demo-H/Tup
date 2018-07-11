@@ -43,6 +43,7 @@ public class Constant {
 
     //权限申请
     public static final int REQ_PERM_CAMERA = 1;
+    public static final int REQ_PERM_WRITE_EXTERNAL_STORAGE = 2;
 
     public static final int CAMERA_WITH_DATA = 1;
 
@@ -160,6 +161,11 @@ public class Constant {
     public static final String MSG_RED_TIP = "msg_red_tip";
 
 
+    /**
+     * FMS
+     */
+    public static final String BROWSER_JUMP_NAME = "browser_jump_name";
+    public static final String FMS = "fms";
 
     //日期
     public static final String ARG_DATE = "date";
@@ -225,6 +231,7 @@ public class Constant {
     public static final String LIKE_COUNT = "like_count";
     public static final String MSG_TAG_ID = "msg_id";
     public static final String NEED_COOKIE = "need_cookie";
+    public static final String IMPORT_SALE = "import_sale";
 
     /**
      * 精品课程
@@ -266,5 +273,8 @@ public class Constant {
     public static final String TAG_CODE_TAKE_IN = "0803";  //收纳系列
     public static final String TAG_CODE_KITCHNEN = "0804";  //厨具系列
 
+
+    /** 商学院     */
+    public static final String LABLE_ID = "lable_id";
 
 }

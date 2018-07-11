@@ -1,8 +1,13 @@
 package com.tupperware.huishengyi.http;
 
-import com.android.dhunter.common.model.DataManager;
+import com.android.dhunter.common.network.DataManager;
 import com.tupperware.huishengyi.config.Constant;
+import com.tupperware.huishengyi.config.NetWorkUrl;
+import com.tupperware.huishengyi.entity.VerifyCoupon;
+import com.tupperware.huishengyi.entity.VerifyProduct;
 import com.tupperware.huishengyi.entity.college.ConditionRequest;
+import com.tupperware.huishengyi.entity.login.ResponseBean;
+import com.tupperware.huishengyi.entity.saleenter.MemUpgradeRequest;
 import com.tupperware.huishengyi.entity.saleenter.PostEnterBean;
 import com.tupperware.huishengyi.entity.saleenter.ResponeBean;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterBean;
@@ -31,6 +36,25 @@ public class ProductDataManager extends BaseDataManager {
     public static ProductDataManager getInstance(DataManager dataManager){
         return new ProductDataManager(dataManager);
     }
+
+    /**券码核销-- 优惠券检查 **/
+    public Disposable checkCoupon(DisposableObserver<VerifyCoupon> consumer, String qrCode) {
+        Observable observable = getService(ProductService.class).checkCoupon(NetWorkUrl.CHECK_COUPON, getCheckCouponRequest(qrCode));
+        return changeIOToMainThread(observable, consumer);
+    }
+
+    /**券码核销-- 产品唯一码检查检查 **/
+    public Disposable verifyProductCode(DisposableObserver<VerifyProduct> consumer, String qrCode, String uniqueCode) {
+        Observable observable = getService(ProductService.class).verifyProductCode(NetWorkUrl.VERIFY_PRODUCT, getProductRequest(qrCode, uniqueCode));
+        return changeIOToMainThread(observable, consumer);
+    }
+
+    /**券码核销-- 产品唯一码检查检查 **/
+    public Disposable useProductCode(DisposableObserver<ResponseBean> consumer, String qrCode, String uniqueCode) {
+        Observable observable = getService(ProductService.class).useProductCode(NetWorkUrl.USE_PRODUCT_CODE, getProductRequest(qrCode, uniqueCode));
+        return changeIOToMainThread(observable, consumer);
+    }
+
 
     /**
      * 根据条形码获取记录信息
@@ -134,6 +158,19 @@ public class ProductDataManager extends BaseDataManager {
         query.setPageSize(Constant.DEFAULT_PAGE_SIZE);
 //        query.setTotalRows(0);
         request.setPagingQuery(query);
+        return request;
+    }
+
+    private MemUpgradeRequest getCheckCouponRequest(String qrCode) {
+        MemUpgradeRequest request = new MemUpgradeRequest();
+        request.setQrCode(qrCode);
+        return request;
+    }
+
+    private MemUpgradeRequest getProductRequest(String qrCode, String uniqueCode) {
+        MemUpgradeRequest request = new MemUpgradeRequest();
+        request.setQrCode(qrCode);
+        request.setUniqueCode(uniqueCode);
         return request;
     }
 }

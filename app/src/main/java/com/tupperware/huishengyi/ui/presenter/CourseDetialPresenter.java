@@ -2,7 +2,8 @@ package com.tupperware.huishengyi.ui.presenter;
 
 import android.util.Log;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.college.CourseBean;
 import com.tupperware.huishengyi.http.CollegeDataManager;
 import com.tupperware.huishengyi.ui.contract.CourseDetialContract;

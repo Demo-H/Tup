@@ -3,29 +3,28 @@
     package="com.tupperware.huishengyi">
 
     <application
-        android:name=".app.BaseApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppUIBaseTheme">
-        <activity android:name=".ui.WelcomeActivity"
+        <activity android:name=".ui.activities.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SplashActivity"
+        <activity android:name=".ui.activities.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         </activity>
-
-        <activity android:name=".ui.LoginActivity"
+        <activity android:name=".ui.activities.LoginActivity"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         </activity>
-
-        <activity android:name=".ui.MainActivity"
+        <activity android:name=".ui.activities.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppBaseTheme.SlideExitAnimation"
@@ -33,81 +32,82 @@
 
         </activity>
 
-        <activity android:name=".ui.URLTestActivity"></activity>
-        <activity android:name=".ui.ForgetPasswordActivity"></activity>
-        <activity android:name=".ui.ResetPasswordActivity"></activity>
-        <activity android:name=".ui.BrowserActivity"></activity>
-        <activity android:name=".ui.MemberZhaomuActivity"></activity>
-        <activity android:name=".ui.ScanCouponActivity"
+        <activity android:name=".ui.activities.URLTestActivity"></activity>
+        <activity android:name=".ui.activities.ForgetPasswordActivity"></activity>
+        <activity android:name=".ui.activities.ResetPasswordActivity"></activity>
+        <activity android:name=".ui.activities.BrowserActivity"></activity>
+        <activity android:name=".ui.activities.MemberZhaomuActivity"></activity>
+        <activity android:name=".ui.activities.ScanCouponActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.CouponVerifyActivity"
+        <activity android:name=".ui.activities.CouponVerifyActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" ></activity>
-        <activity android:name=".ui.ProductVefiryActivity"
+        <activity android:name=".ui.activities.ProductVefiryActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" ></activity>
-        <activity android:name=".ui.RegisterChooseActivity"></activity>
-        <activity android:name=".ui.RegisterActivity"></activity>
-        <activity android:name=".ui.SearchActivity"></activity>
-        <activity android:name=".ui.PersonalInfoActivity"></activity>
-        <activity android:name=".ui.StoreSwitchActivity"></activity>
-        <activity android:name=".ui.PersonalSettingActivity"></activity>
-        <activity android:name=".ui.PersonalQrActivity"></activity>
-        <activity android:name=".ui.FeedBackActivity"></activity>
-        <activity android:name=".ui.StoreManagerActivity"></activity>
-        <activity android:name=".ui.BenefitCoinActivity"></activity>
-        <activity android:name=".ui.StaffManagerActivity"></activity>
-        <activity android:name=".ui.AddNewStaffActivity"></activity>
-        <activity android:name=".ui.KeyProductActivity"></activity>
-        <activity android:name=".ui.SaleRecordDetialActivity"></activity>
-        <activity android:name=".ui.InventoryRecordDetialActivity"></activity>
-        <activity android:name=".ui.ProductEnterActivity"></activity>
-        <activity android:name=".ui.MessageActivity"></activity>
-        <activity android:name=".ui.MessageDetialActivity"></activity>
-        <activity android:name=".ui.KeySaleProjectActivity"></activity>
-        <activity android:name=".ui.DevelopMemberActivity"></activity>
-        <activity android:name=".ui.DevProductSelectActivity"></activity>
-        <activity android:name=".ui.DevSexSelectActivity"></activity>
-        <activity android:name=".ui.DevAgeSelectActivity"></activity>
-        <activity android:name=".ui.DevInfoSelectActivity"></activity>
-        <activity android:name=".ui.DevInfoResultActivity"></activity>
-        <activity android:name=".ui.MemberDetialActivity"></activity>
-        <activity android:name=".ui.ReservationQrActivity"></activity>
-        <activity android:name=".ui.ReservationMarkActivity"></activity>
-        <activity android:name=".ui.WaterSafeCheckActivity"></activity>
-        <activity android:name=".ui.ReserPersonalTailorActivity"></activity>
-        <activity android:name=".ui.ReserCarnivalActivity"></activity>
-        <activity android:name=".ui.PurposeFollowActivity"></activity>
-        <activity android:name=".ui.ServerManagerActivity"></activity>
-        <activity android:name=".ui.BackVisitDetialActivity"></activity>
-        <activity android:name=".ui.BenefitCoinDeadlineActivity"></activity>
-        <activity android:name=".ui.MemberBenefitDetialActivity"></activity>
-        <activity android:name=".ui.MemberStatusActivity"></activity>
-        <activity android:name=".ui.FansChangeActivity"></activity>
-        <activity android:name=".ui.MemberConsumeActivity"></activity>
-        <activity android:name=".ui.ResOrderServerDetialActivity"></activity>
-        <activity android:name=".ui.OnlineOrderDetialActivity"></activity>
-        <activity android:name=".ui.DataWindowChartActivity"></activity>
-        <activity android:name=".ui.LiveDetialActivity"></activity>
-        <activity android:name=".ui.CourseDetialActivity"
+        <activity android:name=".ui.activities.RegisterChooseActivity"></activity>
+        <activity android:name=".ui.activities.RegisterActivity"></activity>
+        <activity android:name=".ui.activities.SearchActivity"></activity>
+        <activity android:name=".ui.activities.PersonalInfoActivity"></activity>
+        <activity android:name=".ui.activities.StoreSwitchActivity"></activity>
+        <activity android:name=".ui.activities.PersonalSettingActivity"></activity>
+        <activity android:name=".ui.activities.PersonalQrActivity"></activity>
+        <activity android:name=".ui.activities.FeedBackActivity"></activity>
+        <activity android:name=".ui.activities.StoreManagerActivity"></activity>
+        <activity android:name=".ui.activities.BenefitCoinActivity"></activity>
+        <activity android:name=".ui.activities.StaffManagerActivity"></activity>
+        <activity android:name=".ui.activities.AddNewStaffActivity"></activity>
+        <activity android:name=".ui.activities.KeyProductActivity"></activity>
+        <activity android:name=".ui.activities.SaleRecordDetialActivity"></activity>
+        <activity android:name=".ui.activities.InventoryRecordDetialActivity"></activity>
+        <activity android:name=".ui.activities.ProductEnterActivity"></activity>
+        <activity android:name=".ui.activities.MessageActivity"></activity>
+        <activity android:name=".ui.activities.MessageDetialActivity"></activity>
+        <activity android:name=".ui.activities.KeySaleProjectActivity"></activity>
+        <activity android:name=".ui.activities.DevelopMemberActivity"></activity>
+        <activity android:name=".ui.activities.DevProductSelectActivity"></activity>
+        <activity android:name=".ui.activities.DevSexSelectActivity"></activity>
+        <activity android:name=".ui.activities.DevAgeSelectActivity"></activity>
+        <activity android:name=".ui.activities.DevInfoSelectActivity"></activity>
+        <activity android:name=".ui.activities.DevInfoResultActivity"></activity>
+        <activity android:name=".ui.activities.MemberDetialActivity"></activity>
+        <activity android:name=".ui.activities.ReservationQrActivity"></activity>
+        <activity android:name=".ui.activities.ReservationMarkActivity"></activity>
+        <activity android:name=".ui.activities.WaterSafeCheckActivity"></activity>
+        <activity android:name=".ui.activities.ReserPersonalTailorActivity"></activity>
+        <activity android:name=".ui.activities.ReserCarnivalActivity"></activity>
+        <activity android:name=".ui.activities.PurposeFollowActivity"></activity>
+        <activity android:name=".ui.activities.ServerManagerActivity"></activity>
+        <activity android:name=".ui.activities.BackVisitDetialActivity"></activity>
+        <activity android:name=".ui.activities.BenefitCoinDeadlineActivity"></activity>
+        <activity android:name=".ui.activities.MemberBenefitDetialActivity"></activity>
+        <activity android:name=".ui.activities.MemberStatusActivity"></activity>
+        <activity android:name=".ui.activities.FansChangeActivity"></activity>
+        <activity android:name=".ui.activities.MemberConsumeActivity"></activity>
+        <activity android:name=".ui.activities.ResOrderServerDetialActivity"></activity>
+        <activity android:name=".ui.activities.OnlineOrderDetialActivity"></activity>
+        <activity android:name=".ui.activities.DataWindowChartActivity"></activity>
+        <activity android:name=".ui.activities.LiveDetialActivity"></activity>
+        <activity android:name=".ui.activities.CourseDetialActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.MoreFunctionActivity"></activity>
-        <activity android:name=".ui.SaleEnterActivity"/>
-        <activity android:name=".ui.ProductSearchActivity"/>
-        <activity android:name=".ui.EnterListActivity" />
-        <activity android:name=".ui.RemarksActivity" />
-        <activity android:name=".ui.GiftDetialActivity" />
-        <activity android:name=".ui.ReservationServerActivity" />
-        <activity android:name=".ui.DevCookSelectActivity" />
-        <activity android:name=".ui.DevTasteSelectActivity" />
-        <activity android:name=".ui.DevPurifierSelectActivity" />
-        <activity android:name=".ui.DevRefrigeratorStyleActivity" />
-        <activity android:name=".ui.DevAttributeActivity" />
-        <activity android:name=".ui.DevQrActivity" />
-        <activity android:name=".ui.GiftListActivity"/>
-        <activity android:name=".ui.ActionListActivity" />
-        <activity android:name=".ui.ActionInvitateActivity" />
-        <activity android:name=".ui.SaleHistoryEnterActivity" />
-        <activity android:name=".ui.ReservationActionActivity" />
+        <activity android:name=".ui.activities.MoreFunctionActivity"></activity>
+        <activity android:name=".ui.activities.SaleEnterActivity"/>
+        <activity android:name=".ui.activities.ProductSearchActivity"/>
+        <activity android:name=".ui.activities.EnterListActivity" />
+        <activity android:name=".ui.activities.RemarksActivity" />
+        <activity android:name=".ui.activities.GiftDetialActivity" />
+        <activity android:name=".ui.activities.ReservationServerActivity" />
+        <activity android:name=".ui.activities.DevCookSelectActivity" />
+        <activity android:name=".ui.activities.DevTasteSelectActivity" />
+        <activity android:name=".ui.activities.DevPurifierSelectActivity" />
+        <activity android:name=".ui.activities.DevRefrigeratorStyleActivity" />
+        <activity android:name=".ui.activities.DevAttributeActivity" />
+        <activity android:name=".ui.activities.DevQrActivity" />
+        <activity android:name=".ui.activities.GiftListActivity"/>
+        <activity android:name=".ui.activities.ActionListActivity" />
+        <activity android:name=".ui.activities.ActionInvitateActivity" />
+        <activity android:name=".ui.activities.SaleHistoryEnterActivity" />
+        <activity android:name=".ui.activities.ReservationActionActivity" />
+        <activity android:name=".ui.activities.WebViewActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -140,5 +140,9 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <!-- buggly 权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
 </manifest>

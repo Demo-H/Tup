@@ -5,9 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="transparent">#00ffffff</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="dialog_bg">#aa333333</color>
     <color name="no_network_bg">#333333</color>
     <color name="search_corner_bg">#ddBBBABA</color>
 
     <color name="lineColor">#11333333</color>
+    <color name="color_ff7000">#ff7000</color>
 </resources>

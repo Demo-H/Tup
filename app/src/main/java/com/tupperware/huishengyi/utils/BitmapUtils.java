@@ -18,8 +18,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-import static com.android.dhunter.common.volley.toolbox.imagetool.DiskLruImageCache.calculateInSampleSize;
-
 /**
  * Created by dhunter on 2018/3/15.
  */
@@ -139,6 +137,24 @@ public class BitmapUtils {
     }
 
     /**
+     * @param options
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+        if (height > reqHeight || width > reqWidth) {
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+        return inSampleSize;
+    }
+
+    /**
      *  服务器返回url，通过url去获取视频的第一帧
      *  Android 原生给我们提供了一个MediaMetadataRetriever类
      *  提供了获取url视频第一帧的方法,返回Bitmap对象
@@ -157,7 +173,9 @@ public class BitmapUtils {
             bitmap = retriever.getFrameAtTime();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } finally {
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }finally {
             retriever.release();
         }
         return bitmap;

@@ -114,8 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"
-                android:background="@mipmap/data_done_ic"/>
+                android:layout_marginRight="@dimen/dimen_12dp"/>
             <TextView
                 android:id="@+id/month_target_text"
                 android:layout_width="wrap_content"
@@ -149,8 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"
-                android:background="@mipmap/data_undone_ic"/>
+                android:layout_marginRight="@dimen/dimen_12dp"/>
             <TextView
                 android:id="@+id/season_target_text"
                 android:layout_width="wrap_content"
@@ -184,8 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"
-                android:background="@mipmap/data_undone_ic"/>
+                android:layout_marginRight="@dimen/dimen_12dp"/>
             <TextView
                 android:id="@+id/year_target_text"
                 android:layout_width="wrap_content"

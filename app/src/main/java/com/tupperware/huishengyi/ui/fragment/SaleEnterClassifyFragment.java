@@ -1,6 +1,5 @@
 package com.tupperware.huishengyi.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,18 +11,19 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.SaleEnterAdapter;
-import com.tupperware.huishengyi.component.DaggerSaleEnterClassifyFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterBean;
 import com.tupperware.huishengyi.http.ProductDataManager;
-import com.tupperware.huishengyi.module.SaleEnterClassifyPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerSaleEnterClassifyFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SaleEnterClassifyContract;
+import com.tupperware.huishengyi.ui.module.SaleEnterClassifyPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SaleEnterClassifyPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
 import com.tupperware.huishengyi.utils.data.ProductHistoryProvider;
@@ -58,7 +58,6 @@ public class SaleEnterClassifyFragment extends BaseFragment implements SaleEnter
     private View emptyView;
     private TextView mEmptyText;
     private int mTabPosition;
-    private Context mContext;
     private TextView mTextView;
     private String selectDate;
     private boolean isHistory;
@@ -89,9 +88,8 @@ public class SaleEnterClassifyFragment extends BaseFragment implements SaleEnter
         mEmptyText = (TextView) emptyView.findViewById(R.id.empty_text);
         mEmptyText.setText(getResources().getString(R.string.no_sale_list));
         unbinder = ButterKnife.bind(this, rootView);
-        mContext = getContext();
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -122,7 +120,7 @@ public class SaleEnterClassifyFragment extends BaseFragment implements SaleEnter
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getSaleEnterData(storeCode, selectDate, mTabPosition + "");
     }
 

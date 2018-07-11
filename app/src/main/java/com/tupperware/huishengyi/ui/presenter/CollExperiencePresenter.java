@@ -3,7 +3,8 @@ package com.tupperware.huishengyi.ui.presenter;
 import android.app.Activity;
 import android.util.Log;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.http.CollegeDataManager;
 import com.tupperware.huishengyi.ui.contract.CollExperienceContract;
@@ -40,7 +41,10 @@ public class CollExperiencePresenter extends BasePresenter implements CollExperi
                 LogF.i(TAG, ObjectUtil.jsonFormatter(collegeBean));
                 if(!collegeBean.success) {
                     mView.toast(collegeBean.message);
+                } else if(collegeBean.models == null || collegeBean.models.isEmpty()) {
+                    mView.setEmptyView();
                 } else {
+                    mView.setNormalView();
                     mView.setExperienceData(collegeBean);
                 }
             }
@@ -54,6 +58,7 @@ public class CollExperiencePresenter extends BasePresenter implements CollExperi
             public void onError(Throwable e) {
                 super.onError(e);
                 Log.e("TAG", "onError: "+e );
+                mView.setNetErrorView();
             }
         }, tagId));
     }

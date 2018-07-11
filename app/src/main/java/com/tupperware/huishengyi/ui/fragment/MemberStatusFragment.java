@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.TagAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.TagBean;
 import com.tupperware.huishengyi.utils.DateFormatter;
@@ -57,7 +58,7 @@ public class MemberStatusFragment extends BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         setRecyclerView();
         return rootview;
     }
@@ -77,7 +78,7 @@ public class MemberStatusFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         if(tagBeanList.size() == 0) {
             tagBeanList.add(new TagBean("1", getResources().getString(R.string.current_active_count), StringUtils.getTestCount()));
             tagBeanList.add(new TagBean("2", getResources().getString(R.string.active_in_three_month), StringUtils.getTestCount()));

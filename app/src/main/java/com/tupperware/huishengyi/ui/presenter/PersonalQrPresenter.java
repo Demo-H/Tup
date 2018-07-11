@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RelativeLayout;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.android.dhunter.common.utils.FileUtils;
 import com.tupperware.huishengyi.entity.member.PersonalQrBean;
 import com.tupperware.huishengyi.http.PersonalDataManager;
@@ -42,10 +43,12 @@ public class PersonalQrPresenter extends BasePresenter implements PersonalQrCont
             @Override
             public void onNext(PersonalQrBean personalQrBean) {
                 LogF.i(TAG, ObjectUtil.jsonFormatter(personalQrBean));
-                if(!personalQrBean.success) {
+                if(!personalQrBean.isSuccess()) {
                     mView.toast(personalQrBean.message);
                     mView.setNetErrorView();
-                } else {
+                } else if(personalQrBean.getModel() == null) {
+                    mView.setEmptyView();
+                }else {
                     mView.setNormalView();
                     mView.setPersonQrData(personalQrBean);
                 }
@@ -63,7 +66,7 @@ public class PersonalQrPresenter extends BasePresenter implements PersonalQrCont
         HandlerThreadFactory.getHandlerThread(HandlerThreadFactory.BackgroundThread).post(new Runnable() {
             @Override
             public void run() {
-                FileUtils.photoFileIsExists();
+                FileUtils.fileIsExistsbyType(FileUtils.PathType.APP_PHOTOS);
                 String fileName = "qr_" + System.currentTimeMillis() + ".png";
                 String filepath = FileUtils.DIR_PHOTO_CRASH + File.separator + fileName;
                 BitmapUtils.saveBitmap(mRl, filepath);

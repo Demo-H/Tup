@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.college.CourseBean;
-import com.tupperware.huishengyi.interfaces.ICourseVideoListener;
-import com.tupperware.huishengyi.ui.fragment.BaseFragment;
+import com.tupperware.huishengyi.listener.ICourseVideoListener;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.ui.fragment.CourseContentListFragment;
 import com.tupperware.huishengyi.ui.fragment.CourseIntroduceFragment;
 

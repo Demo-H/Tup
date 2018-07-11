@@ -8,17 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.ResOrderServerAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.ResOrderPendingBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerResOrderServerFragmentComponent;
-import com.tupperware.huishengyi.module.ResOrderServerPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerResOrderServerFragmentComponent;
+import com.tupperware.huishengyi.ui.module.ResOrderServerPresenterModule;
 import com.tupperware.huishengyi.ui.contract.ResOrderServerContract;
 import com.tupperware.huishengyi.ui.presenter.ResOrderServerPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -68,7 +69,7 @@ public class ResOrderServerFragment extends BaseFragment implements ResOrderServ
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -91,7 +92,7 @@ public class ResOrderServerFragment extends BaseFragment implements ResOrderServ
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getResOrderServerData();
     }
 

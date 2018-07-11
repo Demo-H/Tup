@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.CouponVipAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by dhunter on 2018/3/21.
  */
 
-public class CouponVipFragment extends  BaseFragment {
+public class CouponVipFragment extends BaseFragment {
 
     @BindView(R.id.coupon_status_tab)
     TabLayout mCouponTab;
@@ -32,7 +33,7 @@ public class CouponVipFragment extends  BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -43,7 +44,7 @@ public class CouponVipFragment extends  BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

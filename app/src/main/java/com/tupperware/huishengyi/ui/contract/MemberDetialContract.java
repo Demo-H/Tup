@@ -15,6 +15,6 @@ public class MemberDetialContract {
     }
 
     public interface Presenter {
-        void getMemberDetialData(long member_id);
+        void getMemberDetialData(String mobileNum);
     }
 }

@@ -10,8 +10,12 @@ public class CollCourseContract {
     public interface View {
         void setCourseData(CollegeBean mBean);
         void setMoreCourseData(CollegeBean mBean);
+        void setBannerViewHide();
         void setBannerView(CollegeBean mBean);
         void toast(String msg);
+        void setNormalView();
+        void setNetErrorView();
+        void setEmptyView();
     }
 
     public interface Presenter {

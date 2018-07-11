@@ -20,6 +20,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class DataSingleVipStatusFragment extends BaseFragment implements OnChart
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -221,7 +222,7 @@ public class DataSingleVipStatusFragment extends BaseFragment implements OnChart
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,24 +16,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.dhunter.common.base.baseadapter.BaseMultiItemQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseMultiItemQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.android.dhunter.common.widget.mzBannerView.MZBannerView;
 import com.android.dhunter.common.widget.mzBannerView.holder.MZHolderCreator;
 import com.android.dhunter.common.widget.popupWindow.Config;
 import com.android.dhunter.common.widget.popupWindow.EasyTopPopup;
 import com.tupperware.huishengyi.R;
-import com.tupperware.huishengyi.app.BaseApplication;
+import com.tupperware.huishengyi.base.BaseApplication;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.home.HomeIndexBean;
-import com.tupperware.huishengyi.interfaces.PositionChangedListener;
-import com.tupperware.huishengyi.ui.BrowserActivity;
-import com.tupperware.huishengyi.ui.MoreFunctionActivity;
-import com.tupperware.huishengyi.ui.PersonalQrActivity;
-import com.tupperware.huishengyi.ui.RegisterActivity;
-import com.tupperware.huishengyi.ui.SaleEnterActivity;
-import com.tupperware.huishengyi.ui.ScanCouponActivity;
+import com.tupperware.huishengyi.listener.PositionChangedListener;
+import com.tupperware.huishengyi.ui.activities.BrowserActivity;
+import com.tupperware.huishengyi.ui.activities.PersonalQrActivity;
+import com.tupperware.huishengyi.ui.activities.RegisterActivity;
+import com.tupperware.huishengyi.ui.activities.SaleEnterActivity;
+import com.tupperware.huishengyi.ui.activities.ScanCouponActivity;
+import com.tupperware.huishengyi.ui.activities.WebViewActivity;
 import com.tupperware.huishengyi.view.BannerPaddingViewHolder;
 import com.tupperware.huishengyi.view.GridMenu;
 import com.tupperware.huishengyi.view.TargetMeViewHolder;
@@ -41,7 +41,6 @@ import com.tupperware.huishengyi.view.TargetMeViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.tupperware.huishengyi.ui.BaseActivity.getActivity;
 
 /**
  * Created by dhunter on 2018/3/11.
@@ -58,10 +57,14 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
 //            "新品上市，雪花飘荡...","新年的钟声随雪花飘荡，和草莓雪人..."};
 //    public static final int []rcmd_RES = new int[]{R.mipmap.rcmd_1_img,R.mipmap.rcmd_2_img,R.mipmap.rcmd_3_img};
 //    public static final String []rcmd_RES_des = new String[]{"家庭水质检测","给冰箱做个“SPA”","帅锅鉴定宝典"};
-    public static final int []icon_RES = new int[]{R.mipmap.vistor_ic,R.mipmap.sale_ic,R.mipmap.qrcode_ic,R.mipmap.wemall_ic,
-            R.mipmap.drink_ic,R.mipmap.water_ic,R.mipmap.customize_ic,R.mipmap.more_ic};
+//    public static final int []icon_RES = new int[]{R.mipmap.vistor_ic,R.mipmap.sale_ic,R.mipmap.qrcode_ic,R.mipmap.wemall_ic,
+//            R.mipmap.drink_ic,R.mipmap.water_ic,R.mipmap.customize_ic,R.mipmap.more_ic};
+//    public static final String []icon_RES_des = new String[]{"发展新会员","销售录入","券码核销",
+//            "我的微店", "饮水安全\n调查", "好水嘉年华报名", "私人订制\n预约", "更多"};
+public static final int []icon_RES = new int[]{R.mipmap.vistor_ic,R.mipmap.sale_ic,R.mipmap.qrcode_ic,R.mipmap.wemall_ic,
+        R.mipmap.prod_ic};
     public static final String []icon_RES_des = new String[]{"发展新会员","销售录入","券码核销",
-            "我的微店", "饮水安全\n调查", "好水嘉年华报名", "私人订制\n预约", "更多"};
+            "我的微店", "重点热卖"};
 
     /**
      * 当前position监听
@@ -87,7 +90,7 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
         addItemType(Constant.TYPE_TOP_BANNER, R.layout.homerecycle_item_top_banner);
         addItemType(Constant.TYPE_PRECISE_RECOMMENDATION, R.layout.homerecycle_item_precise_recommendation);
         addItemType(Constant.TYPE_ICON_LIST, R.layout.homerecycle_item_icon_list);
-        addItemType(Constant.TYPE_TARGET_ME, R.layout.homerecycle_item_target_me);
+//        addItemType(Constant.TYPE_TARGET_ME, R.layout.homerecycle_item_target_me);
         addItemType(Constant.TYPE_MARKET_INFO, R.layout.homerecycle_item_market_info);
     }
 
@@ -118,8 +121,8 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
             bindPreciseRecommendationData(helper, item, position);
         } else if ("iconList".equals(item.itemType) && maxHasLoadPosition <= position) {
             bindIconListData(helper, item, position);
-        } else if ("targetMe".equals(item.itemType) && maxHasLoadPosition <= position) {
-            bindTargetMeData(helper, item, position);
+//        } else if ("targetMe".equals(item.itemType) && maxHasLoadPosition <= position) {
+//            bindTargetMeData(helper, item, position);
         } else if ("marketInfo".equals(item.itemType) && maxHasLoadPosition <= position) {
             bindMarketInfoData(helper, item, position);
         } else if ("type_Title".equals(item.itemType)) {
@@ -223,9 +226,9 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
         gridMenus.add((GridMenu)helper.getView(R.id.list_3));
         gridMenus.add((GridMenu)helper.getView(R.id.list_4));
         gridMenus.add((GridMenu)helper.getView(R.id.list_5));
-        gridMenus.add((GridMenu)helper.getView(R.id.list_6));
-        gridMenus.add((GridMenu)helper.getView(R.id.list_7));
-        gridMenus.add((GridMenu)helper.getView(R.id.list_8));
+//        gridMenus.add((GridMenu)helper.getView(R.id.list_6));
+//        gridMenus.add((GridMenu)helper.getView(R.id.list_7));
+//        gridMenus.add((GridMenu)helper.getView(R.id.list_8));
 
         /** 图片文字初始化 **/
         for(int i = 0; i < gridMenus.size(); i++) {
@@ -290,38 +293,44 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.list_1:
-                jumptoActivity(v.getContext(), RegisterActivity.class); //fa
+                jumptoActivity(v.getContext(), RegisterActivity.class); //发展新会员
                 break;
             case R.id.list_2:
 //                jumptoActivity(v.getContext(), ProductEnterActivity.class);
-                jumptoActivity(v.getContext(), SaleEnterActivity.class);
+                 //销售录入
+                try{
+                    jumptoActivity(v.getContext(), SaleEnterActivity.class);
+                } catch (Exception e) {
+                    checkCameraPermission(v.getContext());
+                }
                 break;
             case R.id.list_3:
+                //券码核销
                 try{
                     Intent intent = new Intent(v.getContext(), ScanCouponActivity.class);
                     intent.putExtra(Constant.ACTIVITY_CREATE_FROM, Constant.COUPON_SCAN);
                     v.getContext().startActivity(intent);
                 } catch (Exception e) {
-                    if (ContextCompat.checkSelfPermission(BaseApplication.getInstance(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        // 申请权限
-                        Toast.makeText(v.getContext(),"请打开使用摄像头权限",Toast.LENGTH_SHORT).show();
-                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, Constant.REQ_PERM_CAMERA);
-                        return;
-                    }
+                    checkCameraPermission(v.getContext());
                 }
                 break;
             case R.id.list_4:
+                // 我的微店
                 jumptoActivity(v.getContext(), PersonalQrActivity.class);
                 break;
             case R.id.list_5:
+                //重点热卖
+                Intent browserintent = new Intent(v.getContext(), WebViewActivity.class);
+                browserintent.putExtra(Constant.BROWSER_JUMP_NAME, Constant.IMPORT_SALE);
+                v.getContext().startActivity(browserintent);
                 break;
-            case R.id.list_6:
-                break;
-            case R.id.list_7:
-                break;
-            case R.id.list_8:
-                jumptoActivity(v.getContext(), MoreFunctionActivity.class);
-                break;
+//            case R.id.list_6:
+//                break;
+//            case R.id.list_7:
+//                break;
+//            case R.id.list_8:
+//                jumptoActivity(v.getContext(), MoreFunctionActivity.class);
+//                break;
             case R.id.choose_dian_name_ll:
                 mPopup = new EasyTopPopup(mActivity, new AdapterView.OnItemClickListener() {
                     @Override
@@ -338,7 +347,7 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
         }
     }
 
-    private void jumptoActivity(Context context, Class<?> _cls ) {
+    private void jumptoActivity(Context context, Class<?> _cls) {
         Intent intent = new Intent();
         intent.setClass(context, _cls);
         intent.putExtra(Constant.ACTIVITY_CREATE_FROM,Constant.HOME);
@@ -370,5 +379,16 @@ public class HomeMultipleRecycleAdapter extends BaseMultiItemQuickAdapter<HomeIn
         }
         return list;
     }*/
+
+    private void checkCameraPermission(Context context) {
+        if(Build.VERSION.SDK_INT>=23) {
+            if (ContextCompat.checkSelfPermission(BaseApplication.getInstance(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                // 申请权限
+                Toast.makeText(context,"请打开使用摄像头权限",Toast.LENGTH_SHORT).show();
+                mActivity.requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.REQ_PERM_CAMERA);
+                return;
+            }
+        }
+    }
 
 }

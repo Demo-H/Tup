@@ -11,11 +11,12 @@ import android.view.ViewGroup;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.KeyProductRecordInventoryAdapter;
 import com.tupperware.huishengyi.adapter.KeyProductRecordSaleAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.KeyProductRecordBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerKeyProductRecordFragmentComponent;
-import com.tupperware.huishengyi.module.KeyProductRecordPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerKeyProductRecordFragmentComponent;
+import com.tupperware.huishengyi.ui.module.KeyProductRecordPresenterModule;
 import com.tupperware.huishengyi.ui.contract.KeyProductRecordContract;
 import com.tupperware.huishengyi.ui.presenter.KeyProductRecordPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -62,7 +63,7 @@ public class KeyProductRecordFragment extends BaseFragment implements KeyProduct
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -89,7 +90,7 @@ public class KeyProductRecordFragment extends BaseFragment implements KeyProduct
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getKeyProductRecordData();
     }
 

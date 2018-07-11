@@ -9,7 +9,25 @@ public class ConfigURL {
 
 //    public static final String BASE_URL = "http://192.168.10.170:8080/front";
 
-    public static final String BASE_URL = "http://test.tbh.cn/front";
+    public static final String BASE_URL = "https://test.tbh.cn/front";
+
+    public static String URL_IMG = "http://img.tbh.cn/";
+
+    /**
+     * 重点热卖外链接口
+     */
+    public static final String IMPORTANT_PRODUCT_SALE = "http://r.tbh.cn/index.php?s=/Api/WapLoginVerify/I_autoLogin";
+
+    /**
+     * 重点热卖外链接口(测试)
+     */
+    public static final String IMPORTANT_PRODUCT_SALE_TEST = "http://rx.qijian360.com/index.php?s=/Api/WapLoginVerify/I_autoLogin";
+
+    /**
+     * FMS
+     */
+    public static final String FMS_URL = "https://mkt.tupperware.com.cn/mobile/index.html#/login";
+
     /**
      * 登陆接口
      */

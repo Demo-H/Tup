@@ -80,6 +80,7 @@
     <string name="week_update">周报上报</string>
     <string name="sale_feedback">售后反馈</string>
     <string name="pure_after_sale_follow">净水器售后跟进</string>
+    <string name="vip_sale">重点热卖</string>
     <!-- 券码核销 -->
     <string name="coupon_verification">券码核销</string>
     <string name="product_verification">唯一码验证</string>
@@ -132,6 +133,8 @@
     <string name="about_us">关于我们</string>
     <string name="version">版本</string>
     <string name="scan_and_scan_tip">扫一扫上面二维码，访问我的微店</string>
+    <string name="scan_and_scan_error">二维码离家出走了</string>
+    <string name="scan_and_scan_empty">服务器忙，先使用本地二维码</string>
     <string name="save_to_image">保存到相册</string>
     <string name="store_manager">专卖店管理</string>
     <string name="store_photo">头像</string>
@@ -254,6 +257,7 @@
     <string name="owner_store">所属店</string>
     <string name="reservation_server">预约服务</string>
     <string name="logistics_schedule">礼品寄送进度</string>
+    <string name="logistics_schedule_list">礼品寄送列表</string>
     <string name="remarks_hint_tip">请输入备注内容（140字内）</string>
     <string name="family_class">理家课堂体验</string>
     <string name="server_name">姓&#160;&#160;名：</string>

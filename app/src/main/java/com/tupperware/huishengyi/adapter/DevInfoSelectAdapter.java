@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
-import com.tupperware.huishengyi.ui.fragment.BaseFragment;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.ui.fragment.DevInfoSelectFragment;
 
 /**

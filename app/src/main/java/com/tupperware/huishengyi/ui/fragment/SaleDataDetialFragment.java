@@ -22,11 +22,12 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.tupperware.huishengyi.R;
-import com.tupperware.huishengyi.component.DaggerSaleDataDetialFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
+import com.tupperware.huishengyi.ui.component.DaggerSaleDataDetialFragmentComponent;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleReportBean;
 import com.tupperware.huishengyi.http.ProductDataManager;
-import com.tupperware.huishengyi.module.SaleDataDetialPresenterModule;
+import com.tupperware.huishengyi.ui.module.SaleDataDetialPresenterModule;
 import com.tupperware.huishengyi.ui.contract.SaleDataDetialContract;
 import com.tupperware.huishengyi.ui.presenter.SaleDataDetialPresenter;
 import com.tupperware.huishengyi.utils.DateFormatter;
@@ -77,7 +78,7 @@ public class SaleDataDetialFragment extends BaseFragment implements SaleDataDeti
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -100,7 +101,7 @@ public class SaleDataDetialFragment extends BaseFragment implements SaleDataDeti
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 //        showDialog();
         mPresenter.getSaleReportData(storeCode, mTabPosition);
     }

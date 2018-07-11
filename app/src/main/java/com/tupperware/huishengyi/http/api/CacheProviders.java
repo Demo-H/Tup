@@ -1,5 +1,6 @@
 package com.tupperware.huishengyi.http.api;
 
+import com.tupperware.huishengyi.entity.PurFollowDetialBean;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.entity.college.CollegeTabBean;
 import com.tupperware.huishengyi.entity.college.CourseBean;
@@ -113,5 +114,9 @@ public interface CacheProviders {
 
     @LifeCache(duration = 2, timeUnit = TimeUnit.DAYS)
     Observable<Reply<List<ActionMembersBean>>> getActionMemberDetialType(Observable observable, DynamicKey userName, EvictDynamicKey evictDynamicKey);
+
+    @LifeCache(duration = 2, timeUnit = TimeUnit.DAYS)
+    Observable<Reply<List<PurFollowDetialBean>>> getPurFollowMemberType(Observable observable, DynamicKey userName, EvictDynamicKey evictDynamicKey);
+
 
 }

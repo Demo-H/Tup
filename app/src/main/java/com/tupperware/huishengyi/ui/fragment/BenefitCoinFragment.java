@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.BenefitCoinAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by dhunter on 2018/3/21.
  */
 
-public class BenefitCoinFragment extends  BaseFragment {
+public class BenefitCoinFragment extends BaseFragment {
 
     @BindView(R.id.benefit_coin_status_tab)
     TabLayout mBenefitCoinTab;
@@ -32,7 +33,7 @@ public class BenefitCoinFragment extends  BaseFragment {
         rootview = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -43,7 +44,7 @@ public class BenefitCoinFragment extends  BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

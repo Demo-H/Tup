@@ -1,6 +1,6 @@
 package com.tupperware.huishengyi.entity.home;
 
-import com.android.dhunter.common.base.baseadapter.entity.MultiItemEntity;
+import com.android.dhunter.common.baserecycleview.entity.MultiItemEntity;
 import com.google.gson.Gson;
 import com.tupperware.huishengyi.config.Constant;
 

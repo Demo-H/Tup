@@ -11,6 +11,7 @@ import com.android.dhunter.common.widget.flowlayout.FlowLayout;
 import com.android.dhunter.common.widget.flowlayout.TagAdapter;
 import com.android.dhunter.common.widget.flowlayout.TagFlowLayout;
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 
 import java.util.Set;
@@ -52,7 +53,7 @@ public class DevInfoSelectFragment extends BaseFragment {
 
         unbinder = ButterKnife.bind(this, rootview);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootview;
     }
 
@@ -75,7 +76,7 @@ public class DevInfoSelectFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

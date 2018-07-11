@@ -8,16 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.VideoAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.entity.VideoBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerVideoFragmentComponent;
-import com.tupperware.huishengyi.module.VideoPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerVideoFragmentComponent;
+import com.tupperware.huishengyi.ui.module.VideoPresenterModule;
 import com.tupperware.huishengyi.ui.contract.VideoContract;
 import com.tupperware.huishengyi.ui.presenter.VideoPresenter;
 
@@ -48,7 +49,7 @@ public class VideoFragment extends BaseFragment implements VideoContract.View, P
         mVideoRecyclerview = (RecyclerView) view.findViewById(R.id.zixun_recyclerview);
         videoPullRefreshHeader = (PullHeaderView) view.findViewById(R.id.find_pull_refresh_header);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -69,7 +70,7 @@ public class VideoFragment extends BaseFragment implements VideoContract.View, P
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getVideoData();
     }
 

@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.StaffManagerAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.StaffManagerBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerStaffManagerFragmentComponent;
-import com.tupperware.huishengyi.module.StaffManagerPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerStaffManagerFragmentComponent;
+import com.tupperware.huishengyi.ui.module.StaffManagerPresenterModule;
 import com.tupperware.huishengyi.ui.contract.StaffManagerContract;
 import com.tupperware.huishengyi.ui.presenter.StaffManagerPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -50,7 +51,7 @@ public class StaffManagerFragment extends BaseFragment implements StaffManagerCo
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -73,7 +74,7 @@ public class StaffManagerFragment extends BaseFragment implements StaffManagerCo
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getStaffManagerData();
     }
 

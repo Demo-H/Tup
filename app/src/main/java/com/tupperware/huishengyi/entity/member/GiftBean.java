@@ -52,4 +52,12 @@ public class GiftBean extends BaseData {
         public int pages;
         public boolean hasMore;
     }
+
+    public List<GiftModel> getModels() {
+        return models;
+    }
+
+    public void setModels(List<GiftModel> models) {
+        this.models = models;
+    }
 }

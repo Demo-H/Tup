@@ -1,4 +1,0 @@
-{
-	"userName": "朱小姐",
-	"typeId": 1
-}

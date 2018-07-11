@@ -2,7 +2,7 @@ package com.tupperware.huishengyi.utils.data;
 
 import android.content.Context;
 
-import com.android.dhunter.common.utils.SharePreferenceData;
+import com.android.dhunter.common.network.SharePreferenceHelper;
 import com.google.gson.reflect.TypeToken;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.saleenter.SaleEnterContent;
@@ -24,12 +24,13 @@ public class ProductHistoryProvider {
     private HashMap<String, SaleEnterContent> mapHistoryDatas = null;
     private Context context = null ;
     private static ProductHistoryProvider mHistoryInstance ;
-    private SharePreferenceData mSharePreDate;
+//    private SharePreferenceData mSharePreDate;
+    private SharePreferenceHelper mSharePreDate;
 
     private ProductHistoryProvider(Context context) {
         this.context = context ;
         this.mapHistoryDatas = new HashMap<>();
-        mSharePreDate = new SharePreferenceData(context);
+        mSharePreDate = new SharePreferenceHelper(context.getApplicationContext());
         listToSparseArray() ;
     }
 
@@ -134,11 +135,11 @@ public class ProductHistoryProvider {
 
     private void commit(){
         List<SaleEnterContent> mBeanlist = sparseArrayToList ();
-        mSharePreDate.setParam(Constant.PRODUCT_HISTORY_PROVIDER , ObjectUtil.jsonFormatter(mBeanlist));
+        mSharePreDate.saveObjectData(Constant.PRODUCT_HISTORY_PROVIDER , ObjectUtil.jsonFormatter(mBeanlist));
     }
 
     public List<SaleEnterContent> getDataFromlocal(){
-        String json = (String) mSharePreDate.getParam(Constant.PRODUCT_HISTORY_PROVIDER , null) ;
+        String json = (String) mSharePreDate.getObjectData(Constant.PRODUCT_HISTORY_PROVIDER, "") ;
         LogF.d(TAG , "---"+json) ;
         List<SaleEnterContent> mBeanList = new ArrayList<>() ;
         if (json != null && json.length() > 0 ){

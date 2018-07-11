@@ -22,8 +22,9 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.DataWindowAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
-import com.tupperware.huishengyi.ui.DataWindowChartActivity;
+import com.tupperware.huishengyi.ui.activities.DataWindowChartActivity;
 
 import java.util.ArrayList;
 
@@ -99,7 +100,7 @@ public class DataWindowFragment extends BaseFragment {
         rootView = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, rootView);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -111,7 +112,7 @@ public class DataWindowFragment extends BaseFragment {
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPieChart.setData(getPieData(70, 30, rootView.getResources().getColor(R.color.white)));
         mPieChart.highlightValues(null);
         mPieChart.animateY(1500, Easing.EasingOption.EaseInOutQuad);

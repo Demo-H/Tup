@@ -12,11 +12,12 @@ import android.widget.LinearLayout;
 
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.BenefitCoinDeadlineAdapter;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.BenefitCoinExpenditureBean;
 import com.tupperware.huishengyi.http.MainDataManager;
-import com.tupperware.huishengyi.component.DaggerBenefitCoinDeadlineFragmentComponent;
-import com.tupperware.huishengyi.module.BenefitCoinDeadlinePresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerBenefitCoinDeadlineFragmentComponent;
+import com.tupperware.huishengyi.ui.module.BenefitCoinDeadlinePresenterModule;
 import com.tupperware.huishengyi.ui.contract.BenefitCoinDeadlineContract;
 import com.tupperware.huishengyi.ui.presenter.BenefitCoinDeadlinePresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
@@ -65,7 +66,7 @@ public class BenefitCoinDeadlineFragment extends BaseFragment implements Benefit
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -88,7 +89,7 @@ public class BenefitCoinDeadlineFragment extends BaseFragment implements Benefit
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
         mPresenter.getBenefitCoinDeadlineData();
     }
 

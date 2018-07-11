@@ -1,48 +1,21 @@
 package com.tupperware.huishengyi.network;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.android.dhunter.common.volley.AuthFailureError;
-import com.android.dhunter.common.volley.DefaultRetryPolicy;
-import com.android.dhunter.common.volley.NetworkError;
-import com.android.dhunter.common.volley.Request;
-import com.android.dhunter.common.volley.RequestManager;
-import com.android.dhunter.common.volley.RequestQueue;
-import com.android.dhunter.common.volley.Response;
-import com.android.dhunter.common.volley.ServerError;
-import com.android.dhunter.common.volley.TimeoutError;
-import com.android.dhunter.common.volley.VolleyError;
-import com.android.dhunter.common.volley.toolbox.JsonObjectRequest;
-import com.tupperware.huishengyi.app.BaseApplication;
-import com.tupperware.huishengyi.ui.BaseActivity;
-import com.tupperware.huishengyi.ui.URLTestActivity;
-import com.tupperware.huishengyi.utils.StringUtils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
-
 /**
  * Created by dhunter on 2018/2/2.
  */
 
-public class Tupperware implements Response.Listener<JSONObject>, Response.ErrorListener {
+public class Tupperware {
+
+}/*implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     private static final String TAG = "Tupperware";
-    /**
+    *//**
      * 网络出错，无法链接网络
-     */
+     *//*
     public static final int ERROR_CODE_INTERNET = 0;
-    /**
+    *//**
      * 服务器出了问题
-     */
+     *//*
     public static final int ERROR_CODE_SERVER = 1;
 
     private static RequestQueue mRequestQueue = RequestManager.getRequestQueue();//请求队列
@@ -62,13 +35,13 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
         mDefaultRetryPolicy = new DefaultRetryPolicy(10000, 2, 1); //21s
     }
 
-    /**
+    *//**
      * 使用get 方法请求网络
      *
      * @param requestCode 请求代码，用来区分哪里发来的请求
      * @param url         请求地址
      * @param listener    监听器
-     */
+     *//*
     public void get(int requestCode, String url, TupperwareListener listener) {
         get(requestCode, url, listener, null);
     }
@@ -85,9 +58,9 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
             Log.i(TAG, "get()--Url == " + url);
         //一个实例对最只能发送一个请求
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         try{
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().appendQueryParameter("platform_referer", platformReferer());
@@ -110,21 +83,21 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
 //        MainApplication.addRequest(mStringRequest, "");
     }
 
-    /**
+    *//**
      * 带Header的头
      * @param requestCode
      * @param url
      * @param l
      * @param errorListener
      * @param headerparams
-     */
+     *//*
     public void get(int requestCode, String url, TupperwareListener l, TupperwareErrorListener errorListener,  final Map<String, String> headerparams) {
         Log.i(TAG, "get()--Url == " + url);
         //一个实例对最只能发送一个请求
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         try{
 //            Uri uri = Uri.parse(url);
 //            Uri.Builder builder = uri.buildUpon().appendQueryParameter("platform_referer", platformReferer());
@@ -157,14 +130,14 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
 //        MainApplication.addRequest(mStringRequest, "");
     }
 
-    /**
+    *//**
      * 不带Header
      * @param requestCode
      * @param url
      * @param params
      * @param l
      * @param errorListener
-     */
+     *//*
     public void post(int requestCode, String url, final Map<String, String> params, TupperwareListener l, TupperwareErrorListener errorListener) {
             Log.i(TAG, "post()--Url == " + url);
 
@@ -177,9 +150,9 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
         mErrorListener = errorListener;
         mRequestCode = requestCode;
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         params.put("platform_referer", platformReferer());
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), this, this);
@@ -199,7 +172,7 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
 //        mRequestQueue.add(mStringRequest);
     }
 
-    /**
+    *//**
      * 带Header
      * @param requestCode
      * @param url
@@ -207,7 +180,7 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
      * @param l
      * @param errorListener
      * @param headerparams
-     */
+     *//*
     public void post(int requestCode, String url, final Map<String, String> params, TupperwareListener l, TupperwareErrorListener errorListener, final Map<String, String> headerparams) {
             Log.i(TAG, "post()--Url == " + url);
         //一个实例最多只能发送一个请求
@@ -219,9 +192,9 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
         mErrorListener = errorListener;
         mRequestCode = requestCode;
 
-        /**
+        *//**
          * 增加APP平台增加发送端参数
-         */
+         *//*
         params.put("platform_referer", platformReferer());
 //        params.put(name, name);
         jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), this, this) {
@@ -242,7 +215,7 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
 
 
 
-    /*protected HttpURLConnection createConnection(URL url)
+    *//*protected HttpURLConnection createConnection(URL url)
             throws IOException {
         return (HttpURLConnection)url.openConnection();
     }
@@ -258,10 +231,10 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
         connection.setDoInput(true);
 
         return connection;
-    }*/
-    /**
+    }*//*
+    *//**
      * 取消请求
-     */
+     *//*
     public void cancel() {
         if (jsonObjectRequest != null && !jsonObjectRequest.isCanceled()) {
 //            mStringRequest.cancel();
@@ -269,11 +242,11 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
         }
     }
 
-    /**
+    *//**
      * 成功拿到数据
      *
      * @param jsonObject
-     */
+     *//*
     @Override
     public void onResponse(JSONObject jsonObject) {
 
@@ -364,11 +337,11 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
 //        }
 //    }
 
-    /**
+    *//**
      * 请求发生错误
      *
      * @param error
-     */
+     *//*
     @Override
     public void onErrorResponse(VolleyError error) {
         try {
@@ -398,23 +371,23 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
     }
 
     public interface TupperwareListener {
-        /**
+        *//**
          * 成功拿到能显示的数据，没错，就是可以显示了，错误的可能性全部处理了
          *
          * @param requestCode 请求代码
          * @param json        拿到的响应对象
-         */
+         *//*
         public void ok(int requestCode, String json);
     }
 
     public interface TupperwareErrorListener {
-        /**
+        *//**
          * 全部错误都来到这里
          *
          * @param requestCode
          * @param jsonObject
          * @return 返回true 说明错误事件已经处理
-         */
+         *//*
         public boolean error(int requestCode, JSONObject jsonObject);
     }
 
@@ -468,4 +441,4 @@ public class Tupperware implements Response.Listener<JSONObject>, Response.Error
     }
 
 
-}
+}*/

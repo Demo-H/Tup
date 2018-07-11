@@ -22,7 +22,13 @@ public class GlobalConfig {
     public static final String STORE_CODE = "store_code";
     public static final String EMPLOYEE_CODE = "employee_code";
     public static final String STORE_ID = "store_id";
+    public static final String PLATFORM = "PC";
 
+    /**
+     * appid
+     */
+    public static final String BUGLY_APP_ID = "7dda9137ea";
+    public static final String BUGLY_APP_KEY = "571f100c-5715-4909-8337-0c3c180b9e3b";
 
     public static final String COOKIE = "cookie";
 
@@ -30,6 +36,19 @@ public class GlobalConfig {
     public final static String DOWNLOAD_FILE_PATH = "filepath";
 
     public final static boolean isTest = false;
+
+    /** loadingdialog **/
+    public static final String LOADING_TIP = "loading_tip";
+
+    public static String SHARE_PREFERENCE_FILE_NAME = "tup";
+    public static final String SHARE_PREFERENCE_SETTING = "tup_setting";
+
+    /**network **/
+    public static int HTTP_READ_TIME_OUT = 15;
+    public static int HTTP_CONNECT_TIME_OUT = 15;
+    public static String BASE_URL = "https://test.tbh.cn/";
+
+    public static boolean DEBUG = true;
 
 
 }

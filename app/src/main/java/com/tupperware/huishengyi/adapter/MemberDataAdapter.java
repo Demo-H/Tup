@@ -10,7 +10,7 @@ import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.member.MemberAddBean;
 import com.tupperware.huishengyi.entity.member.MemberReportBean;
-import com.tupperware.huishengyi.ui.fragment.BaseFragment;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.ui.fragment.MemberDataDetialFragment;
 
 /**

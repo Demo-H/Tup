@@ -3,11 +3,11 @@ package com.tupperware.huishengyi.adapter;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
-import com.android.dhunter.common.base.baseadapter.BaseMultiItemQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseMultiItemQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.entity.LoveVipIndex;
-import com.tupperware.huishengyi.interfaces.PositionChangedListener;
+import com.tupperware.huishengyi.listener.PositionChangedListener;
 
 /**
  * Created by dhunter on 2018/3/8.

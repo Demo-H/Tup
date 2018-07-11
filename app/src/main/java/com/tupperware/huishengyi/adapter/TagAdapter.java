@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.android.dhunter.common.utils.ScreenUtil;
 import com.tupperware.huishengyi.R;
-import com.tupperware.huishengyi.app.BaseApplication;
+import com.tupperware.huishengyi.base.BaseApplication;
 import com.tupperware.huishengyi.entity.TagBean;
 
 import java.util.ArrayList;

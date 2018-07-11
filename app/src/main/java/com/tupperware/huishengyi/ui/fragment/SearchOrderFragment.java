@@ -15,20 +15,20 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
 import com.android.dhunter.common.config.GlobalConfig;
-import com.android.dhunter.common.utils.SharePreferenceData;
 import com.android.dhunter.common.widget.PullHeaderView;
 import com.android.dhunter.common.widget.pulltorefresh.PtrFrameLayout;
 import com.android.dhunter.common.widget.pulltorefresh.PtrHandler;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.adapter.SearchOrderAdapter;
-import com.tupperware.huishengyi.component.DaggerSearchOrderFragmentComponent;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.order.OrderBean;
 import com.tupperware.huishengyi.http.OrderDataManager;
-import com.tupperware.huishengyi.module.SearchOrderPresenterModule;
+import com.tupperware.huishengyi.ui.component.DaggerSearchOrderFragmentComponent;
 import com.tupperware.huishengyi.ui.contract.SearchOrderContract;
+import com.tupperware.huishengyi.ui.module.SearchOrderPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.SearchOrderPresenter;
 import com.tupperware.huishengyi.view.SpacesItemDecoration;
 
@@ -59,7 +59,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     private TextView mEmptyText;
     private EditText mSearchEditText;
     private String code; //门店编码
-    private SharePreferenceData mSharePreDate;
+//    private SharePreferenceData mSharePreDate;
     @Inject
     SearchOrderPresenter mPresenter;
 
@@ -77,7 +77,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
         mEmptyText.setText(getResources().getString(R.string.no_search_result));
         unbinder = ButterKnife.bind(this, rootView);
         initLayout();
-        initLayoutData();
+        requestData();
         return rootView;
     }
 
@@ -99,13 +99,13 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
         mOrderAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
         mRecyclerView.setAdapter(mOrderAdapter);
 
-        if(Constant.DemoTest) {
-            code = "200001";
-        } else {
-            mSharePreDate = new SharePreferenceData(getContext().getApplicationContext());
-            code = (String) mSharePreDate.getParam(GlobalConfig.KEY_DATA_USERID, "");
-        }
-
+//        if(Constant.DemoTest) {
+//            code = "200001";
+//        } else {
+//            mSharePreDate = new SharePreferenceData(getContext().getApplicationContext());
+//            code = (String) mSharePreDate.getParam(GlobalConfig.KEY_DATA_USERID, "");
+//        }
+        code = mDataManager.getSPData(GlobalConfig.KEY_DATA_USERID);
         if(mSearchEditText != null) {
             mSearchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
@@ -127,7 +127,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

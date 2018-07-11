@@ -24,6 +24,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.tupperware.huishengyi.R;
+import com.tupperware.huishengyi.base.BaseFragment;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.utils.StringUtils;
 
@@ -72,7 +73,7 @@ public class DataSingleProductTopFragment extends BaseFragment implements OnChar
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
         initLayout();
-        initLayoutData();
+        requestData();
         return view;
     }
 
@@ -178,7 +179,7 @@ public class DataSingleProductTopFragment extends BaseFragment implements OnChar
     }
 
     @Override
-    public void initLayoutData() {
+    public void requestData() {
 
     }
 

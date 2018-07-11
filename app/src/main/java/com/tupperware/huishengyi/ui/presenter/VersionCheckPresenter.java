@@ -3,7 +3,8 @@ package com.tupperware.huishengyi.ui.presenter;
 import android.app.Activity;
 import android.util.Log;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.home.VersionUpBean;
 import com.tupperware.huishengyi.http.MainDataManager;
 import com.tupperware.huishengyi.ui.contract.VersionCheckContract;

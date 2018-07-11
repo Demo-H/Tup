@@ -11,6 +11,9 @@ public class CollExperienceContract {
         void setExperienceData(CollegeBean mBean);
         void setMoreExperienceData(CollegeBean mBean);
         void toast(String msg);
+        void setNormalView();
+        void setNetErrorView();
+        void setEmptyView();
     }
 
     public interface Presenter {

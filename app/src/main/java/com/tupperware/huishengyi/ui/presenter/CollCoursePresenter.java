@@ -3,7 +3,8 @@ package com.tupperware.huishengyi.ui.presenter;
 import android.app.Activity;
 import android.util.Log;
 
-import com.android.dhunter.common.base.rxjava.ErrorDisposableObserver;
+import com.android.dhunter.common.base.BasePresenter;
+import com.android.dhunter.common.network.ErrorDisposableObserver;
 import com.tupperware.huishengyi.entity.college.CollegeBean;
 import com.tupperware.huishengyi.http.CollegeDataManager;
 import com.tupperware.huishengyi.ui.contract.CollCourseContract;
@@ -40,6 +41,8 @@ public class CollCoursePresenter extends BasePresenter implements CollCourseCont
                 LogF.i(TAG, ObjectUtil.jsonFormatter(collegeBean));
                 if(!collegeBean.success) {
                     mView.toast(collegeBean.message);
+                } else if(collegeBean.models == null || collegeBean.models.isEmpty()){
+                    mView.setEmptyView();
                 } else {
                     mView.setCourseData(collegeBean);
                 }
@@ -48,6 +51,7 @@ public class CollCoursePresenter extends BasePresenter implements CollCourseCont
             @Override
             public void onError(Throwable e) {
                 Log.e("TAG", "onError: "+e );
+                mView.setNetErrorView();
             }
 
             @Override
@@ -90,7 +94,10 @@ public class CollCoursePresenter extends BasePresenter implements CollCourseCont
                 LogF.i(TAG, ObjectUtil.jsonFormatter(collegeBean));
                 if(!collegeBean.success) {
                     mView.toast(collegeBean.message);
+                }else if(collegeBean.models == null || collegeBean.models.isEmpty()) {
+                    mView.setBannerViewHide();
                 } else {
+                    mView.setNormalView();
                     mView.setBannerView(collegeBean);
                 }
             }

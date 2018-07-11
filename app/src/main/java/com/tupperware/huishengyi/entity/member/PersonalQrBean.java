@@ -8,11 +8,43 @@ import com.tupperware.huishengyi.entity.BaseData;
 
 public class PersonalQrBean extends BaseData {
 
-    public QrContent model;
+    private QrContent model;
 
     public class QrContent{
-        public String name;
-        public String code;
-        public String logo;
+        private String name;
+        private String code;
+        private String logo;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getLogo() {
+            return logo;
+        }
+
+        public void setLogo(String logo) {
+            this.logo = logo;
+        }
+    }
+
+    public QrContent getModel() {
+        return model;
+    }
+
+    public void setModel(QrContent model) {
+        this.model = model;
     }
 }

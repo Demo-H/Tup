@@ -10,13 +10,12 @@ import com.tupperware.huishengyi.entity.member.PersonalQrBean;
  */
 
 public class PersonalQrContract {
-
-
     public interface View {
         void setPersonQrData(PersonalQrBean mBean);
         void toast(String msg);
         void setNetErrorView();
         void setNormalView();
+        void setEmptyView();
     }
 
     public interface Presenter {

@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.android.dhunter.common.base.baseadapter.BaseQuickAdapter;
-import com.android.dhunter.common.base.baseadapter.BaseViewHolder;
+import com.android.dhunter.common.baserecycleview.BaseQuickAdapter;
+import com.android.dhunter.common.baserecycleview.BaseViewHolder;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.config.Constant;
 import com.tupperware.huishengyi.entity.member.MemberBean;
-import com.tupperware.huishengyi.ui.MemberDetialActivity;
+import com.tupperware.huishengyi.ui.activities.MemberDetialActivity;
 
 /**
  * Created by dhunter on 2018/5/23.

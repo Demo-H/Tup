@@ -118,6 +118,7 @@ public class SaleEnterActivity extends BaseActivity {
                 }
                 firstFragment = mScanFragment;
                 showFragment(mScanFragment);
+                refreshCount();
                 mScanFragment.setUserVisible();
                 mRightIcon.setVisibility(View.VISIBLE);
                 mRightImage.setVisibility(View.VISIBLE);
@@ -250,10 +251,10 @@ public class SaleEnterActivity extends BaseActivity {
     }
 
     public void refreshCount() {
-        if(mInstance.getListSize() == 0 ) {
+        if (mInstance.getListSize() == 0) {
             mEnterCount.setVisibility(View.GONE);
         } else {
-            if(mEnterCount.getVisibility() == View.GONE) {
+            if (mEnterCount.getVisibility() == View.GONE) {
                 mEnterCount.setVisibility(View.VISIBLE);
             }
             mEnterCount.setText(mInstance.getListSize() + "");

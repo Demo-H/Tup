@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.dhunter.common.R;
 import com.android.dhunter.common.view.LoadingDialog;
@@ -139,9 +138,9 @@ public abstract class BaseRxFragment extends RxFragment implements FragmentUserV
     public void toast(String msg) {
         if (getActivity() instanceof BaseRxActivity) {
             ((BaseRxActivity) getActivity()).toast(msg);
-        } else {
+        }/* else {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
 }

@@ -46,6 +46,9 @@
     <string name="click_refresh">网络异常，点击刷新</string>
     <string name="gen_remarks">备注</string>
     <string name="jump_ignore">跳过</string>
+    <string name="version_update">版本更新...</string>
+    <string name="download_progress">下载进度:%d%%/100%%</string>
+    <string name="download_finish">下载完成，点击安装</string>
 
 
     <!-- 服务器返回信息 -->
@@ -132,6 +135,7 @@
     <string name="device_manager">本机管理</string>
     <string name="about_us">关于我们</string>
     <string name="version">版本</string>
+    <string name="copy_data">拷贝数据</string>
     <string name="scan_and_scan_tip">扫一扫上面二维码，访问我的微店</string>
     <string name="scan_and_scan_error">二维码离家出走了</string>
     <string name="scan_and_scan_empty">服务器忙，先使用本地二维码</string>

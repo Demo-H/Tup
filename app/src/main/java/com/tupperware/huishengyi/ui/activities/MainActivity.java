@@ -1,11 +1,13 @@
 package com.tupperware.huishengyi.ui.activities;
 
-import android.app.DownloadManager;
+import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.dhunter.common.config.GlobalConfig;
 import com.android.dhunter.common.utils.FileUtils;
@@ -24,11 +26,11 @@ import com.tupperware.huishengyi.ui.fragment.HomePageFragment;
 import com.tupperware.huishengyi.ui.fragment.LoveVipFragment;
 import com.tupperware.huishengyi.ui.module.VersionCheckPresenterModule;
 import com.tupperware.huishengyi.ui.presenter.VersionCheckPresenter;
+import com.tupperware.huishengyi.utils.UpdateUtils;
 import com.tupperware.huishengyi.view.HomeTabViewPager;
 import com.tupperware.huishengyi.view.NoScrollViewPager;
 import com.tupperware.huishengyi.widget.CustomDialog;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -58,9 +60,15 @@ public class MainActivity extends BaseActivity implements VersionCheckContract.V
 
     private boolean isCheck = false;
     private String mUserId;
+    private long mId;
+    private Dialog mProgressDialog;
+    private ProgressBar mProgressBar;
+    private TextView mPrecent;
+    private TextView mComplete;
 
     @Inject
     VersionCheckPresenter mPresenter;
+    private String mDownloadFileName = "tupperware.apk";
 
     @Override
     protected int getLayoutId() {
@@ -188,32 +196,57 @@ public class MainActivity extends BaseActivity implements VersionCheckContract.V
 
 
     private void startDownloadApk(String downloadurl) {
+        downloadurl = "http://imtt.dd.qq.com/16891/4B61342F28FFAA79A313FCBC03AD238E.apk?fsname=com.huaban.android_4.0.8_83.apk&csr=1bbd";
+        if (TextUtils.isEmpty(downloadurl)) {
+            toast("无效的下载地址");
+            finish();
+        }
         FileUtils.fileIsExistsbyType(FileUtils.PathType.DOWNLOAD);
-        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        Uri uri = Uri.parse(downloadurl);
-        DownloadManager.Request request = new DownloadManager.Request(uri);
-
-        //设置允许使用的网络类型，这里是移动网络和wifi都可以
-        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        request.setVisibleInDownloadsUi(true);
-        request.setMimeType("application/cn.trinea.download.file");
-        File file = new File(FileUtils.DIR_DOWNLOAD);
-        file.mkdirs();
-        String[] strArray = downloadurl.split("/");
-        String mDownloadFileName = "tupperware.apk";
-
-        File f = new File(FileUtils.DIR_DOWNLOAD + File.separator + mDownloadFileName);
-        if (f.exists()) {
-            f.delete();
-        }
-        try {
-            request.setDestinationInExternalPublicDir(FileUtils.DIR_DOWNLOAD, mDownloadFileName);
-            request.setTitle(mDownloadFileName);
-            long myDownloadReference = downloadManager.enqueue(request);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        UpdateUtils.startDownload(downloadurl, MainActivity.this);
+//        FileUtils.fileIsExistsbyType(FileUtils.PathType.DOWNLOAD);
+//        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+//        Uri uri = Uri.parse(downloadurl);
+//        DownloadManager.Request request = new DownloadManager.Request(uri);
+//
+//        //设置允许使用的网络类型，这里是移动网络和wifi都可以
+//        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
+//        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE | DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+//        request.setVisibleInDownloadsUi(true);
+//        request.setMimeType("application/cn.trinea.download.file");
+//        File file = new File(FileUtils.DIR_DOWNLOAD);
+//        file.mkdirs();
+////        String[] strArray = downloadurl.split("/");
+//
+//        File f = new File(FileUtils.DIR_DOWNLOAD + File.separator + mDownloadFileName);
+//        if (f.exists()) {
+//            f.delete();
+//        }
+//        try {
+//            request.setDestinationInExternalPublicDir(FileUtils.AVSOLUTE_DOWNLOAD_PATH, mDownloadFileName);
+//            request.setTitle(mDownloadFileName);
+//            mId = downloadManager.enqueue(request);
+//
+//            //注册内容观察者，实时显示进度
+//            DownloadContentObserver downloadChangeObserver = new DownloadContentObserver(null);
+//            getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads"), true, downloadChangeObserver);
+//
+//            //广播监听下载完成
+//            listener(mId);
+//            //显示进度的对话框
+//            mProgressDialog = new Dialog(MainActivity.this, R.style.Theme_AppCompat_Dialog_Alert);
+//            View view = MainActivity.this.getLayoutInflater().inflate(R.layout.progress_dialog, null);
+//            mProgressBar = (ProgressBar) view.findViewById(R.id.pb);
+//            mPrecent = (TextView) view.findViewById(R.id.tv_precent);
+//            mProgressDialog.setContentView(view);
+//            mProgressDialog.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UpdateUtils.onRelease();
+    }
 }

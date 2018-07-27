@@ -1,9 +1,11 @@
 package com.android.dhunter.common.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -36,6 +38,7 @@ public class FileUtils {
     public static String DIR_CACHE = DIR_PUBLLIC_ROOT + File.separator + "cache";
     public static String DIR_VIDEO = DIR_PUBLLIC_ROOT + File.separator + "video";
     public static String DIR_APP_XML = DIR_PUBLLIC_ROOT + File.separator + "app_xmls";
+    public static String AVSOLUTE_DOWNLOAD_PATH = APP_NAME + File.separator + "download";
 
     /**
      * 存储路径方式
@@ -491,5 +494,45 @@ public class FileUtils {
             }
         }
         return result;
+    }
+
+    @TargetApi(24)
+    public static void copyDataBaseToSD(Context context){
+        if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            return ;
+        }
+        String filePath = DIR_APP_XML;
+        if(!fileIsExists(filePath)) {
+            createDir(filePath);
+        }
+        String sharePath = context.getDataDir() + "/shared_prefs/tup.xml";
+        String aa = "/data/data/com.tupperware.huishengyi/shared_prefs/tup.xml";
+
+        File shareFile = new File(sharePath);
+        File file  = new File(filePath, "tup_copy.xml");
+
+        FileChannel inChannel = null,outChannel = null;
+        try {
+            file.createNewFile();
+            inChannel = new FileInputStream(shareFile).getChannel();
+            outChannel = new FileOutputStream(file).getChannel();
+            inChannel.transferTo(0, inChannel.size(), outChannel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                if (inChannel != null) {
+                    inChannel.close();
+                    inChannel = null;
+                }
+                if(outChannel != null){
+                    outChannel.close();
+                    outChannel = null;
+                }
+                Toast.makeText(context, "copy share file to " + DIR_APP_XML + "/tup_copy.xml", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -135,11 +135,13 @@ public class ProductHistoryProvider {
 
     private void commit(){
         List<SaleEnterContent> mBeanlist = sparseArrayToList ();
-        mSharePreDate.saveObjectData(Constant.PRODUCT_HISTORY_PROVIDER , ObjectUtil.jsonFormatter(mBeanlist));
+//        mSharePreDate.saveObjectData(Constant.PRODUCT_HISTORY_PROVIDER , ObjectUtil.jsonFormatter(mBeanlist));
+        mSharePreDate.saveData(Constant.PRODUCT_HISTORY_PROVIDER , ObjectUtil.jsonFormatter(mBeanlist));
     }
 
     public List<SaleEnterContent> getDataFromlocal(){
-        String json = (String) mSharePreDate.getObjectData(Constant.PRODUCT_HISTORY_PROVIDER, "") ;
+//        String json = (String) mSharePreDate.getObjectData(Constant.PRODUCT_HISTORY_PROVIDER, "") ;
+        String json =  mSharePreDate.getValue(Constant.PRODUCT_HISTORY_PROVIDER) ;
         LogF.d(TAG , "---"+json) ;
         List<SaleEnterContent> mBeanList = new ArrayList<>() ;
         if (json != null && json.length() > 0 ){

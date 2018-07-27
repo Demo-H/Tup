@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.dhunter.common.utils.FileUtils;
 import com.tupperware.huishengyi.R;
 import com.tupperware.huishengyi.base.BaseActivity;
 import com.tupperware.huishengyi.config.Constant;
@@ -60,6 +61,8 @@ public class PersonalSettingActivity extends BaseActivity implements PersonalSet
     TextView mLoginExit;
     @BindView(R.id.version)
     TextView mVersionText;
+    @BindView(R.id.develop_copy)
+    RelativeLayout mCopyData;
 
     private String appVersion;
 
@@ -96,7 +99,7 @@ public class PersonalSettingActivity extends BaseActivity implements PersonalSet
     }
 
 
-    @OnClick({R.id.left_back, R.id.schedule, R.id.modified_psw, R.id.login_exit})
+    @OnClick({R.id.left_back, R.id.schedule, R.id.modified_psw, R.id.login_exit, R.id.develop_copy})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.left_back:
@@ -121,6 +124,9 @@ public class PersonalSettingActivity extends BaseActivity implements PersonalSet
 //                break;
             case R.id.login_exit:
                 logout();
+                break;
+            case R.id.develop_copy:
+                FileUtils.copyDataBaseToSD(mContext.getApplicationContext());
                 break;
         }
     }

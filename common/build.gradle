@@ -25,10 +25,12 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "boolean", "MODEL_ENV_TEST", model_env()
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            buildConfigField "boolean", "MODEL_ENV_TEST", model_env()
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -38,6 +40,14 @@ android {
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
+    }
+}
+
+def model_env() {
+    if(project.hasProperty('MODEL_ENV_TEST')) {
+        return project.getProperties().get('MODEL_ENV_TEST')
+    } else {
+        return "true"
     }
 }
 

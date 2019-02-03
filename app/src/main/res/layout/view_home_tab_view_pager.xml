@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.tupperware.huishengyi.view.NoScrollViewPager
+    <com.tupperware.biz.view.NoScrollViewPager
         android:id="@+id/viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -70,7 +70,7 @@
         android:text="@string/home_order"
         app:layout_constraintBottom_toBottomOf="@+id/tvHome"
         app:layout_constraintLeft_toRightOf="@+id/tvVip"
-        app:layout_constraintRight_toLeftOf="@+id/tvData" />
+        app:layout_constraintRight_toLeftOf="@+id/tvData"/>
 
     <TextView
         android:id="@+id/tvData"
@@ -80,17 +80,29 @@
         android:text="@string/home_data"
         app:layout_constraintBottom_toBottomOf="@+id/tvHome"
         app:layout_constraintLeft_toRightOf="@+id/tvOrder"
-        app:layout_constraintRight_toLeftOf="@+id/tvMarket" />
+        app:layout_constraintRight_toRightOf="@+id/tvMe" />
+
+    <!--app:layout_constraintRight_toLeftOf="@+id/tvMarket"-->
 
     <TextView
-        android:id="@+id/tvMarket"
+        android:id="@id/tvMe"
         style="@style/home_tab_text_view_style_test"
-        android:drawableTop="@drawable/market_tag_default_selector"
+        android:drawableTop="@drawable/me_tag_default_selector"
+        android:text="@string/home_me"
         android:textColor="@drawable/home_text_default_selector"
-        android:text="@string/home_market"
         app:layout_constraintBottom_toBottomOf="@+id/tvHome"
         app:layout_constraintLeft_toRightOf="@+id/tvData"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvMarket"-->
+        <!--style="@style/home_tab_text_view_style_test"-->
+        <!--android:drawableTop="@drawable/market_tag_default_selector"-->
+        <!--android:textColor="@drawable/home_text_default_selector"-->
+        <!--android:text="@string/home_market"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/tvHome"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/tvData"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
 
 
 </android.support.constraint.ConstraintLayout>

@@ -3,17 +3,22 @@
 
     <!-- base -->
     <dimen name="xx_small">7sp</dimen>
+    <dimen name="small_9sp">9sp</dimen>
     <dimen name="x_small">10sp</dimen>
+    <dimen name="sxx_small">11sp</dimen>
     <dimen name="sx_small">11.5sp</dimen>
     <dimen name="small">12sp</dimen>
     <dimen name="normal_x">13sp</dimen>
     <dimen name="normal">14sp</dimen>
+    <dimen name="normal_15sp">15sp</dimen>
     <dimen name="large">16sp</dimen>
     <dimen name="s_large">17sp</dimen>
     <dimen name="x_large">18sp</dimen>
     <dimen name="large_19sp">19sp</dimen>
     <dimen name="large_20sp">20sp</dimen>
+    <dimen name="large_21sp">21sp</dimen>
     <dimen name="large_22sp">22sp</dimen>
+    <dimen name="large_24sp">24sp</dimen>
     <dimen name="large_26sp">26sp</dimen>
     <dimen name="large_27sp">27sp</dimen>
     <dimen name="xx_large">28sp</dimen>
@@ -85,6 +90,7 @@
     <dimen name="dimen_32dp">32dp</dimen>
     <dimen name="dimen_34dp">34dp</dimen>
     <dimen name="dimen_35dp">35dp</dimen>
+    <dimen name="dimen_36dp">36dp</dimen>
     <dimen name="dimen_37dp">37dp</dimen>
     <dimen name="dimen_38dp">38dp</dimen>
     <dimen name="dimen_40dp">40dp</dimen>
@@ -122,6 +128,7 @@
     <dimen name="dimen_84dp">84dp</dimen>
     <dimen name="dimen_86dp">86dp</dimen>
     <dimen name="dimen_88dp">88dp</dimen>
+    <dimen name="dimen_93dp">93dp</dimen>
     <dimen name="dimen_96dp">96dp</dimen>
     <dimen name="dimen_97dp">97dp</dimen>
     <dimen name="dimen_98dp">98dp</dimen>

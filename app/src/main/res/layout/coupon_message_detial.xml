@@ -91,7 +91,6 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/separation_large"
             android:paddingBottom="@dimen/activity_horizontal_margin"
-            android:text="说明：凭本券在专卖店购买有唯一码特百惠产品可立减10元(会员套装、秒杀产品不可使用)。每款产品只能使用一张优惠券，尽在购物时用于折扣货款，不可兑换现金或产品。"
             android:textColor="@color/color_9b9b9b"
             android:textSize="@dimen/small"/>
 

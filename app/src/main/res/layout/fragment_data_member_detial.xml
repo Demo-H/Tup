@@ -29,12 +29,23 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/finished_zhaomu"
-                    style="@style/TextGray.XLarge"
-                    android:textColor="@color/color_ff7000"
-                    android:text="0个"
-                    android:textSize="@dimen/large_26sp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/finished_zhaomu"
+                        style="@style/TextGray.XLarge"
+                        android:textColor="@color/color_ff7000"
+                        android:text="0"
+                        android:textSize="@dimen/large_26sp"/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/color_ff7000"
+                        android:text="个"
+                        android:textSize="@dimen/small_9sp"/>
+                </LinearLayout>
 
                 <TextView
                     style="@style/TextGray.Small"
@@ -57,14 +68,27 @@
                 android:text="@string/today_add_member"
                 android:textSize="@dimen/small"
                 android:textColor="@color/color_43484b"/>
-            <TextView
-                android:id="@+id/today_add_member"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8dp"
-                android:text="0个"
-                android:textColor="@color/color_ff7000"
-                android:textSize="@dimen/large_19sp"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/today_add_member"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="0"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/large_19sp"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_ff7000"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="个"
+                    android:textSize="@dimen/small_9sp"/>
+            </LinearLayout>
+
             <View android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_1dp"
                 android:layout_marginTop="@dimen/dimen_10dp"
@@ -76,14 +100,26 @@
                 android:text="@string/month_target_zhaomu"
                 android:textSize="@dimen/small"
                 android:textColor="@color/color_43484b"/>
-            <TextView
-                android:id="@+id/month_target_zhaomu"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8dp"
-                android:text="0个"
-                android:textColor="@color/color_ff7000"
-                android:textSize="@dimen/large_19sp"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/month_target_zhaomu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="0"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/large_19sp"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_ff7000"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="个"
+                    android:textSize="@dimen/small_9sp"/>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
@@ -109,21 +145,33 @@
                 android:text="@string/month_target"
                 android:textColor="@color/color_43484b"
                 android:textSize="@dimen/normal_x"/>
-            <com.facebook.drawee.view.SimpleDraweeView
+<!--            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/month_target_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"/>
-            <TextView
-                android:id="@+id/month_target_text"
+                android:layout_marginRight="@dimen/dimen_12dp"/>-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_34dp"
-                android:text="0个/0个"
-                android:textColor="@color/color_ff7000"
-                android:textSize="@dimen/normal"/>
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/month_target_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/month_target_text_standard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个/0个"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small"/>
+            </LinearLayout>
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -143,21 +191,34 @@
                 android:text="@string/season_target"
                 android:textColor="@color/color_43484b"
                 android:textSize="@dimen/normal_x"/>
-            <com.facebook.drawee.view.SimpleDraweeView
+<!--            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/season_target_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"/>
-            <TextView
-                android:id="@+id/season_target_text"
+                android:layout_marginRight="@dimen/dimen_12dp"/>-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_34dp"
-                android:text="0个/0个"
-                android:textColor="@color/color_9b9b9b"
-                android:textSize="@dimen/normal"/>
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/season_target_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/season_target_text_standard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个/0个"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small"/>
+            </LinearLayout>
+
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -177,21 +238,34 @@
                 android:text="@string/year_target"
                 android:textColor="@color/color_43484b"
                 android:textSize="@dimen/normal_x"/>
-            <com.facebook.drawee.view.SimpleDraweeView
+<!--            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/year_target_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_12dp"/>
-            <TextView
-                android:id="@+id/year_target_text"
+                android:layout_marginRight="@dimen/dimen_12dp"/>-->
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_34dp"
-                android:text="0个/0个"
-                android:textColor="@color/color_9b9b9b"
-                android:textSize="@dimen/normal"/>
+                android:layout_marginRight="@dimen/dimen_12dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/year_target_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/normal"/>
+                <TextView
+                    android:id="@+id/year_target_text_standard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个/0个"
+                    android:textColor="@color/color_ff7000"
+                    android:textSize="@dimen/small"/>
+            </LinearLayout>
         </RelativeLayout>
 
     </LinearLayout>

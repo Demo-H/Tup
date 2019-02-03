@@ -17,12 +17,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_4dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone">
             <TextView
                 style="@style/General_TextVew_For_PersonalInfo"
                 android:text="@string/schedule"/>
             <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
         </RelativeLayout>
+<!--        <RelativeLayout
+            android:id="@+id/staff_manager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:background="@color/white">
+            <TextView
+                style="@style/General_TextVew_For_PersonalInfo"
+                android:text="@string/staff_manager"/>
+            <ImageView style="@style/ImageView_ARROW_For_PersonalInfo"/>
+        </RelativeLayout>-->
         <RelativeLayout
             android:id="@+id/modified_psw"
             android:layout_width="match_parent"
@@ -103,16 +115,16 @@
                 android:textSize="@dimen/normal_x"
                 android:text="V1.0"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/develop_copy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_1dp"
-            android:background="@color/white">
-            <TextView
-                style="@style/General_TextVew_For_PersonalInfo"
-                android:text="@string/copy_data"/>
-        </RelativeLayout>
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/develop_copy"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/dimen_1dp"-->
+            <!--android:background="@color/white">-->
+            <!--<TextView-->
+                <!--style="@style/General_TextVew_For_PersonalInfo"-->
+                <!--android:text="@string/copy_data"/>-->
+        <!--</RelativeLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <!--放4个
-    变更为放5个，需求会反复变更-->
+    变更为放5个，需求会反复变更, 再改为3个，分2行-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,105 +12,97 @@
         android:layout_marginLeft="@dimen/dimen_8dp"
         android:layout_marginRight="@dimen/dimen_8dp"
         android:orientation="horizontal"
-        android:weightSum="5">
+        android:weightSum="3">
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
 
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
 
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
-            android:id="@+id/list_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
-            android:id="@+id/list_5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-        </com.tupperware.huishengyi.view.GridMenu>
-
-
+        </com.tupperware.biz.view.GridMenu>
     </LinearLayout>
 
 
 
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_18dp"
         android:layout_marginLeft="@dimen/dimen_8dp"
         android:layout_marginRight="@dimen/dimen_8dp"
         android:orientation="horizontal"
-        android:weightSum="4">
+        android:weightSum="3">
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
+            android:id="@+id/list_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
+
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
 
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
+    </LinearLayout>
 
-        </com.tupperware.huishengyi.view.GridMenu>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_18dp"
+        android:layout_marginLeft="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_8dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:visibility="gone">
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+        </com.tupperware.biz.view.GridMenu>
 
-        </com.tupperware.huishengyi.view.GridMenu>
-
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/list_8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:visibility="gone">
+        </com.tupperware.biz.view.GridMenu>
 
-        </com.tupperware.huishengyi.view.GridMenu>
+        <com.tupperware.biz.view.GridMenu
+            android:id="@+id/list_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone">
+        </com.tupperware.biz.view.GridMenu>
+    </LinearLayout>
 
-
-    </LinearLayout>-->
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:layout_marginRight="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_18dp"
-        android:layout_height="@dimen/dimen_1dp"
-        android:background="@color/lineColor"
-        />
 
 </LinearLayout>
 

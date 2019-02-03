@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_toolbar"
+        layout="@layout/tool_bar_full_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lineColor"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/select_one_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/select_one"
+                style="@style/General_TextVew_For_PersonalInfo" />
+            <ImageView
+                android:id="@+id/selected_one_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:gravity="right|center_vertical"
+                android:background="@mipmap/fans_select_ic"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/select_two_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/select_two"
+                style="@style/General_TextVew_For_PersonalInfo"/>
+            <ImageView
+                android:id="@+id/selected_two_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_14dp"
+                android:gravity="right|center_vertical"
+                android:background="@mipmap/fans_select_ic"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

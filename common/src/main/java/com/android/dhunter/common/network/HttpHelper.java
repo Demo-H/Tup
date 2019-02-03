@@ -3,7 +3,9 @@ package com.android.dhunter.common.network;
 import android.content.Context;
 
 import com.android.dhunter.common.config.GlobalConfig;
+import com.android.dhunter.common.utils.ApplicationUtils;
 import com.android.dhunter.common.utils.FileUtils;
+import com.android.dhunter.common.utils.StringUtils;
 
 import java.io.File;
 import java.util.Arrays;
@@ -39,6 +41,8 @@ public class HttpHelper {
     public HttpHelper(Context context, SharePreferenceHelper sharePreferenceHelper) {
         this.context = context.getApplicationContext();
         this.sharePreferenceHelper = sharePreferenceHelper;
+        GlobalConfig.headers = new HashMap<>();
+        setHeader();
 //        mSharePreDate = new SharePreferenceData(context.getApplicationContext());
 //        sharePreferenceHelper = new SharePreferenceHelper(context.getApplicationContext());
         mServiceMap = new HashMap<>();
@@ -86,7 +90,7 @@ public class HttpHelper {
 //                .cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getInstance())))
                 //插入Header
 //                .addInterceptor(new BaseInterceptor<>(getHeader(),context))
-                .addInterceptor(new HeaderInterceptor<>(getHeader(),context))
+                .addInterceptor(new HeaderInterceptor<>(context))
 //                .addNetworkInterceptor(new HeaderInterceptor<>(getHeader(),context))
                 .cache(cache)
                 .build();
@@ -115,9 +119,23 @@ public class HttpHelper {
 
     /** 登录完成后重新初始化，设置访问头参数 **/
     public void setHeader() {
-        mRetrofitClient = null;
+        String token =  sharePreferenceHelper.getValue(GlobalConfig.LOGIN_TOKEN);
+        String userId =  sharePreferenceHelper.getValue(GlobalConfig.KEY_DATA_USERID);
+        String employeeGroup =  sharePreferenceHelper.getValue(GlobalConfig.EMPLOYEE_GROUP);
+        String employeeCode = sharePreferenceHelper.getValue(GlobalConfig.EMPLOYEE_CODE);
+        String app_version = ApplicationUtils.getVersionName(context);
+        GlobalConfig.headers.put("x_request_platform", GlobalConfig.PLATFORM);
+        GlobalConfig.headers.put("x_auth_token",token);
+        if(StringUtils.StringChangeToInt(employeeGroup) == 0) {
+            GlobalConfig.headers.put("x_user_id",employeeCode); //店员
+        } else {
+            GlobalConfig.headers.put("x_user_id",userId);  //店主
+        }
+        GlobalConfig.headers.put("x_employee_group", employeeGroup);
+        GlobalConfig.headers.put("x_request_app_version", app_version);
+//        mRetrofitClient = null;
 //        setHeaderMap(map);
-        initRetrofitClient();
+//        initRetrofitClient();
     }
 
 //    private void setHeaderMap(HashMap<String, String> map) {
@@ -136,10 +154,17 @@ public class HttpHelper {
         String token =  sharePreferenceHelper.getValue(GlobalConfig.LOGIN_TOKEN);
         String userId =  sharePreferenceHelper.getValue(GlobalConfig.KEY_DATA_USERID);
         String employeeGroup =  sharePreferenceHelper.getValue(GlobalConfig.EMPLOYEE_GROUP);
+        String app_version = ApplicationUtils.getVersionName(context);
         list.put("x_request_platform", GlobalConfig.PLATFORM);
         list.put("x_auth_token",token);
         list.put("x_user_id",userId);
         list.put("x_employee_group", employeeGroup);
+        list.put("x_request_app_version", app_version);
+        GlobalConfig.headers.put("x_request_platform", GlobalConfig.PLATFORM);
+        GlobalConfig.headers.put("x_auth_token",token);
+        GlobalConfig.headers.put("x_user_id",userId);
+        GlobalConfig.headers.put("x_employee_group", employeeGroup);
+        GlobalConfig.headers.put("x_request_app_version", app_version);
         return list;
     }
 

@@ -9,8 +9,6 @@
         android:id="@+id/action_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        fresco:placeholderImage="@mipmap/icon_placeholder"
-        fresco:placeholderImageScaleType="fitCenter"
         fresco:progressBarImage="@mipmap/icon_progress_bar"
         fresco:progressBarImageScaleType="centerInside"
         fresco:progressBarAutoRotateInterval="5000"

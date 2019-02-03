@@ -3,10 +3,10 @@ package com.android.dhunter.common.network;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.dhunter.common.config.GlobalConfig;
 import com.android.dhunter.common.utils.NetworkUtil;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Set;
 
 import okhttp3.CacheControl;
@@ -21,10 +21,10 @@ import okhttp3.Response;
 public class HeaderInterceptor<T> implements Interceptor {
 
     private Context context;
-    private Map<String, T> headers;
+//    private Map<String, T> headers;
 
-    public HeaderInterceptor(Map<String, T> headers, Context context) {
-        this.headers = headers;
+    public HeaderInterceptor(Context context) {
+//        this.headers = headers;
         this.context = context;
     }
 
@@ -39,10 +39,10 @@ public class HeaderInterceptor<T> implements Interceptor {
         } else {
             Log.d("http_request", "intercept: request header="+request.url() + "/\r body="+request.body() );
             Request.Builder builder = request.newBuilder();
-            if (headers != null && headers.size() > 0) {
-                Set<String> keys = headers.keySet();
+            if (GlobalConfig.headers != null && GlobalConfig.headers.size() > 0) {
+                Set<String> keys = GlobalConfig.headers.keySet();
                 for (String headerKey : keys) {
-                    builder.addHeader(headerKey, headers.get(headerKey) == null? "": (String)headers.get(headerKey)).build();
+                    builder.addHeader(headerKey, GlobalConfig.headers.get(headerKey) == null? "": (String)GlobalConfig.headers.get(headerKey)).build();
                 }
             }
             request = builder.build();

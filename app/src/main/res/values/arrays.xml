@@ -13,7 +13,7 @@
     </string-array>
 
     <string-array name="online_order_title">
-        <item>待支付</item>
+        <item>催付款</item>
         <item>待发货</item>
         <item>已发货</item>
         <item>已完成</item>
@@ -27,6 +27,7 @@
     </string-array>
 
     <string-array name="benefit_coin">
+        <item>全部</item>
         <item>支出</item>
         <item>收入</item>
     </string-array>
@@ -37,6 +38,11 @@
     <string-array name="key_product">
         <item>销售记录</item>
         <item>库存记录</item>
+    </string-array>
+
+    <string-array name="hot_sale">
+        <item>库存概况</item>
+        <item>销售录入</item>
     </string-array>
 
     <string-array name="dev_info">
@@ -158,9 +164,14 @@
     </string-array>
 
     <string-array name="member_attribute">
-        <item>粉丝</item>
+        <!--<item>粉丝</item>-->
         <item>会员</item>
         <item>高级会员</item>
+    </string-array>
+
+    <string-array name="user_type">
+        <item>店主</item>
+        <item>店员</item>
     </string-array>
 
     <!--<string-array name="college_title">-->

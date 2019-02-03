@@ -26,7 +26,6 @@
                 android:id="@+id/staff_no"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="0801234"
                 android:layout_marginRight="@dimen/dimen_16dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"
@@ -52,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/input_name"
-                android:layout_marginRight="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"
                 android:layout_centerVertical="true"
@@ -77,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/input_tel"
-                android:layout_marginRight="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"
                 android:layout_centerVertical="true"
@@ -101,7 +100,7 @@
                 android:id="@+id/staff_sex"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/select"
+                android:text="@string/female_"
                 android:layout_marginRight="@dimen/dimen_35dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"
@@ -155,7 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/set_password"
-                android:layout_marginRight="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"
                 android:layout_centerVertical="true"
@@ -164,7 +163,7 @@
                 android:gravity="right|center_vertical"
                 android:textSize="@dimen/normal"
                 android:background="@null"
-                android:inputType="textPassword"/>
+                />
 
         </RelativeLayout>
         <RelativeLayout
@@ -180,7 +179,7 @@
                 android:id="@+id/staff_status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/select"
+                android:text="@string/start_using"
                 android:layout_marginRight="@dimen/dimen_35dp"
                 android:layout_marginLeft="@dimen/dimen_80dp"
                 android:layout_gravity="center_vertical"

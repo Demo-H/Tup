@@ -12,7 +12,8 @@
         android:id="@+id/personal_qr_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lineColor" >
+        android:background="@color/lineColor"
+        android:visibility="gone">
         <RelativeLayout
             android:layout_width="@dimen/dimen_330dp"
             android:layout_height="wrap_content"
@@ -43,5 +44,205 @@
         </RelativeLayout>
 
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/fans_info_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/color_ff7000">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_13dp"
+                android:layout_marginRight="@dimen/dimen_13dp"
+                android:layout_marginTop="@dimen/dimen_13dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_member_attribute_ll">
+                <LinearLayout
+                    android:id="@+id/welcome_title_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/ribbon_bg"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+                    <ImageView
+                        android:id="@+id/welcome_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_36dp"
+                        android:background="@mipmap/ribbon_img"/>
+                    <TextView
+                        android:id="@+id/welcome_store"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:text="崇智专卖店"
+                        android:gravity="center"
+                        android:textSize="@dimen/large_21sp"
+                        android:textColor="@color/color_43484b"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/dimen_10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="本店粉丝"
+                            android:textSize="@dimen/normal_x"
+                            android:textColor="@color/color_9b9b9b"/>
+                        <TextView
+                            android:id="@+id/add_fans_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" +1 "
+                            android:textSize="@dimen/large_24sp"
+                            android:textColor="@color/color_ff7000"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="名"
+                            android:textSize="@dimen/normal_x"
+                            android:textColor="@color/color_9b9b9b"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/belong_store_fans_tip_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/dimen_80dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="该用户为 "
+                        android:textSize="@dimen/normal_x"
+                        android:textColor="@color/color_9b9b9b"/>
+                    <TextView
+                        android:id="@+id/belong_store_fans_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="广州吉之岛专卖店"
+                        android:textSize="@dimen/large"
+                        android:textColor="@color/color_ff7000"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/member_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 的粉丝"
+                        android:textSize="@dimen/normal_x"
+                        android:textColor="@color/color_9b9b9b"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_243dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/photo"
+                            android:layout_width="@dimen/dimen_93dp"
+                            android:layout_height="@dimen/dimen_93dp"
+                            android:background="@mipmap/steve_220"
+                            fresco:roundedCornerRadius="@dimen/dimen_24dp"
+                            android:layout_centerInParent="true"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/fans_tag_ic"
+                            android:layout_toRightOf="@id/photo"
+                            android:layout_marginLeft="-25dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/fans_nike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="刘小姐"
+                            android:textSize="@dimen/large"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/color_43484b"/>
+                        <ImageView
+                            android:id="@+id/fans_sex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/fans_nike"
+                            android:layout_marginLeft="@dimen/dimen_4dp"
+                            android:background="@mipmap/meb_female_ic"/>
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/fans_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="广东省 广州市"
+                        android:textColor="@color/color_9b9b9b"
+                        android:textSize="@dimen/normal_x"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/send_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_38dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dimen_56dp"
+                    android:layout_marginLeft="@dimen/dimen_50dp"
+                    android:layout_marginRight="@dimen/dimen_50dp"
+                    android:background="@drawable/bg_loginbutton"
+                    android:textColor="@color/white"
+                    android:text="@string/send_msg_for_initiation"
+                    android:textSize="@dimen/large"
+                    android:gravity="center"
+                    android:enabled="true"/>
+                <LinearLayout
+                    android:id="@+id/fans_tip_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/dimen_34dp"
+                    android:layout_marginRight="@dimen/dimen_34dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dimen_40dp"
+                    android:visibility="gone">
+                    <View android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:background="@color/color_d9d9d9"/>
+                    <TextView
+                        android:id="@+id/tip_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_23dp"
+                        android:text="温馨提示："
+                        android:textSize="@dimen/normal_x"
+                        android:textColor="@color/color_ff7000"/>
+
+                    <TextView
+                        android:id="@+id/tip_detial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5dp"
+                        android:text="引导粉丝购买会员套装可升级为本店会员哦"
+                        android:textSize="@dimen/normal_x"
+                        android:textColor="@color/color_9b9b9b"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

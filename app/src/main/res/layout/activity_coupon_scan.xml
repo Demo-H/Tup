@@ -21,7 +21,6 @@
         app:qrcv_cornerLength="@dimen/dimen_20dp"
         app:qrcv_cornerSize="@dimen/dimen_2dp"
         app:qrcv_isBarcode="false"
-        app:qrcv_isCenterVertical="false"
         app:qrcv_isOnlyDecodeScanBoxArea="false"
         app:qrcv_isScanLineReverse="true"
         app:qrcv_isShowDefaultGridScanLineDrawable="false"

@@ -16,11 +16,25 @@
         <View style="@style/thin_separation_line" />
     </RelativeLayout>
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/mHorizontalBarChart"
-        android:layout_marginTop="@dimen/dimen_24dp"
+    <!--<com.github.mikephil.charting.charts.HorizontalBarChart-->
+        <!--android:id="@+id/mHorizontalBarChart"-->
+        <!--android:layout_marginTop="@dimen/dimen_24dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <com.tupperware.biz.view.HorizChart
+        android:id="@+id/mHoriBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_data"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

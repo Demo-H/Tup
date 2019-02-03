@@ -17,7 +17,7 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <com.tupperware.huishengyi.view.GradualCircleView
+        <com.tupperware.biz.view.GradualCircleView
             android:id="@+id/circle_1"
             android:color="#ff64abdc"
             android:alpha="255"
@@ -27,7 +27,7 @@
             android:layout_marginRight="8dp"
             />
 
-        <com.tupperware.huishengyi.view.GradualCircleView
+        <com.tupperware.biz.view.GradualCircleView
             android:id="@+id/circle_2"
             android:color="#ba9abf"
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_marginRight="8dp"
             />
 
-        <com.tupperware.huishengyi.view.GradualCircleView
+        <com.tupperware.biz.view.GradualCircleView
             android:id="@+id/circle_3"
             android:color="#a0c74d"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_marginRight="8dp"
             />
 
-        <com.tupperware.huishengyi.view.GradualCircleView
+        <com.tupperware.biz.view.GradualCircleView
             android:id="@+id/circle_4"
             android:color="#fff4d13e"
             android:layout_width="wrap_content"

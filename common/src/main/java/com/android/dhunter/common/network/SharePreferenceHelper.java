@@ -14,8 +14,6 @@ import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import static android.R.attr.value;
-
 /**
  * Created by admin on 2017/3/10.
  */
@@ -68,8 +66,14 @@ public class SharePreferenceHelper{
 
     public void saveObjectData(String key, Object obj) {
         HashMap<String ,Object> map = new HashMap<>();
-        map.put(key ,value);
+        map.put(key ,obj);
         this.setObjectData(map, null);
+    }
+
+    public void saveObjectData(String key, Object obj, String fileName) {
+        HashMap<String ,Object> map = new HashMap<>();
+        map.put(key ,obj);
+        this.setObjectData(map, fileName);
     }
 
     public void setObjectData(HashMap<String ,Object> values, String fileName) {
@@ -111,6 +115,10 @@ public class SharePreferenceHelper{
      */
     public Object getObjectData(String key, Object defaultValue) {
         return getObjectParam(key, defaultValue, null);
+    }
+
+    public Object getObjectData(String key, Object defaultValue, String fileName) {
+        return getObjectParam(key, defaultValue, fileName);
     }
 
     public Object getObjectParam(String key, Object defaultValue, String fileName){

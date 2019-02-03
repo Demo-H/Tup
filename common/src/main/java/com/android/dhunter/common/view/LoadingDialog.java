@@ -60,4 +60,11 @@ public class LoadingDialog extends DialogFragment {
         return parent;
     }
 
+    @Override
+    public void dismissAllowingStateLoss() {
+        super.dismissAllowingStateLoss();
+        if(parent != null) {
+            parent = null;
+        }
+    }
 }

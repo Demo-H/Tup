@@ -86,7 +86,7 @@
                 android:id="@+id/msg_update_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="排毒好食物，让毒素统统靠边站！"
+                android:text="没有数据"
                 android:gravity="center_vertical"
                 android:textColor="@color/color_43484b"
                 android:textSize="@dimen/normal"/>
@@ -98,7 +98,7 @@
                 android:layout_below="@id/msg_update_title"
                 android:gravity="center_vertical"
                 android:layout_marginTop="@dimen/dimen_8dp"
-                android:text="在冬季里，人们运动量减少，加上为了..."
+                android:text="服务器没有数据..."
                 android:textColor="@color/color_43484b"
                 android:textSize="@dimen/small"
                 android:ellipsize="end"/>

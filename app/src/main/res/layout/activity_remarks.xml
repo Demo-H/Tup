@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/remarks"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_128dp"
+        android:layout_height="@dimen/dimen_138dp"
         android:layout_marginTop="@dimen/dimen_4dp"
         android:background="@color/white"
         android:hint="@string/remarks_hint_tip"
@@ -18,5 +18,15 @@
         android:textSize="@dimen/normal"
         android:gravity="top|left"
         android:padding="@dimen/dimen_14dp"/>
+    <TextView
+        android:id="@+id/content_length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="0/140"
+        android:textColor="@color/color_c5c5c5"
+        android:textSize="@dimen/small"
+        android:gravity="right"
+        android:paddingRight="@dimen/dimen_14dp"/>
 
 </LinearLayout>

@@ -1,10 +1,13 @@
 package com.android.dhunter.common.widget.flowlayout;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.dhunter.common.utils.ScreenUtil;
 
 /**
  * Created by dhunter on 2018/5/31.
@@ -15,14 +18,39 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
     private int mFirstVisPos;  //屏幕可见的第一个View的Position
     private int mLastVisPos;  //屏幕可见的最后一个View的Position
     private boolean mCanScrollVertically = false;
+    private Context mContext;
+    private int defaultHeight;
+    private int widthSize;
+    private int ActHeight = 0;
+
+    private int lineMaxHeight = 0; //每一行最大的高度
+
 
     private SparseArray<Rect> mItemRects = new SparseArray<>();//key 是View的position，保存View的bounds ，
+
+    public FlowLayoutManager(Context context) {
+        super();
+        mContext = context;
+        defaultHeight = ScreenUtil.dip2px(mContext, 100);
+    }
 
     @Override
     public RecyclerView.LayoutParams generateDefaultLayoutParams() {
         return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup
                 .LayoutParams.WRAP_CONTENT);
     }
+
+//    @Override
+//    public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, int widthSpec, int heightSpec) {
+//        widthSize = View.MeasureSpec.getSize(widthSpec);
+//        if(getItemCount() > 0) {
+//            ActHeight = ScreenUtil.dip2px(mContext, 35) * ((getItemCount() / 4) + 1);
+//        }
+//        ActHeight = ActHeight > defaultHeight ? ActHeight : defaultHeight;
+//        heightSpec = (widthSpec / widthSize) * ActHeight;
+//        super.onMeasure(recycler, state, widthSpec, widthSpec);
+//    }
+
 
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
@@ -95,7 +123,6 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
         }
 
         int leftOffset = getPaddingLeft();//布局的左偏移量
-        int lineMaxHeight = 0; //每一行最大的高度
 
         if (dy >= 0) {
             int minPos = mFirstVisPos;//初始化时，我们不清楚究竟要layout多少个子View，所以就假设从0~itemcount-1
@@ -270,4 +297,5 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
     public int getHorizontalSpace() {
         return getWidth() - getPaddingLeft() - getPaddingRight();
     }
+
 }

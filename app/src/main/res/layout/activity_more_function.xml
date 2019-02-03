@@ -17,37 +17,37 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/menu_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-        </com.tupperware.huishengyi.view.GridMenu>
+        </com.tupperware.biz.view.GridMenu>
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/menu_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-        </com.tupperware.huishengyi.view.GridMenu>
+        </com.tupperware.biz.view.GridMenu>
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/menu_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-        </com.tupperware.huishengyi.view.GridMenu>
+        </com.tupperware.biz.view.GridMenu>
 
-        <com.tupperware.huishengyi.view.GridMenu
+        <com.tupperware.biz.view.GridMenu
             android:id="@+id/menu_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-        </com.tupperware.huishengyi.view.GridMenu>
+        </com.tupperware.biz.view.GridMenu>
 
 
     </LinearLayout>

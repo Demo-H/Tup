@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_7dp"
-        android:layout_marginLeft="@dimen/below_20dp"
+        android:layout_marginLeft="@dimen/dimen_7dp"
         android:textSize="@dimen/small"
         android:textColor="@color/color_9b9b9b"
         android:text="@string/banner_sub_title_1"/>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/members_item"
+    android:background="@color/white"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_60dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/normal_15sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/sex_flag"
+                    android:layout_width="@dimen/dimen_15dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:background="@mipmap/mbr_female_ic"
+                    android:layout_marginLeft="@dimen/dimen_6dp"/>
+                <ImageView
+                    android:id="@+id/member_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:scaleType="centerInside"
+                    android:layout_marginLeft="@dimen/dimen_6dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tel_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_11dp"
+                android:textSize="@dimen/small"
+                android:textColor="@color/color_9b9b9b"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/join_in_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="入会时间："
+            android:textSize="@dimen/small"
+            android:textColor="@color/color_9b9b9b"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_14dp"/>
+
+    </RelativeLayout>
+
+    <View style="@style/thin_separation_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_26dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/fans_con_ic"/>
+        <TextView
+            android:id="@+id/income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_11dp"
+            android:text="收入："
+            android:textColor="@color/color_9b9b9b"
+            android:textSize="@dimen/small"/>
+        <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:text="余额："
+            android:textColor="@color/color_9b9b9b"
+            android:textSize="@dimen/small"/>
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/gift_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_ff7000"
+            android:textSize="@dimen/small"
+            android:layout_marginRight="@dimen/dimen_14dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/child_enter_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:layout_marginRight="@dimen/dimen_14dp"
+        android:background="@color/color_eaeaea" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:text="@string/goods_in_count"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal" />
+
+        <ImageView
+            android:id="@+id/inventory_in_count_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:src="@mipmap/sale_increase_btn" />
+
+        <EditText
+            android:id="@+id/inventory_in_count_text"
+            android:layout_width="@dimen/dimen_98dp"
+            android:layout_height="@dimen/dimen_35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_13dp"
+            android:layout_toLeftOf="@id/inventory_in_count_add"
+            android:background="@drawable/bg_edittext_sale_record_detial"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="0"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal" />
+
+        <ImageView
+            android:id="@+id/inventory_in_count_reduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_13dp"
+            android:layout_toLeftOf="@id/inventory_in_count_text"
+            android:src="@mipmap/sale_reduce_btn" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:layout_marginRight="@dimen/dimen_14dp"
+        android:background="@color/color_eaeaea" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_14dp"
+            android:text="@string/goods_out_count"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal" />
+
+        <ImageView
+            android:id="@+id/goods_out_count_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_14dp"
+            android:src="@mipmap/sale_increase_btn" />
+
+        <EditText
+            android:id="@+id/goods_out_count_text"
+            android:layout_width="@dimen/dimen_98dp"
+            android:layout_height="@dimen/dimen_35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_13dp"
+            android:layout_toLeftOf="@id/goods_out_count_add"
+            android:background="@drawable/bg_edittext_sale_record_detial"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="0"
+            android:textColor="@color/color_43484b"
+            android:textSize="@dimen/normal" />
+
+        <ImageView
+            android:id="@+id/goods_out_count_reduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_13dp"
+            android:layout_toLeftOf="@id/goods_out_count_text"
+            android:src="@mipmap/sale_reduce_btn" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="备注：请输入当天进货/出货总数量"
+        android:textColor="@color/color_9b9b9b"
+        android:textSize="@dimen/small"
+        android:layout_marginLeft="@dimen/dimen_14dp"
+        android:layout_marginBottom="@dimen/dimen_13dp"/>
+
+</LinearLayout>

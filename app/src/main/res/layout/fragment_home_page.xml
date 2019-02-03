@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_88dp"
+        android:layout_height="wrap_content"
         android:background="@color/title_ff7000"
         android:orientation="vertical">
         <RelativeLayout
@@ -19,13 +19,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/below_14dp"
                 android:src="@mipmap/scan_btn" />-->
-            <ImageView
+<!--            <ImageView
                 android:id="@+id/personal"
                 android:layout_width="@dimen/dimen_21dp"
                 android:layout_height="@dimen/dimen_21dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/below_14dp"
-                android:src="@mipmap/person_ic" />
+                android:src="@mipmap/person_ic" />-->
 
             <TextView
                 android:layout_centerVertical="true"
@@ -34,8 +34,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title"
                 android:textColor="@color/white"
-                android:text="@string/app_name" />
+                android:text="@string/home_page" />
             <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/setting"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/dimen_21dp"
+                android:layout_height="@dimen/dimen_21dp"
+                android:layout_marginRight="@dimen/below_14dp"
+                android:src="@mipmap/setting_ic" />
+<!--            <ImageView
                 android:layout_alignParentRight="true"
                 android:id="@+id/msg_btn"
                 android:layout_centerVertical="true"
@@ -51,7 +59,7 @@
                 android:layout_centerVertical="true"
                 android:layout_alignRight="@id/msg_btn"
                 android:layout_alignTop="@id/msg_btn"
-                android:background="@mipmap/msg_new_ic" />
+                android:background="@mipmap/msg_new_ic" />-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -83,7 +91,78 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/personal_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/personal_store"
+                    android:layout_marginTop="@dimen/dimen_18dp"
+                    android:layout_marginLeft="@dimen/below_20dp"
+                    android:textColor="@color/color_43484b"
+                    android:textSize="@dimen/s_large"/>
+                <RelativeLayout
+                    android:id="@+id/home_page_full_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dimen_88dp"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_22dp">
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/personal_qr_icon"
+                        android:layout_width="@dimen/dimen_110dp"
+                        android:layout_height="@dimen/dimen_110dp"
+                        android:scaleType="fitXY"
+                        android:layout_centerInParent="true"/>
+                    <TextView
+                        android:id="@+id/personal_qr_error_tip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scan_and_scan_error"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/personal_store_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/normal"
+                    android:textColor="@color/color_ff7000"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/personal_qr_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_9dp"
+                    android:gravity="center"
+                    android:text="@string/save_store_qr_image"
+                    android:textColor="@color/color_9b9b9b"
+                    android:textSize="@dimen/sxx_small" />
+
+            </LinearLayout>
+            <include layout="@layout/homerecycle_item_icon_list" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/home_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -113,7 +192,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/dimen_12dp"
             android:gravity="center"/>
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <!--<com.android.dhunter.common.widget.PullHeaderView-->
         <!--android:id="@+id/find_pull_refresh_header"-->

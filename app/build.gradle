@@ -5,18 +5,18 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.tupperware.huishengyi"
+        applicationId "com.tupperware.biz"
         minSdkVersion 16
         targetSdkVersion 25
         if (project.hasProperty('VERSION_CODE_PARA')) {
             versionCode Integer.parseInt(VERSION_CODE_PARA)
         } else {
-            versionCode 2
+            versionCode 3
         }
         if (project.hasProperty('VERSION_NAME_PARA')) {
             versionName VERSION_NAME_PARA
         } else {
-            versionName '2.0.0'
+            versionName '2.0.1207'
         }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -63,13 +63,27 @@ android {
 //                def fileName = "Hui_V${defaultConfig.versionName}_${variant.productFlavors[0].name}_${releaseTime()}.apk"
                 def fileName
                 if (project.hasProperty('VERSION_NAME_PARA')) {
-                    fileName = "Hui_V${VERSION_NAME_PARA}_office_${releaseTime()}.apk"
+                    if(model_env().equals("true")) {
+                        fileName = "Hui_V${VERSION_NAME_PARA}_test_${releaseTime()}.apk"
+                    } else {
+                        fileName = "Hui_V${VERSION_NAME_PARA}_office_${releaseTime()}.apk"
+                    }
                 } else {
-                    fileName = "Hui_V${defaultConfig.versionName}_office_${releaseTime()}.apk"
+                    if(model_env().equals("true")) {
+                        fileName = "Hui_V${defaultConfig.versionName}_test_${releaseTime()}.apk"
+                    } else {
+                        fileName = "Hui_V${defaultConfig.versionName}_office_${releaseTime()}.apk"
+                    }
                 }
 
                 output.outputFile = new File(outputFile.parent, fileName)
             }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 
@@ -86,6 +100,14 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+}
+
+def model_env() {
+    if(project.hasProperty('MODEL_ENV_TEST')) {
+        return project.getProperties().get('MODEL_ENV_TEST')
+    } else {
+        return "true"
     }
 }
 

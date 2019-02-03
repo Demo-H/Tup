@@ -41,6 +41,7 @@
     <color name="color_c57d7d7d">#c57d7d7d</color>
     <color name="color_43484b">#43484b</color>
     <color name="color_9b9b9b">#9b9b9b</color>
+    <color name="color_9d9d9d">#9d9d9d</color>
     <color name="color_ffb99e">#ffb99e</color>
     <color name="color_ffbc1b">#ffbc1b</color>
     <color name="color_efefef">#efefef</color>
@@ -54,7 +55,8 @@
     <color name="color_ff0000">#ff0000</color>
     <color name="color_88000000">#88000000</color>
     <color name="color_50000000">#50000000</color>
-    <color name="color_09ffffff">#55ffffff</color>
+    <color name="color_55ffffff">#55ffffff</color>
+    <color name="color_09ffffff">#09ffffff</color>
     <color name="color_d1d1d1">#d1d1d1</color>
     <color name="color_b8b8b8">#b8b8b8</color>
     <color name="color_d72f2f">#d72f2f</color>
@@ -85,6 +87,9 @@
     <color name="color_ff7300">#ff7300</color>
     <color name="color_ffcba2">#ffcba2</color>
     <color name="color_d9d9d9">#d9d9d9</color>
+    <color name="color_">#30000000</color>
+    <color name="color_ececec">#ececec</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
 
     <color name="statebar_b24e00">#b24e00</color>
     <color name="title_ff7000">#ff7000</color>
@@ -96,7 +101,7 @@
 
     <!-- app 有很多分割线的 -->
     <color name="fragment_divider">#dedee0</color>
-    <color name="lineColor">#dcdcdc</color>
+    <color name="lineColor">#f5f5f5</color>
 
     <!-- app -->
     <color name="app_background">#f3f2ef</color>

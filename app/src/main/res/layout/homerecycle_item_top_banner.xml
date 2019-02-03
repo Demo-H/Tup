@@ -25,13 +25,13 @@
         app:indicatorAlign="center"
         />
 
-    <View
+<!--    <View
         android:layout_width="match_parent"
         android:layout_marginLeft="@dimen/dimen_16dp"
         android:layout_marginRight="@dimen/dimen_16dp"
         android:layout_marginTop="@dimen/dimen_18dp"
         android:layout_height="@dimen/dimen_1dp"
         android:background="@color/lineColor"
-        />
+        />-->
 
 </LinearLayout>

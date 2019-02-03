@@ -29,7 +29,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/id_toolbar"
         android:layout_centerHorizontal="true"
-        android:text="@string/check_not_vip"
+        android:text="@string/check_not_vip_and_update"
         android:textSize="18sp"
         android:lineSpacingExtra="8dp"
         android:textColor="@color/black"/>
@@ -43,7 +43,7 @@
         android:layout_below="@id/register_choose_tip"
         android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/now_add" />
+        android:text="@string/now_update" />
 
     <Button
         android:id="@+id/not_add_register"
@@ -54,6 +54,6 @@
         android:layout_below="@id/add_register"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/not_need"/>
+        android:text="@string/not_update"/>
 
 </LinearLayout>

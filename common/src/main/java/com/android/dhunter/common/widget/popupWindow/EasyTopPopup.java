@@ -74,7 +74,7 @@ public class EasyTopPopup extends EasyPopup {
         }
         if(mType.equals(Config.RIGHT)) {
             mEasyPopup.showAtAnchorView(view, VerticalGravity.BELOW, HorizontalGravity.RIGHT, 0, 0);
-        } else if(mType.equals(Config.MIDDLE)) {
+        } else if(mType.equals(Config.MIDDLE) || mType.equals(Config.FULL) ) {
             mEasyPopup.showAtAnchorView(view, VerticalGravity.BELOW, HorizontalGravity.CENTER, 0, 0);
         }
         myLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

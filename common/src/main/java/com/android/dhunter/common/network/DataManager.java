@@ -2,6 +2,8 @@ package com.android.dhunter.common.network;
 
 import android.content.Context;
 
+import com.android.dhunter.common.config.GlobalConfig;
+
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -51,6 +53,10 @@ public class DataManager {
         sharePreferenceHelper.saveObjectData(key, obj);
     }
 
+    public void saveSPObjectData(String key, Object obj, String fileName) {
+        sharePreferenceHelper.saveObjectData(key, obj, fileName);
+    }
+
     public String getSPData(String key){
         return sharePreferenceHelper.getValue(key);
     }
@@ -63,12 +69,17 @@ public class DataManager {
         return sharePreferenceHelper.getObjectData(key, defaultValue);
     }
 
+    public Object getSpObjectData(String key, Object defaultValue,String fileName) {
+        return sharePreferenceHelper.getObjectData(key, defaultValue, fileName);
+    }
+
     public void removeSpData(String key) {
         sharePreferenceHelper.remove(key);
     }
 
     public void deleteSPData(){
         sharePreferenceHelper.deletePreference();
+        GlobalConfig.headers.clear();
     }
 
     public Context getContext() {

@@ -7,11 +7,10 @@ import com.android.dhunter.common.GlobalAppComponent;
 import io.reactivex.observers.DisposableObserver;
 
 /**
- * @author：admin on 2017/4/18 15:14.
+ * @author：admin on 2018/4/18 15:14.
  */
 
 public abstract class ErrorDisposableObserver<T> extends DisposableObserver<T> {
-
 
     @Override
     public void onError(Throwable e) {

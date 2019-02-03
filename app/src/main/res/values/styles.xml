@@ -11,8 +11,8 @@
     <style name="AppUIBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- customize the color palette -->
-        <item name="colorPrimary">@color/statusbar_grayness</item>
-        <item name="colorPrimaryDark">@color/statusbar_grayness</item>
+        <item name="colorPrimary">@color/color_eaeaea</item>
+        <item name="colorPrimaryDark">@color/color_eaeaea</item>
         <item name="colorAccent">@color/color_ff7000</item>
         <item name="colorControlHighlight">#b7b7b7</item>
     </style>
@@ -410,4 +410,23 @@
         <item name="android:background">@drawable/bg_sale_enter_title_yellow_right</item>
     </style>
 
+    <!-- add for push -->
+    <style name="push_style">
+        <item name="android:hint">@string/style_hint</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="push_alias">
+        <item name="android:hint">@string/alias_hint</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="push_mobilenumber">
+        <item name="android:hint">@string/mobilenumber_hint</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="push_tag">
+        <item name="android:hint">@string/tag_hint</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- add for push end -->
 </resources>

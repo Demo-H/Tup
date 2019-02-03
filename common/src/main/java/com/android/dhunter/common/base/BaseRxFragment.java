@@ -18,7 +18,7 @@ public abstract class BaseRxFragment extends RxFragment implements FragmentUserV
     private LoadingDialog loadingdialog;
     protected Activity mActivity;
     protected View parent;
-    private boolean isInit; // 是否可以开始加载数据
+    protected boolean isInit; // 是否可以开始加载数据
     private boolean isCreated;
     private FragmentUserVisibleController userVisibleController;
 

@@ -2,6 +2,10 @@ package com.android.dhunter.common.config;
 
 import android.os.Environment;
 
+import com.android.dhunter.common.BuildConfig;
+
+import java.util.Map;
+
 /**
  * Created by dhunter on 2018/2/8.
  */
@@ -22,7 +26,13 @@ public class GlobalConfig {
     public static final String STORE_CODE = "store_code";
     public static final String EMPLOYEE_CODE = "employee_code";
     public static final String STORE_ID = "store_id";
-    public static final String PLATFORM = "PC";
+    public static final String PLATFORM = "ANDROID";
+    public static final String APP_NAME = "POS";
+    public static final String LOGIN_ID = "login_id";
+    public static final String CURRENT_USER_TYPE = "current_user_type";
+    public static final String LAST_LOGIN_ACCOUNT = "last_login_accout";
+
+    public static Map<String, String> headers; //全局请求头
 
     /**
      * appid
@@ -46,9 +56,20 @@ public class GlobalConfig {
     /**network **/
     public static int HTTP_READ_TIME_OUT = 15;
     public static int HTTP_CONNECT_TIME_OUT = 15;
-    public static String BASE_URL = "https://test.tbh.cn/";
+
+    //    public static String BASE_URL = "https://test.tbh.cn/";
+    public static String BASE_URL = (BuildConfig.MODEL_ENV_TEST)?"https://api.tupperware.net.cn/":"https://api.tupperware.net.cn/";
+    //    public static String URL_IMG = "http://img.tbh.cn/";
+//    public static String URL_IMG = "https://imgtest.tbh.cn/";
+    public static String URL_IMG = (BuildConfig.MODEL_ENV_TEST)?"http://www.tbh.cn/":"http://img.tupperware.com.cn/";
 
     public static boolean DEBUG = true;
 
+    /**
+     * 重点热卖外链接口(测试)
+     */
+//    public static final String IMPORTANT_PRODUCT_SALE_TEST = "http://rx.qijian360.com/index.php?s=/Api/WapLoginVerify/I_autoLogin";
+//    public static final String IMPORTANT_PRODUCT_SALE_TEST = "http://activity.tupperware.net.cn/remai/index.php?s=/Api/WapLoginVerify/I_autoLogin";  //测试1
+    public static final String IMPORTANT_PRODUCT_SALE_TEST = "http://remai.tupperware.net.cn/index.php?s=/Api/WapLoginVerify/I_autoLogin";   //测试2
 
 }

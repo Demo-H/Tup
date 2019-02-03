@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/staff_item">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_58dp"
@@ -11,14 +12,14 @@
         <TextView 
             android:id="@+id/staff_name"
             style="@style/sub_title"
-            android:text="AAA"/>
+            android:maxWidth="@dimen/dimen_100dp"/>
         <TextView
             android:id="@+id/staff_status"
             android:layout_width="@dimen/dimen_40dp"
             android:layout_height="@dimen/dimen_16dp"
             android:text="启用中"
-            android:layout_toRightOf="@id/staff_name"
-            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_toLeftOf="@id/staff_no"
+            android:layout_marginRight="@dimen/dimen_16dp"
             android:layout_centerVertical="true"
             android:gravity="center"
             android:textSize="@dimen/x_small"

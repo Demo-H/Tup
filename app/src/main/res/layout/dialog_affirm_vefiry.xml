@@ -18,8 +18,9 @@
             android:text="@string/affirm"
             android:paddingTop="@dimen/dimen_10dp"/>
         <TextView
+            android:id="@+id/msg"
             style="@style/TextBlack.Large"
-            android:text="您可以在专卖店信息中 , 查看您收到的优惠券。"
+            android:text=""
             android:paddingTop="@dimen/dimen_10dp"/>
         <Button
             android:id="@+id/activity_productvefiry_dialog_btn"

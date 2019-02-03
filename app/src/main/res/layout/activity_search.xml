@@ -53,7 +53,8 @@
             <EditText
                 android:id="@+id/search"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:drawableLeft="@mipmap/home_search_ic"
                 android:drawablePadding="@dimen/dimen_4dp"
                 android:hint="@string/search_order_tip"
@@ -65,6 +66,15 @@
                 android:gravity="left|center_vertical"
                 android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
                 android:inputType="text"/>
+            <ImageView
+                android:id="@+id/cancel_input_text"
+                android:layout_width="@dimen/dimen_25dp"
+                android:layout_height="@dimen/dimen_25dp"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:background="@mipmap/deleteall_ic"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <TextView
@@ -104,7 +114,8 @@
             <EditText
                 android:id="@+id/order_search"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:drawableLeft="@mipmap/home_search_ic"
                 android:drawablePadding="@dimen/dimen_4dp"
                 android:hint="@string/search_order_tip"
@@ -116,6 +127,15 @@
                 android:gravity="left|center_vertical"
                 android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
                 android:inputType="number"/>
+            <ImageView
+                android:id="@+id/order_cancel_input_text"
+                android:layout_width="@dimen/dimen_25dp"
+                android:layout_height="@dimen/dimen_25dp"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:background="@mipmap/deleteall_ic"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <TextView

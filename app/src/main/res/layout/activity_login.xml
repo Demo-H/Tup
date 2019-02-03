@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/login_bg"
-        android:scaleType="centerCrop"/>
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg">
 
     <ImageView
         android:id="@+id/login_logo"
@@ -17,13 +13,33 @@
         android:src="@mipmap/login_logo_pic"
         android:scaleType="centerInside"
         android:layout_centerHorizontal="true"/>
+
+    <com.android.dhunter.common.widget.tablayout.SegmentTabLayout
+        android:id="@+id/user_login_tab"
+        android:layout_width="@dimen/dimen_120dp"
+        android:layout_height="@dimen/dimen_26dp"
+        android:layout_below="@id/login_logo"
+        android:layout_marginTop="@dimen/dimen_50dp"
+        android:layout_centerHorizontal="true"
+        tl:tl_bar_color="@color/color_f2f2f2"
+        tl:tl_indicator_anim_enable="true"
+        tl:tl_indicator_color="@color/color_ff7000"
+        tl:tl_indicator_margin_bottom="@dimen/dimen_2dp"
+        tl:tl_indicator_margin_left="@dimen/dimen_2dp"
+        tl:tl_indicator_margin_right="@dimen/dimen_2dp"
+        tl:tl_indicator_margin_top="@dimen/dimen_2dp"
+        tl:tl_textUnselectColor="@color/color_9b9b9b"
+        tl:tl_bar_stroke_color="@color/lineColor"
+        tl:tl_textBold="SELECT">
+
+    </com.android.dhunter.common.widget.tablayout.SegmentTabLayout>
     
     <EditText
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_38dp"
-        android:layout_below="@id/login_logo"
-        android:layout_marginTop="@dimen/margin_62dp"
+        android:layout_below="@id/user_login_tab"
+        android:layout_marginTop="@dimen/dimen_14dp"
         android:inputType="number"
         android:maxLength="11"
         android:layout_marginLeft="@dimen/margin_36dp"
@@ -31,8 +47,8 @@
         android:background="@drawable/bg_edittext"
         android:textColor="@color/color_2c2c2c"
         android:textSize="@dimen/normal"
-        android:hint="@string/input_user_name"
-        android:textColorHint="@color/color_2c2c2c"
+        android:hint="@string/input_user_account"
+        android:textColorHint="@color/color_9b9b9b"
         android:gravity="center"
         />
 
@@ -48,7 +64,7 @@
         android:textColor="@color/color_2c2c2c"
         android:textSize="@dimen/normal"
         android:hint="@string/input_password"
-        android:textColorHint="@color/color_2c2c2c"
+        android:textColorHint="@color/color_9b9b9b"
         android:gravity="center"
         android:inputType="textPassword"/>
 

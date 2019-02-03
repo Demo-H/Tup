@@ -114,8 +114,9 @@ public class TopMiddlePopup extends PopupWindow {
         } else if(myType == Config.POPTYPE_SEARCH) {
             android.widget.RelativeLayout.LayoutParams lpPopup = (android.widget.RelativeLayout.LayoutParams) popupLL
                     .getLayoutParams();
-            lpPopup.width = (int) (myWidth * 1.0 / 7);
-            lpPopup.setMargins(0, 0, (int) (myWidth * 3.0 / 4), 0);
+//            lpPopup.width = (int) (myWidth * 1.0 / 7);
+            lpPopup.width = myWidth;
+            lpPopup.setMargins(0, 0, 0, 0); //(int) (myWidth * 3.0 / 4)
             popupLL.setLayoutParams(lpPopup);
         } else if(myType == Config.POPTYPE_FILTER) {
             android.widget.RelativeLayout.LayoutParams lpPopup = (android.widget.RelativeLayout.LayoutParams) popupLL
